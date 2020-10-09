@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Script.Character;
+using UnityEngine;
 
 public class Player : Character
 {
@@ -15,6 +16,7 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
+        health = baseHealth;
         upKeyDown = false;
         leftKeyDown = false;
         downKeyDown = false;
@@ -52,6 +54,13 @@ public class Player : Character
 
     }
 
+    protected override void Kill()
+    {
+        
+    }
+    
+    #region Input
+    
     private void UpdateKeyState()
     {
         UpdateUpKeyState();
@@ -91,4 +100,6 @@ public class Player : Character
         else if (rightKeyDown && Input.GetKeyUp(rightKey))
             rightKeyDown = false;
     }
+    
+    #endregion
 }
