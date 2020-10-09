@@ -1,4 +1,6 @@
 ﻿
+using Script.Character;
+
 public class Enemy : Character
 {
     // Start is called before the first frame update
@@ -11,5 +13,10 @@ public class Enemy : Character
     void Update()
     {
         
+    }
+
+    protected override void Kill()
+    {
+        Destroy(gameObject);
     }
 }
