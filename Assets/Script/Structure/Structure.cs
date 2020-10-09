@@ -7,7 +7,7 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
     //================================ Variables
-    [SerializeField] protected Vector3 spawnPosition;
+    [SerializeField] protected Vector2 spawnPosition;
 
     [SerializeField] protected Elements current_element;
     [SerializeField] protected StructureState current_state;
@@ -38,17 +38,17 @@ public class Structure : MonoBehaviour
 
     void Start()
     {
-
+        current_state = StructureState.Idle;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log(Input.mousePosition);
-            SetSpawnPosition(Input.mousePosition);
-        }
 
+    }
+
+    protected void Init()
+    {
+        
     }
 
     protected void Build()
@@ -92,6 +92,9 @@ public class Structure : MonoBehaviour
     protected void Attack()
     {
         current_state = StructureState.Attacking;
+        //find ebject by tag ennemy
+        //draw debug line
+        //apply damages
     }
 
     protected void LevelUp()
@@ -117,7 +120,7 @@ public class Structure : MonoBehaviour
         return current_level;
     }
 
-    public void SetSpawnPosition(Vector3 position)
+    public void SetSpawnPosition(Vector2 position)
     {
         this.spawnPosition = position;
     }

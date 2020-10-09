@@ -14,7 +14,7 @@ public class Player : Character
     bool rightKeyDown;
     bool spaceKeyDown;
 
-    public StructureHandler s;
+    [SerializeField] private StructureHandler structureHandler;
 
 
     // Start is called before the first frame update
@@ -37,8 +37,8 @@ public class Player : Character
         {
             print("space key was pressed");
 
-            s.test();
-            s.BuildTower(gameObject.transform);
+
+            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
 
         }
     }
