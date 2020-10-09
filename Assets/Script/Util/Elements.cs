@@ -1,4 +1,4 @@
-﻿enum Elements
+﻿public enum Elements
 {
     FIRE,
     EARTH,

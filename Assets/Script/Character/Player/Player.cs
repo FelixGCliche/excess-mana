@@ -6,11 +6,16 @@ public class Player : Character
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private KeyCode space = KeyCode.Space;
 
     bool upKeyDown;
     bool leftKeyDown;
     bool downKeyDown;
     bool rightKeyDown;
+    bool spaceKeyDown;
+
+    public StructureHandler s;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +24,7 @@ public class Player : Character
         leftKeyDown = false;
         downKeyDown = false;
         rightKeyDown = false;
+        spaceKeyDown = false;
     }
 
     // Update is called once per frame
@@ -26,6 +32,15 @@ public class Player : Character
     {
         UpdateKeyState();
         CheckForMovement();
+
+        if (Input.GetKeyDown("space"))
+        {
+            print("space key was pressed");
+
+            s.test();
+            s.BuildTower(gameObject.transform);
+
+        }
     }
 
     private void CheckForMovement()
@@ -58,6 +73,7 @@ public class Player : Character
         UpdateLeftKeyState();
         UpdateDownKeyState();
         UpdateRightKeyState();
+        UpdateSpaceKeyState();
     }
 
     private void UpdateUpKeyState()
@@ -90,5 +106,13 @@ public class Player : Character
             rightKeyDown = true;
         else if (rightKeyDown && Input.GetKeyUp(rightKey))
             rightKeyDown = false;
+    }
+
+    private void UpdateSpaceKeyState()
+    {
+        if (!spaceKeyDown && Input.GetKeyDown(space))
+            spaceKeyDown = true;
+        else if (spaceKeyDown && Input.GetKeyUp(space))
+            spaceKeyDown = false;
     }
 }
