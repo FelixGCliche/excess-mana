@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5401226140929380842}
   - component: {fileID: 5917000832681309204}
   m_Layer: 0
-  m_Name: DetectionRadius
+  m_Name: TagetDetectionHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
