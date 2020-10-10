@@ -1,7 +1,9 @@
 ﻿
 using System;
+using Script.Util;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Random = System.Random;
 
 namespace Script.GameMaster.WaveSpawner
 {
@@ -22,14 +24,14 @@ namespace Script.GameMaster.WaveSpawner
 
         private GameObject[] spawnPoints;
         private GameObject[] enemies;
-        private int[,] enemiesToSpawn;
-        private int[,] currentWaveContent;
-        private int[] waveSpawnPoints;
-        private int[] waveElements;
+        private int[] enemiesToSpawn;
+        private int[] currentWaveContent;
+        private int activeSpawnPoints;
         private int liveEnemyCount;
         private int spawnCurrency;
         private int waveLeft;
         private float timeBeforeSpawn;
+        private Random rndEnemy;
         
         private void Start()
         {
@@ -39,47 +41,49 @@ namespace Script.GameMaster.WaveSpawner
             enemies = new [] {fireEnemyPrefab, earthEnemyPrefab,
                 windEnemyPrefab, waterEnemyPrefab};
             
-            enemiesToSpawn = new int[spawnPoints.Length, enemies.Length];
-            currentWaveContent = new int[spawnPoints.Length, enemies.Length];
+            enemiesToSpawn = new int[spawnPoints.Length];
+            currentWaveContent = new int[spawnPoints.Length];
 
             ResetEnemiesToSpawn();
             ResetCurentWaveContent();
 
-            waveSpawnPoints = new[] {1, 0, 0, 0};
-            waveElements = new[] {1, 0, 0, 0};
-
+            activeSpawnPoints = 1;
             liveEnemyCount = 0;
             spawnCurrency = initialSpawnCurrency;
             waveLeft = 0;
             timeBeforeSpawn = 0f;
-            
-            CalculateNextNightContent(WaveDifficulty.NORMAL);
+            rndEnemy = new Random();
         }
 
         private void Update()
         {
-            if (currentWaveContent[0, 0] > 0)
+            timeBeforeSpawn -= Time.deltaTime;
+            if (timeBeforeSpawn < 0)
             {
-                timeBeforeSpawn -= Time.deltaTime;
-                if (timeBeforeSpawn < 0)
-                {
-                    Instantiate(enemies[0], spawnPoints[0].transform.position, spawnPoints[0].transform.rotation);
-                    spawnPoints[0].transform.position -= Vector3.left;
-                    currentWaveContent[0, 0]--;
-                    timeBeforeSpawn = timeBetweenSpawn;
-                }
+                SpawnEnemy(CardinalDirection.NORTH);
+                SpawnEnemy(CardinalDirection.EAST);
+                SpawnEnemy(CardinalDirection.SOUTH);
+                SpawnEnemy(CardinalDirection.WEST);
+                timeBeforeSpawn = timeBetweenSpawn;
             }
             
+        }
+
+        private void SpawnEnemy(CardinalDirection direction)
+        {
+            if (currentWaveContent[(int) direction] > 0)
+            {
+                Instantiate(enemies[rndEnemy.Next(enemies.Length - 1)], spawnPoints[(int) direction].transform.position,
+                    spawnPoints[(int) direction].transform.rotation);
+                currentWaveContent[(int) direction]--;
+            }
         }
 
         private void ResetEnemiesToSpawn()
         {
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-                for (int j = 0; j < enemies.Length; j++)
-                {
-                    enemiesToSpawn[i, j] = 0;
-                }
+                enemiesToSpawn[i] = 0;
             }
         }
 
@@ -87,10 +91,7 @@ namespace Script.GameMaster.WaveSpawner
         {
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-                for (int j = 0; j < enemies.Length; j++)
-                {
-                    currentWaveContent[i, j] = 0;
-                }
+                currentWaveContent[i] = 0;
             }
         }
 
@@ -104,27 +105,29 @@ namespace Script.GameMaster.WaveSpawner
             spawnCurrency += spawnCurrencyProgression;
         }
 
-        public void CalculateNextNightContent(WaveDifficulty difficulty)
+        public void CalculateNextNightContent(int waveAmount, WaveDifficulty difficulty)
         {
-            waveLeft = 5;
+            waveLeft = waveAmount;
             if (difficulty == WaveDifficulty.NORMAL)
             {
                 int currencyLeft = spawnCurrency;
 
                 while (currencyLeft > 0)
                 {
-                    AddEnemyToSpawnArray();
+                    AddEnemyToSpawnArray(currencyLeft % activeSpawnPoints);
                     currencyLeft--;
                 }
             }
             else
             {
+                if (activeSpawnPoints < 4)
+                    activeSpawnPoints++;
                 spawnCurrency *= hardWaveCurrencyMultiplier;
                 int currencyLeft = spawnCurrency;
 
                 while (currencyLeft > 0)
                 {
-                    
+                    AddEnemyToSpawnArray(currencyLeft % activeSpawnPoints);
                     currencyLeft--;
                 }
 
@@ -132,16 +135,28 @@ namespace Script.GameMaster.WaveSpawner
             }
         }
 
-        private void AddEnemyToSpawnArray()
+        private void AddEnemyToSpawnArray(int direction)
         {
-            enemiesToSpawn[0, 0]++;
+            enemiesToSpawn[direction]++;
         }
 
         public void StartWave()
         {
-            int enemyAmount = enemiesToSpawn[0, 0] / waveLeft;
-            enemiesToSpawn[0, 0] -= enemyAmount;
-            currentWaveContent[0, 0] += enemyAmount;
+            int enemyAmount = enemiesToSpawn[0] / waveLeft;
+            enemiesToSpawn[0] -= enemyAmount;
+            currentWaveContent[0] += enemyAmount;
+            
+            enemyAmount = enemiesToSpawn[1] / waveLeft;
+            enemiesToSpawn[1] -= enemyAmount;
+            currentWaveContent[1] += enemyAmount;
+            
+            enemyAmount = enemiesToSpawn[2] / waveLeft;
+            enemiesToSpawn[2] -= enemyAmount;
+            currentWaveContent[2] += enemyAmount;
+            
+            enemyAmount = enemiesToSpawn[3] / waveLeft;
+            enemiesToSpawn[3] -= enemyAmount;
+            currentWaveContent[3] += enemyAmount;
 
             timeBeforeSpawn = 0f;
             waveLeft--;

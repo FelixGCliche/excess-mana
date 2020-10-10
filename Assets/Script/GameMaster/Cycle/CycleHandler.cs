@@ -7,7 +7,7 @@ public class CycleHandler : MonoBehaviour
 {
     [SerializeField] private float dayDuration = 300f;
     [SerializeField] private float timeBetweenWaves = 30f;
-    [SerializeField] private int waveAmount = 5;
+    [SerializeField] private int waveAmount = 1;
     [SerializeField] private SpriteRenderer nightOverlay;
     [SerializeField] private float nightOverlayFullOpacity = 0.5f;
     [SerializeField] private float nightOverlaySwitchDuration = 30f;
@@ -67,8 +67,11 @@ public class CycleHandler : MonoBehaviour
         cycleTimer = dayDuration;
         WaveDifficulty difficulty = WaveDifficulty.NORMAL;
         if (day % 5 == 0)
+        {
+            waveAmount++;
             difficulty = WaveDifficulty.HARD;
-        waveSpawner.CalculateNextNightContent(difficulty);
+        }
+        waveSpawner.CalculateNextNightContent(waveAmount, difficulty);
         waveSpawner.NextDay();
     }
     
@@ -121,7 +124,7 @@ public class CycleHandler : MonoBehaviour
         }
         else
         {
-            timerText.text = "Time left before next wave : " + minutes + ":" + (int)seconds;
+            timerText.text = "Time left before next wave : " + minutes.ToString("0") + ":" + seconds.ToString("00");
         }
             
     }

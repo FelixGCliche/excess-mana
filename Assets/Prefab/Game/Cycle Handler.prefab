@@ -146,11 +146,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayDuration: 300
   timeBetweenWaves: 30
-  waveAmount: 5
+  waveAmount: 1
   nightOverlay: {fileID: 7545092697674977744}
   nightOverlayFullOpacity: 0.5
   nightOverlaySwitchDuration: 30
   timerText: {fileID: 7545092697582170803}
+  waveSpawner: {fileID: 0}
 --- !u!1 &7545092697582170801
 GameObject:
   m_ObjectHideFlags: 0

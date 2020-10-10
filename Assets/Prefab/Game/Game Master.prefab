@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7545092697334179821, guid: bcef2c6730686c349b8c044d728e3100, type: 3}
+      propertyPath: waveSpawner
+      value: 
+      objectReference: {fileID: 3842138883051983710}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcef2c6730686c349b8c044d728e3100, type: 3}
 --- !u!4 &7745403130946336287 stripped
@@ -223,3 +227,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3493911838925524350, guid: e14350be8c2285849800e52eaa72ecc5, type: 3}
   m_PrefabInstance: {fileID: 6557783468938148330}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3842138883051983710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7949954671345085108, guid: e14350be8c2285849800e52eaa72ecc5, type: 3}
+  m_PrefabInstance: {fileID: 6557783468938148330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10c29e3eaae4fbeb12b37a6bcc108ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
