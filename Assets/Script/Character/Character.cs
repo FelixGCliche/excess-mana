@@ -1,4 +1,6 @@
-﻿using Script.Util;
+﻿using System;
+using Game;
+using Script.Util;
 using UnityEngine;
 
 namespace Script.Character
@@ -11,6 +13,14 @@ namespace Script.Character
         [SerializeField] private HealthBar healthBar;
 
         protected float health;
+        private TriggerSensor2D triggerSensor;
+
+        protected TriggerSensor2D TriggerSensor => triggerSensor;
+
+        protected void Awake()
+        {
+            triggerSensor = GetComponentInChildren<TriggerSensor2D>();
+        }
 
         public void TakeDamage(float damageAmount, Elements damageElement)
         {
