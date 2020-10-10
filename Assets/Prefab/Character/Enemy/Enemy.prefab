@@ -256,6 +256,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2935194250478221462}
   - component: {fileID: 2805606958701797702}
+  - component: {fileID: 156281235132600422}
+  - component: {fileID: 7163687438106198288}
   m_Layer: 8
   m_Name: Collision Box
   m_TagString: Untagged
@@ -287,12 +289,36 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 3ca29610206c5e347948f21806c8f865, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &156281235132600422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320528234803077209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cea9ae5f7fa44c2bc98ef2f7bf624d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7163687438106198288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320528234803077209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0919a19f98dd4b0885bf3ee200e7a7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7849033350529606431
 PrefabInstance:
   m_ObjectHideFlags: 0
