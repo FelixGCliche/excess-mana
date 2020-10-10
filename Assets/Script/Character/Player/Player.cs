@@ -1,31 +1,25 @@
-﻿using UnityEngine;
+﻿using Script.Character;
+using Script.Character.Player;
+using UnityEngine;
 
 public class Player : Character
 {
+    [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode upKey = KeyCode.W;
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private KeyCode space = KeyCode.Space;
 
-    bool upKeyDown;
-    bool leftKeyDown;
-    bool downKeyDown;
-    bool rightKeyDown;
-    bool spaceKeyDown;
-
-   private StructureHandler structureHandler;
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        print("urhtguirho");
-
-    }
+    private Elements currentSpellElement;
 
     // Start is called before the first frame update
     void Start()
     {
+        health = baseHealth;
+        currentSpellElement = Elements.FIRE;
+        
         upKeyDown = false;
         leftKeyDown = false;
         downKeyDown = false;
@@ -38,6 +32,9 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        UpdateElement();
+        if (Input.GetKeyDown(attackKey))
+            Attack();
         UpdateKeyState();
         CheckForMovement();
 
@@ -71,6 +68,43 @@ public class Player : Character
 
     }
 
+    protected override void Kill()
+    {
+        
+    }
+    public void Attack()
+    {
+        switch (currentSpellElement)
+        {
+            case Elements.FIRE :
+                playerAttack.FireAttack(transform.position);
+                break;
+            case Elements.EARTH :
+                playerAttack.EarthAttack(transform.position);
+                break;
+            case Elements.WIND :
+                playerAttack.WindAttack(transform.position);
+                break;
+            case Elements.WATER :
+                playerAttack.WaterAttack(transform.position);
+                break;
+        }
+    }
+    
+    #region Input
+
+    private void UpdateElement()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            currentSpellElement = Elements.FIRE;
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            currentSpellElement = Elements.EARTH;
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            currentSpellElement = Elements.WIND;
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+            currentSpellElement = Elements.WATER;
+    }
+    
     private void UpdateKeyState()
     {
         UpdateUpKeyState();
@@ -119,4 +153,6 @@ public class Player : Character
         else if (spaceKeyDown && Input.GetKeyUp(space))
             spaceKeyDown = false;
     }
+    
+    #endregion
 }

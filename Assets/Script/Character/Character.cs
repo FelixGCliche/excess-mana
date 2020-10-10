@@ -1,20 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Script.Util;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+namespace Script.Character
 {
-    [SerializeField] [Range(0, 100)] protected float speed = 50;
-
-    // Start is called before the first frame update
-    void Start()
+    public abstract class Character : MonoBehaviour
     {
-        
-    }
+        [SerializeField] [Range(0, 100)] protected float speed = 50;
+        [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
+        [SerializeField] protected Elements element = Elements.NONE;
+        [SerializeField] private HealthBar healthBar;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected float health;
+
+        public void TakeDamage(float damageAmount, Elements damageElement)
+        {
+            health -= DamageCalculator.CalculateDamage(damageAmount, damageElement, element);
+            if (health <= 0)
+                Kill();
+            else
+                healthBar.AdjustHealthBar(health/baseHealth);
+        }
+
+        protected abstract void Kill();
     }
 }
