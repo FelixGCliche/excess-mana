@@ -123,6 +123,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &454722330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5631840820956975424, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
+  m_PrefabInstance: {fileID: 1763415236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &454722331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454722330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622881de515f7c244bc3d193da7e1480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altair: {fileID: 0}
+  air_tower: {fileID: 1667994736394323283, guid: 8eb63a3c9df501c43849a39632d4da82, type: 3}
+  earth_tower: {fileID: 7635017335708383999, guid: 12462aa8f9177a64cacd71265eeed4b9, type: 3}
+  fire_tower: {fileID: 3324738436461931963, guid: fcfbaebdeddea4d4a92bbf9640b9d019, type: 3}
+  water_tower: {fileID: 2724621609892854817, guid: 7159ab838afbf734abb18b8283f6e8db, type: 3}
+  current_tower_count: 0
+--- !u!58 &454722332
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454722330}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &812462373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8540752839408882116, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
+  m_PrefabInstance: {fileID: 1763415236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52cbb81901524c67a17699df67f270ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454359838
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1763415236
 PrefabInstance:
@@ -222,6 +272,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5631840820956975426, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
+      propertyPath: playerAttack
+      value: 
+      objectReference: {fileID: 812462373}
     - target: {fileID: 7634762382311311184, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -269,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 7634762382311311185, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
       propertyPath: structureHandler
       value: 
-      objectReference: {fileID: 1954603604}
+      objectReference: {fileID: 0}
     - target: {fileID: 7634762382311311187, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -370,28 +424,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1954603601 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7634762382311311187, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
-  m_PrefabInstance: {fileID: 1763415236}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1954603604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954603601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622881de515f7c244bc3d193da7e1480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  altair: {fileID: 0}
-  air_tower: {fileID: 1667994736394323283, guid: 8eb63a3c9df501c43849a39632d4da82, type: 3}
-  earth_tower: {fileID: 7635017335708383999, guid: 12462aa8f9177a64cacd71265eeed4b9, type: 3}
-  fire_tower: {fileID: 3324738436461931963, guid: fcfbaebdeddea4d4a92bbf9640b9d019, type: 3}
-  water_tower: {fileID: 2724621609892854817, guid: 7159ab838afbf734abb18b8283f6e8db, type: 3}
-  current_tower_count: 0

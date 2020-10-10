@@ -9,7 +9,9 @@ public class Tower : Structure
 
     private Elements tower_element;
 
-    private float radius;
+    public float radius;
+
+    public Transform target;
 
 
     //================================ Methods
@@ -25,21 +27,51 @@ public class Tower : Structure
     }
 
     void Start()
-    { 
-
+    {
+        InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
     }
 
     void Update()
     {
+        if (target == null)
+            return;
+        else
+            Debug.DrawLine(this.spawnPosition, target.position, Color.green, 2.5f);
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void UpdateTarget()
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
 
-            print("urhtguirho");
-        
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            if(distanceToEnnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if(nearestEnemy != null && shortestDistance <= radius)
+        {
+            target = nearestEnemy.transform;
+        }else
+        {
+            target = null;
+        }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+
 
 
     //================================ Accessors

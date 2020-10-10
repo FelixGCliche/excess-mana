@@ -107,4 +107,3 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
-  range_collider: {fileID: 0}
