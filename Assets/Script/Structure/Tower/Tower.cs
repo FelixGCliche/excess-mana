@@ -37,6 +37,8 @@ public class Tower : Structure
 
     private void OnMouseOver()
     {
+
+        TakeDmage(00.01f, current_element);
         /*if(Input.GetMouseButtonDown(2))
         {
             current_life = 45;

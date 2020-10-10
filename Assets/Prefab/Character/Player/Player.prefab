@@ -462,6 +462,7 @@ MonoBehaviour:
   element: 0
   healthBar: {fileID: 2644557076933365669}
   attackKey: 323
+  interactKey: 324
   upKey: 119
   leftKey: 97
   downKey: 115

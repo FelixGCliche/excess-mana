@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f27cf5c1744e3b42a193583a552ad49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 100
   spawnPosition: {x: 0, y: 0, z: 0}
   current_element: 0
   current_state: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
+  healthBar: {fileID: 4044036837499751764}
   radius: 0
   target: {fileID: 0}
   fire_rate: 0
@@ -250,3 +252,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
   m_PrefabInstance: {fileID: 9172326244474209982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4044036837499751764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 9172326244474209982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

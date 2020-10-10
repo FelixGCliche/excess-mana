@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Character;
+using Script.Util;
 using UnityEngine;
 
 
 public class Structure : MonoBehaviour
 {
     //================================ Variables
+    [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
+
     [SerializeField] protected Vector3 spawnPosition;
 
     [SerializeField] protected Elements current_element;
@@ -26,6 +30,9 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected float time_between_attacks;
 
+    [SerializeField] private HealthBar healthBar;
+
+
     //================================ Methods
 
     void Start()
@@ -42,15 +49,15 @@ public class Structure : MonoBehaviour
     {
         for (; ; )
         {
-            Repair(health);
-            yield return new WaitForSeconds(.1f);
+            Debug.Log("repair");
+
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
     protected void Repair(float health)
     {
-        current_state = StructureState.Repairing;
-        SetCurrentLife(health);
+        current_life += health;
     }
 
     protected void Upgrade()
@@ -73,6 +80,15 @@ public class Structure : MonoBehaviour
     {
         int temp = GetCurrentLevel();
         SetCurrentLevel(temp++);
+    }
+
+    public void TakeDmage(float damageAmount, Elements damageElement)
+    {
+        current_life -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
+        if (current_life <= 0)
+            Destroy();
+        else
+            healthBar.AdjustHealthBar(current_life / baseHealth);
     }
 
     //================================ Accessors
