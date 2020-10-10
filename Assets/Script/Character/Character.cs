@@ -12,7 +12,7 @@ namespace Script.Character
 
         protected float health;
 
-        protected void TakeDamage(float damageAmount, Elements damageElement)
+        public void TakeDamage(float damageAmount, Elements damageElement)
         {
             health -= DamageCalculator.CalculateDamage(damageAmount, damageElement, element);
             if (health <= 0)
