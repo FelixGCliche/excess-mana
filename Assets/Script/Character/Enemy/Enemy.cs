@@ -4,15 +4,17 @@ using Script.Character;
 
 public class Enemy : Character
 {
-    [SerializeField] EnemyDirections initialDirection = InitialDirections.NONE;
+    [SerializeField] EnemyDirections initialDirection = EnemyDirections.NONE;
 
-
-    const int ENEMY_SPEED = 15;
+    const string TARGET_DETECTION_HITBOX_NAME = "TagetDetectionHitbox";
     const int ENEMY_HEALTH = 25;
+    const int ATTACK_RANGE = 5;
+
+    CircleCollider2D targetDetectionHitbox;
 
     void Start()
     {
-        
+        targetDetectionHitbox = GameObject.Find(TARGET_DETECTION_HITBOX_NAME).GetComponent<CircleCollider2D>();
     }
 
 
@@ -41,7 +43,7 @@ public class Enemy : Character
                 transform.Translate(Time.deltaTime * speed * Vector2.down);
                 break;
             case EnemyDirections.FOLLOW_TARGET:
-                FollowTarget();
+                //Follow target
                 break;
         }
     }
@@ -57,10 +59,29 @@ public class Enemy : Character
         transform.Translate(Time.deltaTime * speed * direction);
     }
 
-    void Attack()
+    bool IsNearTarget(GameObject target)
     {
+        Vector2 targetPosition = target.transform.position;
+        Vector2 direction;
+        float distanceToTarget;
 
+        direction.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
+        direction.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
+        distanceToTarget = Mathf.Sqrt(direction.x + direction.y);
+
+        if (distanceToTarget <= 5)
+            return true;
+
+        return false;
     }
+
+    void Attack(GameObject target)
+    {
+        
+    }
+
+    void detectTarget();
+
 
     bool IsDetectingTarget()
     {
