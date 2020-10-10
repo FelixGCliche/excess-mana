@@ -14,7 +14,8 @@ namespace Game
 
     private void Awake()
     {
-      // throw new NotImplementedException();
+      CreateCollider();
+      SetSensorLayer();
     }
 
     private void OnDestroy()
