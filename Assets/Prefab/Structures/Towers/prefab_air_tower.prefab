@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 474643692801964398}
   - component: {fileID: 474643692801964397}
   - component: {fileID: 1667994736394323283}
+  - component: {fileID: 3893375193443553291}
   m_Layer: 0
   m_Name: prefab_air_tower
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474643692801964396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0970296, y: 0.7670398, z: 0.035318445}
+  m_LocalPosition: {x: 1.0970296, y: 0.7670398, z: -0.06}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 6161251032134728253}
@@ -113,6 +114,22 @@ MonoBehaviour:
   fire_rate: 0
   projectile_spawn_point: {fileID: 7392183132699171008}
   tower_attacks: {fileID: 5243626708108396121}
+--- !u!70 &3893375193443553291
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474643692801964396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 5.1299996, y: 8.729999}
+  m_Direction: 0
 --- !u!1 &7392183132699171008
 GameObject:
   m_ObjectHideFlags: 0

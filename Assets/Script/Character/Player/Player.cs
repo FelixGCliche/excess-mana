@@ -5,12 +5,16 @@ using UnityEngine;
 public class Player : Character
 {
     [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode interactKey = KeyCode.Mouse1;
+
+
     [SerializeField] private KeyCode upKey = KeyCode.W;
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private KeyCode space = KeyCode.Space;
+
 
     bool upKeyDown ;
     bool leftKeyDown;

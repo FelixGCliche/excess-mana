@@ -18,10 +18,16 @@ public class Tower : Structure
     public TowerAttacks tower_attacks;
 
     //================================ Methods
+    
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.1f);
+    }
+
+    private void OnMouseOver()
+    {
+        Debug.Log("tower mouse over");
     }
 
     void Update()
