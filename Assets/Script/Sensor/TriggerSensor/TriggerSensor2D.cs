@@ -96,11 +96,13 @@ namespace Game
           CircleCollider2D circleCollider = gameObject.AddComponent<CircleCollider2D>();
           circleCollider.isTrigger = true;
           circleCollider.radius = size / 2;
+          collider = circleCollider;
           break;
         case TriggerShape2D.Square:
           BoxCollider2D boxCollider = gameObject.AddComponent<BoxCollider2D>();
           boxCollider.isTrigger = true;
           boxCollider.size = Vector2.one * size;
+          collider = boxCollider;
           break;
         default:
           throw new Exception("Unknown shape named \"" + shape + "\"");
