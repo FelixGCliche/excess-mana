@@ -22,6 +22,11 @@ public class Player : Character
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
+    
+    private new void Awake()
+    {
+        base.Awake();
+    }
 
     // Start is called before the first frame update
     void Start()
