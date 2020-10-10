@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Harmony;
 using UnityEngine;
 using DG.Tweening;
@@ -16,7 +15,7 @@ namespace Game
 
     private void Awake()
     {
-      loader = Finder.FindWithTag<SceneBundleLoader>(Tags.MainController);
+      loader = Finder.SceneBundleLoader;
       DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
       DOTween.SetTweensCapacity(200, 125);
     }
