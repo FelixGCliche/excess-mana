@@ -50,7 +50,6 @@ namespace Script.GameMaster.WaveSpawner
             activeSpawnPoints = 1;
             liveEnemyCount = 0;
             spawnCurrency = initialSpawnCurrency;
-            waveLeft = 0;
             timeBeforeSpawn = 0f;
             rndEnemy = new Random();
         }
