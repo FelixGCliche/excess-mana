@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class Tower : Structure
     public TowerAttacks tower_attacks;
 
     public int id;
-    private float default_life;
+    public float default_life;
 
     [SerializeField] private KeyCode interactKey = KeyCode.Mouse1;
     bool interackKeyDown;
@@ -82,6 +83,19 @@ public class Tower : Structure
         
         Debug.Log(current_life);*/
 
+    }
+
+    public IEnumerator DoRepair(float health)
+    {
+        for (; ; )
+        {
+            current_life += health;
+            healthBar.AdjustHealthBar(current_life / 100);
+            yield return new WaitForSeconds(1.0f);
+
+            if (current_life >= default_life)
+                yield break;
+        }
     }
 
     private void OnMouseExit()

@@ -64,6 +64,24 @@ public class StructureHandler : MonoBehaviour
 
     }
 
+    public void SetLifeTo1(int tower_id)
+    {
+        tower_list[tower_id].TakeDmage(99f,Elements.FIRE);
+    }
+
+    public void RepairTower(int tower_id)
+    {
+        if(tower_list[tower_id].current_life <= tower_list[tower_id].default_life)
+        {
+            StartCoroutine(tower_list[tower_id].DoRepair(10));
+        }
+        else 
+        {
+            StopCoroutine(tower_list[tower_id].DoRepair(10));
+            tower_list[tower_id].current_life = tower_list[tower_id].default_life;
+        }
+    }
+
     public void BuildTower(Transform t, Elements element)
     {
         switch(element)

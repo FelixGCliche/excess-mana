@@ -16,7 +16,7 @@ public class Structure : MonoBehaviour
     [SerializeField] protected Elements current_element;
     [SerializeField] protected StructureState current_state;
 
-    [SerializeField] protected float current_life;
+    [SerializeField] public float current_life;
 
     [SerializeField] protected float default_time_to_build;
     [SerializeField] protected float default_time_to_repair;
@@ -30,7 +30,7 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected float time_between_attacks;
 
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] protected HealthBar healthBar;
 
 
     //================================ Methods
@@ -45,20 +45,7 @@ public class Structure : MonoBehaviour
         transform.position = spawnPosition;
     }
 
-    protected IEnumerator DoRepair(float health)
-    {
-        for (; ; )
-        {
-            Debug.Log("repair");
 
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
-
-    protected void Repair(float health)
-    {
-        current_life += health;
-    }
 
     protected void Destroy()
     {

@@ -65,7 +65,10 @@ public class Player : Character
 
         if(Input.GetKeyDown("e"))
         {
-            structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
+            // structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
+           
+           structureHandler.SetLifeTo1(structureHandler.CheckIsSelectedTower());
+            structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
         }
     }
 
