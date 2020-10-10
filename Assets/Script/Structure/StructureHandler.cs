@@ -31,15 +31,6 @@ public class StructureHandler : MonoBehaviour
         {
             default_value_dictionnary.Add(node.Attributes["name"]?.InnerText, node.InnerText);
         }
-
-        /*debug purposes
-        foreach (KeyValuePair<string, string> entry in default_value_dictionnary)
-        {
-            print(entry.Key);
-            print(entry.Value);
-        }*/
-
-
     }
 
     public void BuildTower(Transform t, Elements element)

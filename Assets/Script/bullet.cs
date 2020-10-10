@@ -3,7 +3,7 @@
 public class bullet : MonoBehaviour
 {
     public Transform target;
-    public float speed = 70f;
+    public float speed = 35f;
 
 
 
@@ -22,7 +22,7 @@ public class bullet : MonoBehaviour
         }
 
         Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = (speed * Time.deltaTime) / 100;
+        float distanceThisFrame = (speed * Time.deltaTime) / 8;
 
         if(dir.magnitude <= distanceThisFrame)
         {

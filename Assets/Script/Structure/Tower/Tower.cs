@@ -21,8 +21,8 @@ public class Tower : Structure
     private float fire_countdown = 0.0f;
 
     public GameObject bulletprefeb;
-    public Transform firepoint;
 
+    public GameObject projectile_spawn_point;
 
     //================================ Methods
 
@@ -46,7 +46,7 @@ public class Tower : Structure
         if (target == null)
             return;
      
-        Debug.DrawLine(this.spawnPosition, target.position, Color.green, 1.0f);
+        Debug.DrawLine(projectile_spawn_point.transform.position, target.position, Color.green, 1.0f);
 
         if(fire_countdown <= 0.0f)
         {
@@ -61,7 +61,7 @@ public class Tower : Structure
 
     private void Shoot()
     {
-        GameObject bulletGo = (GameObject)Instantiate(bulletprefeb, this.spawnPosition, GetProjectileRotation(target.position));
+        GameObject bulletGo = (GameObject)Instantiate(bulletprefeb, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
         bullet bullet = bulletGo.GetComponent<bullet>();
 
         if(bullet != null)
