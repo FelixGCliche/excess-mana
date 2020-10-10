@@ -33,6 +33,7 @@ namespace Script.Character.Player
         {
             Vector3 spawnPosition = Camera.main.WorldToScreenPoint(position);
             Vector3 direction = Input.mousePosition - spawnPosition;
+            Debug.Log(Input.mousePosition);
             float angle = Vector3.SignedAngle(Vector3.right, direction, Vector3.forward);
             return Quaternion.Euler(0, 0, angle);
         }
