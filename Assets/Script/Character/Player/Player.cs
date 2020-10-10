@@ -35,11 +35,7 @@ public class Player : Character
 
         if (Input.GetKeyDown("space"))
         {
-            print("space key was pressed");
-
-
-            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
-
+            structureHandler.BuildTower(gameObject.transform, Elements.FIRE);
         }
     }
 

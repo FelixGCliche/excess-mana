@@ -12,12 +12,11 @@ public class Structure : MonoBehaviour
     [SerializeField] protected Elements current_element;
     [SerializeField] protected StructureState current_state;
 
-    [SerializeField] protected Sprite sprite;
     [SerializeField] protected float current_life;
 
-    [SerializeField] protected float time_to_build;
-    [SerializeField] protected float time_to_repair;
-    [SerializeField] protected float time_to_upgrade;
+    [SerializeField] protected float default_time_to_build;
+    [SerializeField] protected float default_time_to_repair;
+    [SerializeField] protected float default_time_to_upgrade;
 
     [SerializeField] protected int current_level;
     [SerializeField] protected int current_exp;
@@ -27,9 +26,12 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected float time_between_attacks;
 
-    [SerializeField] protected SpriteRenderer spriteRenderer;
-
     //================================ Methods
+
+    public Structure()
+    {
+  
+    }
     
     void awake()
     {
@@ -115,6 +117,16 @@ public class Structure : MonoBehaviour
         this.current_level = level;
     }
 
+    public void SetCurrentExp(int exp)
+    {
+        this.current_exp = exp;
+    }
+
+    public void SetCurrentRuneNumber(int number)
+    {
+        this.current_rune_number = number;
+    }
+
     public int GetCurrentLevel()
     {
         return current_level;
@@ -125,10 +137,12 @@ public class Structure : MonoBehaviour
         this.spawnPosition = position;
     }
 
-    public void SetDefaultState()
+    public void SetCurrentState(StructureState state)
     {
-        this.current_state = StructureState.Idle;
+        this.current_state = state;
     }
+
+
     
 
 

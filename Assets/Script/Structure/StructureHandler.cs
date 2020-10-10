@@ -9,14 +9,15 @@ public class StructureHandler : MonoBehaviour
     //================================ Variables
 
     public Structure altair;
-    public Structure tower;
-    public Tower to;
+
+    public Tower air_tower;
+    public Tower earth_tower;
+    public Tower fire_tower;
+    public Tower water_tower;
 
     public int current_tower_count;
 
     public Dictionary<string, string> default_value_dictionnary = new Dictionary<string, string>();
-    // int result = Int32.Parse(input);
-    //  Console.WriteLine(result);
 
     //================================ Methods
 
@@ -28,10 +29,10 @@ public class StructureHandler : MonoBehaviour
 
         foreach (XmlNode node in doc.DocumentElement.ChildNodes)
         {
-            default_value_dictionnary.Add(node.Attributes["name"].InnerText, node.InnerText);
+            default_value_dictionnary.Add(node.Attributes["name"]?.InnerText, node.InnerText);
         }
 
-        /*
+        /*debug purposes
         foreach (KeyValuePair<string, string> entry in default_value_dictionnary)
         {
             print(entry.Key);
@@ -47,32 +48,53 @@ public class StructureHandler : MonoBehaviour
         {
             case Elements.EARTH:
                 print("Earth");
+                Tower new_earth_tower = Instantiate(earth_tower, t.position, t.rotation);
+                initialise_tower(new_earth_tower,t);
                 break;
 
             case Elements.FIRE:
                 print("fire");
+                Tower new_fire_tower = Instantiate(fire_tower, t.position, t.rotation);
+                initialise_tower(new_fire_tower,t);
                 break;
 
             case Elements.WATER:
                 print("Water");
+                Tower new_water_tower = Instantiate(water_tower, t.position, t.rotation);
+                initialise_tower(new_water_tower,t);
                 break;
 
             case Elements.WIND:
                 print("AIR");
+                Tower new_air_tower = Instantiate(air_tower, t.position, t.rotation);
+                initialise_tower(new_air_tower,t);
                 break;
 
             default:
 
                 break;
         }
-    
-        //[TODO] - a changer
-        Structure new_structure = Instantiate(to, t.position, t.rotation);
-        new_structure.SetSpawnPosition(t.position);
     }
 
-    public void test()
+    public void initialise_tower(Tower tower, Transform transform)
     {
-        print("erere");
+        tower.SetCurrentLife(GetDictionnaryFloatValue("MAX_TOWER_LIFE"));
+        tower.SetCurrentLevel(GetDictionnaryIntValue("default_level"));
+        tower.SetCurrentExp(GetDictionnaryIntValue("default_exp"));
+        tower.SetCurrentRuneNumber(GetDictionnaryIntValue("default_rune_number"));
+        tower.SetAttackRadius(GetDictionnaryFloatValue("default_attack_radius"));
+        tower.SetSpawnPosition(transform.position);
+        tower.SetCurrentState(StructureState.Idle);
+    }
+
+
+    private float GetDictionnaryFloatValue(string key)
+    {
+        return float.Parse(default_value_dictionnary[key]);
+    }
+
+    private int GetDictionnaryIntValue(string key)
+    {
+        return int.Parse(default_value_dictionnary[key]);
     }
 }

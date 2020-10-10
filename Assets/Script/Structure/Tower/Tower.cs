@@ -6,16 +6,15 @@ public class Tower : Structure
 {
     //================================ Variables
 
-     private const float MAX_LIFE = 100.0f;
-     private const int MAX_LEVEL = 4;
-
     private Elements tower_element;
+
+    private float radius;
 
     //================================ Methods
 
     public Tower(Elements e)
     {
-        tower_element = e;
+        tower_element = e;        
     }
 
     void awake()
@@ -32,6 +31,13 @@ public class Tower : Structure
     {
 
     }
+
+    //================================ Accessors
+    public void SetAttackRadius(float radius)
+    {
+        this.radius = radius;
+    }
+
 
 
 }
