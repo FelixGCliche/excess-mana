@@ -6,33 +6,18 @@ using UnityEngine;
 public class Tower : Structure
 {
     //================================ Variables
-
-    private Elements tower_element;
-
     public float radius;
 
     public Transform target;
-
-    [SerializeField] private GameObject wind_projectile_prefab;
-
-    public float angle;
 
     public float  fire_rate = 1f;
     private float fire_countdown = 0.0f;
 
     public GameObject projectile_spawn_point;
 
+    public TowerAttacks tower_attacks;
+
     //================================ Methods
-
-    public Tower(Elements e)
-    {
-        tower_element = e;        
-    }
-
-    void awake()
-    {
-       
-    }
 
     void Start()
     {
@@ -53,25 +38,33 @@ public class Tower : Structure
         }
 
         fire_countdown -= Time.deltaTime;
-
-
     }
 
     private void Shoot()
     {
-        GameObject projectileGO = (GameObject)Instantiate(wind_projectile_prefab, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
-    }
+        switch(current_element)
+        {
+            case Elements.WIND:
+                tower_attacks.WindAttack(projectile_spawn_point.transform, target);
+                break;
 
-    private Quaternion GetProjectileRotation(Vector3 position)
-    {
-        Vector3 direction = target.position - projectile_spawn_point.transform.position;
-        float angle = Vector3.SignedAngle(Vector3.right, direction, Vector3.forward);
-        return Quaternion.Euler(0, 0, angle);
+            case Elements.FIRE:
+                tower_attacks.FireAttack(projectile_spawn_point.transform, target);
+                break;
+
+            case Elements.WATER:
+                tower_attacks.WaterAttack(projectile_spawn_point.transform, target);
+                break;
+
+            case Elements.EARTH:
+                tower_attacks.EarthAttack(projectile_spawn_point.transform, target);
+                break;
+        }
     }
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
@@ -89,8 +82,6 @@ public class Tower : Structure
         {
             target = nearestEnemy.transform;
             Vector3 targetDir = target.position - this.spawnPosition;
-
-            angle = Vector3.Angle(this.spawnPosition, target.position);
         }
         else
         {
@@ -103,9 +94,6 @@ public class Tower : Structure
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
-
-
 
     //================================ Accessors
     public void SetAttackRadius(float radius)
@@ -122,6 +110,5 @@ public class Tower : Structure
     {
         this.fire_countdown = countdown;
     }
-
 
 }

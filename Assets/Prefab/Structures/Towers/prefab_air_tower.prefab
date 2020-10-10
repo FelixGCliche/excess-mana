@@ -110,11 +110,9 @@ MonoBehaviour:
   time_between_attacks: 0
   radius: 0
   target: {fileID: 0}
-  wind_projectile_prefab: {fileID: 4361985393991174773, guid: a019dc6971a05ca4b96af58bf05886c0, type: 3}
-  angle: 0
   fire_rate: 0
-  bulletprefeb: {fileID: 4361985393991174773, guid: a019dc6971a05ca4b96af58bf05886c0, type: 3}
   projectile_spawn_point: {fileID: 7392183132699171008}
+  tower_attacks: {fileID: 5243626708108396121}
 --- !u!1 &7392183132699171008
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6161251032134728253}
+  - component: {fileID: 5243626708108396121}
   m_Layer: 0
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
@@ -145,3 +144,19 @@ Transform:
   m_Father: {fileID: 474643692801964398}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5243626708108396121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392183132699171008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98a6fd196984564faac36b1b62f4599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_wind_projectile: {fileID: 4361985393991174773, guid: a019dc6971a05ca4b96af58bf05886c0, type: 3}
+  tower_fire_projectile: {fileID: 602385034040510231, guid: a51c4e20947f25641b9a2678175e3a67, type: 3}
+  tower_water_projectile: {fileID: 3986555020083138009, guid: 944396df9d11a1c4caa154e423878ef2, type: 3}
+  tower_earth_projectile: {fileID: 4732815746408801004, guid: 044df96e81bbfbf44be358384a9aa63a, type: 3}

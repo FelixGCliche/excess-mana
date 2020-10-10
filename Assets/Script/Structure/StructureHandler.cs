@@ -40,25 +40,25 @@ public class StructureHandler : MonoBehaviour
             case Elements.EARTH:
                 print("Earth");
                 Tower new_earth_tower = Instantiate(earth_tower, t.position, t.rotation);
-                initialise_tower(new_earth_tower,t);
+                initialise_tower(new_earth_tower,t, element);
                 break;
 
             case Elements.FIRE:
                 print("fire");
                 Tower new_fire_tower = Instantiate(fire_tower, t.position, t.rotation);
-                initialise_tower(new_fire_tower,t);
+                initialise_tower(new_fire_tower,t, element);
                 break;
 
             case Elements.WATER:
                 print("Water");
                 Tower new_water_tower = Instantiate(water_tower, t.position, t.rotation);
-                initialise_tower(new_water_tower,t);
+                initialise_tower(new_water_tower,t, element);
                 break;
 
             case Elements.WIND:
                 print("AIR");
                 Tower new_air_tower = Instantiate(air_tower, t.position, t.rotation);
-                initialise_tower(new_air_tower,t);
+                initialise_tower(new_air_tower,t,element);
                 break;
 
             default:
@@ -67,8 +67,10 @@ public class StructureHandler : MonoBehaviour
         }
     }
 
-    public void initialise_tower(Tower tower, Transform transform)
+    public void initialise_tower(Tower tower, Transform transform, Elements e)
     {
+        tower.SetCurrentElement(e);
+
         tower.SetCurrentLife(GetDictionnaryFloatValue("MAX_TOWER_LIFE"));
         tower.SetCurrentLevel(GetDictionnaryIntValue("default_level"));
         tower.SetCurrentExp(GetDictionnaryIntValue("default_exp"));

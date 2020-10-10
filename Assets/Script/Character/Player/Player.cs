@@ -55,7 +55,7 @@ public class Player : Character
 
         if (Input.GetKeyDown("space"))
         {
-            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
+            structureHandler.BuildTower(gameObject.transform, Elements.WATER);
         }
     }
 

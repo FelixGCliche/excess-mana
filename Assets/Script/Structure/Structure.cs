@@ -28,37 +28,15 @@ public class Structure : MonoBehaviour
 
     //================================ Methods
 
-    public Structure()
-    {
-  
-    }
-    
-    void awake()
-    {
-
-    }
-
     void Start()
     {
         current_state = StructureState.Idle;
-    }
-
-    void Update()
-    {
-
-    }
-
-    protected void Init()
-    {
-        
     }
 
     protected void Build()
     {
         transform.position = spawnPosition;
     }
-
-
 
     protected IEnumerator DoRepair(float health)
     {
@@ -89,14 +67,6 @@ public class Structure : MonoBehaviour
     protected void TakeDamage(float damage)
     {
         SetCurrentLife(damage);
-    }
-
-    protected void Attack()
-    {
-        current_state = StructureState.Attacking;
-        //find ebject by tag ennemy
-        //draw debug line
-        //apply damages
     }
 
     protected void LevelUp()
@@ -140,6 +110,11 @@ public class Structure : MonoBehaviour
     public void SetCurrentState(StructureState state)
     {
         this.current_state = state;
+    }
+
+    public void SetCurrentElement(Elements e)
+    {
+        this.current_element = e;
     }
 
 
