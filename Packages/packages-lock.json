@@ -28,6 +28,7 @@
         "com.unity.2d.tilemap": "1.0.0"
       },
       "hash": "b6c00b2ccf99963e784e2e5dd81b0bf9a52cf38c"
+	},
     "com.unity.2d.common": {
       "version": "3.0.1",
       "depth": 1,
@@ -44,12 +45,6 @@
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
-    },
-    "com.unity.2d.sprite": {
-      "version": "1.0.0",
-      "depth": 2,
-      "source": "builtin",
-      "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
       "version": "4.1.4",
