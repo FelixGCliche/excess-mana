@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallWindRuneZone
       objectReference: {fileID: 0}
+    - target: {fileID: 8361763261615025165, guid: 74a2003ca354d354f9ad4a89d4ad64e4, type: 3}
+      propertyPath: runeToSpawn
+      value: 
+      objectReference: {fileID: 2932318338558039791, guid: 4930590d3f301d440a51ea899a1385b3, type: 3}
     - target: {fileID: 8361763261615025166, guid: 74a2003ca354d354f9ad4a89d4ad64e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

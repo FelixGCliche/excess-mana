@@ -29,6 +29,7 @@ Transform:
   m_Children:
   - {fileID: 7745403130946336287}
   - {fileID: 7745403130846426260}
+  - {fileID: 8040084902209252194}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -91,6 +92,10 @@ PrefabInstance:
       propertyPath: waveSpawner
       value: 
       objectReference: {fileID: 3842138883051983710}
+    - target: {fileID: 7545092697334179821, guid: bcef2c6730686c349b8c044d728e3100, type: 3}
+      propertyPath: runeZoneHandler
+      value: 
+      objectReference: {fileID: 4777833853832766488}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcef2c6730686c349b8c044d728e3100, type: 3}
 --- !u!4 &7745403130946336287 stripped
@@ -98,6 +103,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7545092697334179820, guid: bcef2c6730686c349b8c044d728e3100, type: 3}
   m_PrefabInstance: {fileID: 272677549895471603}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5564955798972918809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7745403129539578754}
+    m_Modifications:
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593672137824541318, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+      propertyPath: m_Name
+      value: RuneZoneHandler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+--- !u!4 &8040084902209252194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2499127593931769723, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+  m_PrefabInstance: {fileID: 5564955798972918809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4777833853832766488 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1113786878778034177, guid: b64c053b72bcba74681db39a77799aa2, type: 3}
+  m_PrefabInstance: {fileID: 5564955798972918809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287554771e6c432891e806a6a006a2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6557783468938148330
 PrefabInstance:
   m_ObjectHideFlags: 0

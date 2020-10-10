@@ -20,7 +20,6 @@ public class RuneZone : MonoBehaviour
                 maxX = transform.position.x + halfX;
                 minY = transform.position.y - halfY;
                 maxY = transform.position.y + halfY;
-                ResetRunes();
         }
 
         public void ResetRunes()

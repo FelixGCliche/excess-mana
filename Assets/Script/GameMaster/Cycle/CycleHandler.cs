@@ -13,6 +13,7 @@ public class CycleHandler : MonoBehaviour
     [SerializeField] private float nightOverlaySwitchDuration = 30f;
     [SerializeField] private Text timerText;
     [SerializeField] private WaveSpawner waveSpawner;
+    [SerializeField] private RuneZoneHandler runeZoneHandler;
     
     private CycleState cycleState;
     private float cycleTimer;
@@ -65,6 +66,7 @@ public class CycleHandler : MonoBehaviour
         day++;
         cycleState = CycleState.DAY;
         cycleTimer = dayDuration;
+        runeZoneHandler.ResetAllRuneZones();
         WaveDifficulty difficulty = WaveDifficulty.NORMAL;
         if (day % 5 == 0)
         {
