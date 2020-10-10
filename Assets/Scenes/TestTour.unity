@@ -146,6 +146,9 @@ MonoBehaviour:
   fire_tower: {fileID: 3324738436461931963, guid: fcfbaebdeddea4d4a92bbf9640b9d019, type: 3}
   water_tower: {fileID: 2724621609892854817, guid: 7159ab838afbf734abb18b8283f6e8db, type: 3}
   current_tower_count: 0
+  tower_list: []
+  active_towers: 0
+  temp: {fileID: 0}
 --- !u!58 &454722332
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -341,6 +344,10 @@ PrefabInstance:
       propertyPath: playerAttack
       value: 
       objectReference: {fileID: 812462373}
+    - target: {fileID: 5631840820956975426, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
+      propertyPath: structureHandler
+      value: 
+      objectReference: {fileID: 454722331}
     - target: {fileID: 7634762382311311184, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
