@@ -1,7 +1,5 @@
 ﻿using System;
 using Harmony;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Game

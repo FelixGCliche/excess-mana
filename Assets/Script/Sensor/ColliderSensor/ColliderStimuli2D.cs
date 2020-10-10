@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.ColliderSensor
+namespace Game
 {
   public class ColliderStimuli2D : MonoBehaviour
   {
