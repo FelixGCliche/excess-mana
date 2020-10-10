@@ -1,22 +1,29 @@
 ﻿using Script.Character;
+using Script.Character.Player;
 using UnityEngine;
 
 public class Player : Character
 {
+    [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode upKey = KeyCode.W;
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private PlayerAttack playerAttack;
 
-    bool upKeyDown;
-    bool leftKeyDown;
-    bool downKeyDown;
-    bool rightKeyDown;
+    private Elements currentSpellElement;
+
+    private bool upKeyDown;
+    private bool leftKeyDown;
+    private bool downKeyDown;
+    private bool rightKeyDown;
 
     // Start is called before the first frame update
     void Start()
     {
         health = baseHealth;
+        currentSpellElement = Elements.FIRE;
+        
         upKeyDown = false;
         leftKeyDown = false;
         downKeyDown = false;
@@ -26,6 +33,9 @@ public class Player : Character
     // Update is called once per frame
     void Update()
     {
+        UpdateElement();
+        if (Input.GetKeyDown(attackKey))
+            Attack();
         UpdateKeyState();
         CheckForMovement();
     }
@@ -58,8 +68,38 @@ public class Player : Character
     {
         
     }
+    public void Attack()
+    {
+        switch (currentSpellElement)
+        {
+            case Elements.FIRE :
+                playerAttack.FireAttack(transform.position);
+                break;
+            case Elements.EARTH :
+                playerAttack.EarthAttack(transform.position);
+                break;
+            case Elements.WIND :
+                playerAttack.WindAttack(transform.position);
+                break;
+            case Elements.WATER :
+                playerAttack.WaterAttack(transform.position);
+                break;
+        }
+    }
     
     #region Input
+
+    private void UpdateElement()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            currentSpellElement = Elements.FIRE;
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            currentSpellElement = Elements.EARTH;
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            currentSpellElement = Elements.WIND;
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+            currentSpellElement = Elements.WATER;
+    }
     
     private void UpdateKeyState()
     {
