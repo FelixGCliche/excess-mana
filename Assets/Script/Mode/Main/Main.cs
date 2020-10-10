@@ -18,6 +18,9 @@ namespace Game
       loader = Finder.SceneBundleLoader;
       DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
       DOTween.SetTweensCapacity(200, 125);
+
+      // Should be placed in home menu
+      LoadGameScenes();
     }
 
     private IEnumerator Start()
