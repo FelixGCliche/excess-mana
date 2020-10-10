@@ -14,8 +14,6 @@ namespace Script.Projectile
             transform.Translate(Time.deltaTime * projectileSpeed * Vector3.right);
         }
         
-        
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             Enemy enemy = other.GetComponentInParent<Enemy>();
