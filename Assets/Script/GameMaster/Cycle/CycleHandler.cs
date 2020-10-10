@@ -18,6 +18,7 @@ public class CycleHandler : MonoBehaviour
     private float cycleTimer;
     private int waveNumber;
     private Color nightOverlayColor;
+    private int day;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class CycleHandler : MonoBehaviour
         nightOverlayColor = nightOverlay.color;
         nightOverlayColor.a = nightOverlayFullOpacity;
         nightOverlay.color = nightOverlayColor;
+        day = 0;
         BeginDay();
     }
 
@@ -60,8 +62,14 @@ public class CycleHandler : MonoBehaviour
 
     private void BeginDay()
     {
+        day++;
         cycleState = CycleState.DAY;
         cycleTimer = dayDuration;
+        WaveDifficulty difficulty = WaveDifficulty.NORMAL;
+        if (day % 5 == 0)
+            difficulty = WaveDifficulty.HARD;
+        waveSpawner.CalculateNextNightContent(difficulty);
+        waveSpawner.NextDay();
     }
     
     private void BeginNight()
