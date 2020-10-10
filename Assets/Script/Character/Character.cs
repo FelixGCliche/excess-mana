@@ -1,5 +1,4 @@
-﻿using System;
-using Game;
+﻿using Game;
 using Script.Util;
 using UnityEngine;
 
@@ -24,6 +23,7 @@ namespace Script.Character
         {
             triggerSensor = GetComponentInChildren<TriggerSensor2D>();
             colliderSensor = GetComponentInChildren<ColliderSensor2D>();
+            mover = GetComponentInChildren<Mover>();
         }
 
         public void TakeDamage(float damageAmount, Elements damageElement)

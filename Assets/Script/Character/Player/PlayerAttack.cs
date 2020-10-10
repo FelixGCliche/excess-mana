@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Harmony;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Script.Character.Player
 {
@@ -8,6 +11,18 @@ namespace Script.Character.Player
         [SerializeField] private GameObject earthProjectilePrefab;
         [SerializeField] private GameObject windProjectilePrefab;
         [SerializeField] private GameObject waterProjectilePrefab;
+        
+        private InputAction aimInput;
+
+        private void Awake()
+        {
+            aimInput = Finder.Inputs.Actions.Game.Aim;
+        }
+
+        private void OnDrawGizmos()
+        { 
+            Gizmos.DrawLine(transform.parent.position, GetPointerPositionInWorld());
+        }
 
         public void FireAttack(Vector3 position)
         {
@@ -31,10 +46,21 @@ namespace Script.Character.Player
 
         private Quaternion GetProjectileRotation(Vector3 position)
         {
-            Vector3 spawnPosition = Camera.main.WorldToScreenPoint(position);
-            Vector3 direction = Input.mousePosition - spawnPosition;
-            float angle = Vector3.SignedAngle(Vector3.right, direction, Vector3.forward);
+            Vector3 mousePosition = aimInput.ReadValue<Vector2>();
+
+            Vector3 direction = GetPointerPositionInWorld() - position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            
             return Quaternion.Euler(0, 0, angle);
+        }
+
+        private Vector3 GetPointerPositionInWorld()
+        {
+            Plane plane = new Plane(Vector3.back, transform.parent.position);
+            var ray = Camera.main.ScreenPointToRay(aimInput.ReadValue<Vector2>());
+        
+            plane.Raycast(ray, out float enter);
+            return ray.GetPoint(enter);
         }
     }
 }

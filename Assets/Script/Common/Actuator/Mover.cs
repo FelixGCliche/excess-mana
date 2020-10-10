@@ -4,7 +4,7 @@ namespace Game
 {
   public class Mover : MonoBehaviour
   {
-    [SerializeField] [Min(0.0f)] private float speed = 50.0f;
+    [SerializeField] [Min(0.0f)] private float speed = 5.0f;
     
     private Transform parentTransform;
 
