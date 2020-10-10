@@ -1,9 +1,12 @@
-﻿using Harmony;
+﻿using System;
+using System.Collections;
+using Harmony;
 using UnityEngine;
 using DG.Tweening;
 
 namespace Game
 {
+  [Findable(Tags.MainController)]
   public class Main : MonoBehaviour
   {
     [Header("Scenes")] 
@@ -13,9 +16,24 @@ namespace Game
 
     private void Awake()
     {
-      loader = Finder.SceneBundleLoader;
+      loader = Finder.FindWithTag<SceneBundleLoader>(Tags.MainController);
       DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
       DOTween.SetTweensCapacity(200, 125);
+    }
+
+    private IEnumerator Start()
+    {
+      yield return loader.Load(gameScenes);
+    }
+
+    public Coroutine LoadGameScenes()
+    {
+      return loader.Load(gameScenes);
+    }
+
+    public Coroutine UnloadGameScenes()
+    {
+      return loader.Unload(gameScenes);
     }
   }
 }
