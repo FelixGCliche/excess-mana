@@ -43,14 +43,14 @@ namespace Game
       }
     }
 
-    private void NotifyDestroyed()
-    {
-      if (OnDestroyed != null) OnDestroyed(transform.parent.gameObject);
-    }
-
     private void SetSensorLayer()
     {
       gameObject.layer = Layers.Sensor;
+    }
+
+    private void NotifyDestroyed()
+    {
+      if (OnDestroyed != null) OnDestroyed(transform.parent.gameObject);
     }
   }
 
