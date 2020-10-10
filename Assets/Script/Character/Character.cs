@@ -14,12 +14,15 @@ namespace Script.Character
 
         protected float health;
         private TriggerSensor2D triggerSensor;
+        private ColliderSensor2D colliderSensor;
 
         protected TriggerSensor2D TriggerSensor => triggerSensor;
+        protected ColliderSensor2D ColliderSensor => colliderSensor;
 
         protected void Awake()
         {
             triggerSensor = GetComponentInChildren<TriggerSensor2D>();
+            colliderSensor = GetComponentInChildren<ColliderSensor2D>();
         }
 
         public void TakeDamage(float damageAmount, Elements damageElement)
