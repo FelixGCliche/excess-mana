@@ -21,7 +21,7 @@ namespace Game
 
     private void OnDestroy()
     {
-      // throw new NotImplementedException();
+      NotifyDestroyed();
     }
 
     private void CreateCollider()
@@ -41,6 +41,11 @@ namespace Game
         default:
           throw new Exception("Unknown shape named \"" + shape + "\"");
       }
+    }
+
+    private void NotifyDestroyed()
+    {
+      if (OnDestroyed != null) OnDestroyed(transform.parent.gameObject);
     }
 
     private void SetSensorLayer()
