@@ -23,7 +23,7 @@ public class StructureHandler : MonoBehaviour
 
     public void Start()
     {
-
+        current_tower_count = 0;
         XmlDocument doc = new XmlDocument();
         doc.Load("Assets/Script/Util/default_value.xml");
 
@@ -40,36 +40,38 @@ public class StructureHandler : MonoBehaviour
             case Elements.EARTH:
                 print("Earth");
                 Tower new_earth_tower = Instantiate(earth_tower, t.position, t.rotation);
-                initialise_tower(new_earth_tower,t, element);
+                initialise_tower(new_earth_tower,t, element,current_tower_count);
                 break;
 
             case Elements.FIRE:
                 print("fire");
                 Tower new_fire_tower = Instantiate(fire_tower, t.position, t.rotation);
-                initialise_tower(new_fire_tower,t, element);
+                initialise_tower(new_fire_tower,t, element, current_tower_count);
                 break;
 
             case Elements.WATER:
                 print("Water");
                 Tower new_water_tower = Instantiate(water_tower, t.position, t.rotation);
-                initialise_tower(new_water_tower,t, element);
+                initialise_tower(new_water_tower,t, element, current_tower_count);
                 break;
 
             case Elements.WIND:
                 print("AIR");
                 Tower new_air_tower = Instantiate(air_tower, t.position, t.rotation);
-                initialise_tower(new_air_tower,t,element);
+                initialise_tower(new_air_tower,t,element, current_tower_count);
                 break;
 
             default:
 
                 break;
         }
+        current_tower_count++;
     }
 
-    public void initialise_tower(Tower tower, Transform transform, Elements e)
+    public void initialise_tower(Tower tower, Transform transform, Elements e, int id)
     {
         tower.SetCurrentElement(e);
+        tower.SetId(id);
 
         tower.SetCurrentLife(GetDictionnaryFloatValue("MAX_TOWER_LIFE"));
         tower.SetCurrentLevel(GetDictionnaryIntValue("default_level"));

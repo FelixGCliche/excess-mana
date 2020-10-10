@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3432971452778559931}
   - component: {fileID: 8358001785115056912}
   - component: {fileID: 2724621609892854817}
+  - component: {fileID: 5551428150527374116}
   m_Layer: 0
   m_Name: prefab_water_tower
   m_TagString: Untagged
@@ -30,6 +31,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 1666603762791006450}
+  - {fileID: 7609748801660130075}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,6 +115,24 @@ MonoBehaviour:
   fire_rate: 0
   projectile_spawn_point: {fileID: 5158804414884038549}
   tower_attacks: {fileID: 3970140724827648365}
+  id: 0
+  interactKey: 324
+--- !u!70 &5551428150527374116
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000465796406376278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 5.1299996, y: 8.739999}
+  m_Direction: 0
 --- !u!1 &5158804414884038549
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,3 +180,73 @@ MonoBehaviour:
   tower_fire_projectile: {fileID: 602385034040510231, guid: a51c4e20947f25641b9a2678175e3a67, type: 3}
   tower_water_projectile: {fileID: 3986555020083138009, guid: 944396df9d11a1c4caa154e423878ef2, type: 3}
   tower_earth_projectile: {fileID: 4732815746408801004, guid: 044df96e81bbfbf44be358384a9aa63a, type: 3}
+--- !u!1001 &7529332649218933560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3432971452778559931}
+    m_Modifications:
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 707966590835700498, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: m_Name
+      value: Health bar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!4 &7609748801660130075 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 7529332649218933560}
+  m_PrefabAsset: {fileID: 0}

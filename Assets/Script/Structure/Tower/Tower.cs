@@ -17,18 +17,60 @@ public class Tower : Structure
 
     public TowerAttacks tower_attacks;
 
+    public int id;
+    private float default_life;
+
+    [SerializeField] private KeyCode interactKey = KeyCode.Mouse1;
+    bool interackKeyDown;
+    bool neverDOne;
+
     //================================ Methods
-    
+
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.1f);
+        default_life = current_life;
+        interackKeyDown = false;
+        neverDOne = false;
     }
 
     private void OnMouseOver()
     {
-        Debug.Log("tower mouse over");
+        /*if(Input.GetMouseButtonDown(2))
+        {
+            current_life = 45;
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            neverDOne = true;
+        }
+            if (current_life != default_life)
+            {
+                if(neverDOne)
+                {
+                    //repair
+                    StartCoroutine(DoRepair(10));
+                    if (current_life >= default_life)
+                    {
+                        StopAllCoroutines();
+                        current_life = default_life;
+                        neverDOne = false;
+                    }
+                }
+
+            }
+            else
+            {
+                //upgrade
+                Upgrade();
+            }
+        
+        Debug.Log(current_life);*/
+
     }
+
 
     void Update()
     {
@@ -117,4 +159,8 @@ public class Tower : Structure
         this.fire_countdown = countdown;
     }
 
+    public void SetId(int id)
+    {
+        this.id = id;
+    }
 }
