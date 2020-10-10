@@ -1,5 +1,6 @@
 ﻿
 using Script.Character;
+using UnityEngine;
 
 public class Enemy : Character
 {
@@ -12,7 +13,11 @@ public class Enemy : Character
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 movement = Vector2.zero;
+        movement += Vector2.right;
+
+        transform.Translate(Time.deltaTime * 1 * movement);
+
     }
 
     protected override void Kill()

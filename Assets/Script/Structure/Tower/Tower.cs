@@ -20,8 +20,6 @@ public class Tower : Structure
     public float  fire_rate = 1f;
     private float fire_countdown = 0.0f;
 
-    public GameObject bulletprefeb;
-
     public GameObject projectile_spawn_point;
 
     //================================ Methods
@@ -61,14 +59,7 @@ public class Tower : Structure
 
     private void Shoot()
     {
-        GameObject bulletGo = (GameObject)Instantiate(wind_projectile_prefab, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
-        bullet bullet = bulletGo.GetComponent<bullet>();
-
-        if(bullet != null)
-        {
-            bullet.Seek(target);
-        }
-
+        GameObject projectileGO = (GameObject)Instantiate(wind_projectile_prefab, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
     }
 
     private Quaternion GetProjectileRotation(Vector3 position)
