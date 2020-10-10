@@ -5,9 +5,9 @@ namespace Script.Projectile
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] protected Elements projectileElement = Elements.NONE;
-        [SerializeField][Range(1, 100)] protected float projectileDamage = 10f;
-        [SerializeField][Range(1, 100)] protected float projectileSpeed = 10f;
+        [SerializeField] private Elements projectileElement = Elements.NONE;
+        [SerializeField][Range(1, 100)] private float projectileDamage = 10f;
+        [SerializeField][Range(1, 100)] private float projectileSpeed = 10f;
 
         private void Update()
         {
@@ -18,7 +18,6 @@ namespace Script.Projectile
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var otherParentTransform = other.transform.parent;
             Enemy enemy = other.GetComponentInParent<Enemy>();
             if (enemy != null)
             {

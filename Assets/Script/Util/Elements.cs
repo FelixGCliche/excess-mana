@@ -1,8 +1,8 @@
 ﻿public enum Elements
 {
-    NONE,
-    FIRE,
+    FIRE = 0,
     EARTH,
     WIND,
-    WATER
+    WATER,
+    NONE
 }

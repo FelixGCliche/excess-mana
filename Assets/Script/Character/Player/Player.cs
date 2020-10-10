@@ -19,6 +19,7 @@ public class Player : Character
     bool spaceKeyDown;
 
     StructureHandler structureHandler;
+    private PlayerInventory inventory;
 
     private Elements currentSpellElement;
     
@@ -31,6 +32,7 @@ public class Player : Character
     void Start()
     {
         health = baseHealth;
+        inventory = new PlayerInventory();
         currentSpellElement = Elements.FIRE;
         
         upKeyDown = false;
@@ -85,6 +87,7 @@ public class Player : Character
     {
         
     }
+    
     public void Attack()
     {
         switch (currentSpellElement)
@@ -101,6 +104,18 @@ public class Player : Character
             case Elements.WATER :
                 playerAttack.WaterAttack(transform.position);
                 break;
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Rune rune = other.GetComponentInParent<Rune>();
+        if (rune != null)
+        {
+            Elements runeElement = rune.GetElement();
+            RuneSize runeSize = rune.GetSize();
+            inventory.AddRune(1, runeElement, runeSize);
+            rune.PickUp();
         }
     }
     
