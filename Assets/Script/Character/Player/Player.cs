@@ -3,6 +3,7 @@ using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using  Game;
 
 public class Player : Character
 {
@@ -12,6 +13,10 @@ public class Player : Character
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
     private bool Build => Finder.Inputs.Actions.Game.Interact.triggered;
+    private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
+    private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
+    private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
+    private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
 
     StructureHandler structureHandler;
     private PlayerInventory inventory;
@@ -88,13 +93,13 @@ public class Player : Character
 
     private void UpdateElement()
     {
-        // if (Input.GetKeyDown(KeyCode.Alpha1))
-        //     currentSpellElement = Elements.FIRE;
-        // else if (Input.GetKeyDown(KeyCode.Alpha2))
-        //     currentSpellElement = Elements.EARTH;
-        // else if (Input.GetKeyDown(KeyCode.Alpha3))
-        //     currentSpellElement = Elements.WIND;
-        // else if (Input.GetKeyDown(KeyCode.Alpha4))
-        //     currentSpellElement = Elements.WATER;
+        if (IsFireElement)
+            currentSpellElement = Elements.FIRE;
+        else if (IsEarthElement)
+            currentSpellElement = Elements.EARTH;
+        else if (IsWindElement)
+            currentSpellElement = Elements.WIND;
+        else if (IsWaterElement)
+            currentSpellElement = Elements.WATER;
     }
 }

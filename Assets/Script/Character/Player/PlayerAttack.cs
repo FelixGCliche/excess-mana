@@ -3,7 +3,7 @@ using Harmony;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script.Character.Player
+namespace Game
 {
     public class PlayerAttack : MonoBehaviour
     {
@@ -18,11 +18,13 @@ namespace Script.Character.Player
         {
             aimInput = Finder.Inputs.Actions.Game.Aim;
         }
-
+        
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         { 
             Gizmos.DrawLine(transform.parent.position, GetPointerPositionInWorld());
         }
+#endif
 
         public void FireAttack(Vector3 position)
         {
