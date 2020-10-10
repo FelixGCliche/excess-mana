@@ -61,7 +61,7 @@ public class Tower : Structure
 
     private void Shoot()
     {
-        GameObject bulletGo = (GameObject)Instantiate(bulletprefeb, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
+        GameObject bulletGo = (GameObject)Instantiate(wind_projectile_prefab, projectile_spawn_point.transform.position, GetProjectileRotation(target.position));
         bullet bullet = bulletGo.GetComponent<bullet>();
 
         if(bullet != null)
@@ -73,7 +73,7 @@ public class Tower : Structure
 
     private Quaternion GetProjectileRotation(Vector3 position)
     {
-        Vector3 direction = target.position - this.spawnPosition;
+        Vector3 direction = target.position - projectile_spawn_point.transform.position;
         float angle = Vector3.SignedAngle(Vector3.right, direction, Vector3.forward);
         return Quaternion.Euler(0, 0, angle);
     }

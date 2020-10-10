@@ -110,11 +110,10 @@ MonoBehaviour:
   time_between_attacks: 0
   radius: 0
   target: {fileID: 0}
-  wind_projectile_prefab: {fileID: 4361985393991174773, guid: ec9fe29c9bab5a94a9bde42ae1ab3710, type: 3}
+  wind_projectile_prefab: {fileID: 4361985393991174773, guid: a019dc6971a05ca4b96af58bf05886c0, type: 3}
   angle: 0
   fire_rate: 0
-  bulletprefeb: {fileID: 0}
-  firepoint: {fileID: 0}
+  bulletprefeb: {fileID: 4361985393991174773, guid: a019dc6971a05ca4b96af58bf05886c0, type: 3}
   projectile_spawn_point: {fileID: 7392183132699171008}
 --- !u!1 &7392183132699171008
 GameObject:

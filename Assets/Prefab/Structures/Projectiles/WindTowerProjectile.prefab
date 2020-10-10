@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7691259112882045451}
   - component: {fileID: 7180189555983334659}
   m_Layer: 8
-  m_Name: WindAttackProjectile
-  m_TagString: Player
+  m_Name: WindTowerProjectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
