@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f27cf5c1744e3b42a193583a552ad49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {x: 0, y: 0}
+  spawnPosition: {x: 0, y: 0, z: 0}
   current_element: 2
   current_state: 0
   current_life: 0
@@ -107,3 +107,8 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
+  radius: 0
+  target: {fileID: 0}
+  wind_projectile_prefab: {fileID: 4361985393991174773, guid: ec9fe29c9bab5a94a9bde42ae1ab3710, type: 3}
+  angle: 0
+  fire_rate: 0

@@ -13,6 +13,13 @@ public class Tower : Structure
 
     public Transform target;
 
+    [SerializeField] private GameObject wind_projectile_prefab;
+
+    public float angle;
+
+    public float  fire_rate = 1f;
+    private float fire_countdown = 0.0f;
+
 
     //================================ Methods
 
@@ -28,16 +35,37 @@ public class Tower : Structure
 
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0.0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0.0f, 0.1f);
     }
 
     void Update()
     {
         if (target == null)
             return;
-        else
-            Debug.DrawLine(this.spawnPosition, target.position, Color.green, 2.5f);
+     
+        Debug.DrawLine(this.spawnPosition, target.position, Color.green, 1.0f);
 
+        if(fire_countdown <= 0.0f)
+        {
+            Shoot();
+            fire_countdown = 1f / fire_rate;
+        }
+
+        fire_countdown -= Time.deltaTime;
+
+
+    }
+
+    private void Shoot()
+    {
+        Instantiate(wind_projectile_prefab, this.spawnPosition, GetProjectileRotation(target.position));
+    }
+
+    private Quaternion GetProjectileRotation(Vector3 position)
+    {
+        Vector3 direction = target.position - this.spawnPosition;
+        float angle = Vector3.SignedAngle(Vector3.right, direction, Vector3.forward);
+        return Quaternion.Euler(0, 0, angle);
     }
 
     void UpdateTarget()
@@ -59,7 +87,11 @@ public class Tower : Structure
         if(nearestEnemy != null && shortestDistance <= radius)
         {
             target = nearestEnemy.transform;
-        }else
+            Vector3 targetDir = target.position - this.spawnPosition;
+
+            angle = Vector3.Angle(this.spawnPosition, target.position);
+        }
+        else
         {
             target = null;
         }
@@ -80,6 +112,15 @@ public class Tower : Structure
         this.radius = radius;
     }
 
+    public void SetFireRate(float rate)
+    {
+        this.fire_rate = rate;
+    }
+
+    public void SetFireCountdown(float countdown)
+    {
+        this.fire_countdown = countdown;
+    }
 
 
 }

@@ -83,6 +83,10 @@ public class StructureHandler : MonoBehaviour
         tower.SetCurrentExp(GetDictionnaryIntValue("default_exp"));
         tower.SetCurrentRuneNumber(GetDictionnaryIntValue("default_rune_number"));
         tower.SetAttackRadius(GetDictionnaryFloatValue("default_attack_radius"));
+
+        tower.SetFireCountdown(GetDictionnaryFloatValue("default_fire_countdown"));
+        tower.SetFireRate(GetDictionnaryFloatValue("default_fire_rate"));
+
         tower.SetSpawnPosition(transform.position);
         tower.SetCurrentState(StructureState.Idle);
     }

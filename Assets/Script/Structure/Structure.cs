@@ -7,7 +7,7 @@ using UnityEngine;
 public class Structure : MonoBehaviour
 {
     //================================ Variables
-    [SerializeField] protected Vector2 spawnPosition;
+    [SerializeField] protected Vector3 spawnPosition;
 
     [SerializeField] protected Elements current_element;
     [SerializeField] protected StructureState current_state;

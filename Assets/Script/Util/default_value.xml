@@ -8,7 +8,8 @@
   <key name="default_level"> 0 </key>
   <key name="default_exp"> 0 </key>
   <key name="default_rune_number"> 0 </key>
-  <key name="default_time_between_attacks"> 1 </key>
+  <key name="default_fire_rate"> 1 </key>
+  <key name="default_fire_countdown"> 0 </key>
   <key name="default_attack_radius"> 3 </key>
   <key name="default_attack_damages"> 30 </key>
   <key name="default_collision_radius"> 20 </key>
