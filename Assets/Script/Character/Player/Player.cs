@@ -10,13 +10,17 @@ public class Player : Character
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private KeyCode space = KeyCode.Space;
+
+    bool upKeyDown ;
+    bool leftKeyDown;
+    bool downKeyDown;
+    bool rightKeyDown;
+    bool spaceKeyDown;
+
+    StructureHandler structureHandler;
 
     private Elements currentSpellElement;
-
-    private bool upKeyDown;
-    private bool leftKeyDown;
-    private bool downKeyDown;
-    private bool rightKeyDown;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,9 @@ public class Player : Character
         leftKeyDown = false;
         downKeyDown = false;
         rightKeyDown = false;
+        spaceKeyDown = false;
+
+        structureHandler = gameObject.GetComponent<StructureHandler>();
     }
 
     // Update is called once per frame
@@ -38,6 +45,11 @@ public class Player : Character
             Attack();
         UpdateKeyState();
         CheckForMovement();
+
+        if (Input.GetKeyDown("space"))
+        {
+            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
+        }
     }
 
     private void CheckForMovement()
@@ -107,6 +119,7 @@ public class Player : Character
         UpdateLeftKeyState();
         UpdateDownKeyState();
         UpdateRightKeyState();
+        UpdateSpaceKeyState();
     }
 
     private void UpdateUpKeyState()
@@ -139,6 +152,14 @@ public class Player : Character
             rightKeyDown = true;
         else if (rightKeyDown && Input.GetKeyUp(rightKey))
             rightKeyDown = false;
+    }
+
+    private void UpdateSpaceKeyState()
+    {
+        if (!spaceKeyDown && Input.GetKeyDown(space))
+            spaceKeyDown = true;
+        else if (spaceKeyDown && Input.GetKeyUp(space))
+            spaceKeyDown = false;
     }
     
     #endregion

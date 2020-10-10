@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<labels>
+  <key name="MAX_TOWER_LIFE"> 100 </key>
+  <key name="MAX_TOWER_LEVEL"> 4 </key>
+  <key name="default_time_to_build"> 1</key>
+  <key name="default_time_to_repair"> 4 </key>
+  <key name="default_time_to_upgrade"> 10 </key>
+  <key name="default_level"> 0 </key>
+  <key name="default_exp"> 0 </key>
+  <key name="default_rune_number"> 0 </key>
+  <key name="default_time_between_attacks"> 1 </key>
+  <key name="default_attack_radius"> 3 </key>
+  <key name="default_attack_damages"> 30 </key>
+  <key name="default_collision_radius"> 20 </key>
+  
+
+</labels>
