@@ -4,38 +4,57 @@ using Script.Character;
 
 public class Enemy : Character
 {
-    [SerializeField] EnemyDirections initialDirection = EnemyDirections.NONE;
 
-    const string TARGET_DETECTION_HITBOX_NAME = "TagetDetectionHitbox";
-    const int ENEMY_HEALTH = 25;
-    const int ATTACK_RANGE = 5;
+    [SerializeField] int enemyAttackRange = 2;
+    [SerializeField] int enemyDetectionRange = 10;
+    [SerializeField] bool isInWave = false;
 
     GameObject target;
     Player player;
 
+    bool isPlayerDetected = false;
+
     void Start()
     {
         health = baseHealth;
-        player = GetComponent<Player>();
-    }
+        player = GameObject.Find("Player").gameObject.GetComponent<Player>();
 
+        if (!isInWave)
+            target = player.gameObject;
+    }
 
     void Update()
     {
-        if (!IsNearTarget(target))
-            Move();
+        if (isInWave)
+        {
+            if (!IsNearTarget())
+                Move();
+            else
+                Attack();
+        }
         else
-            Attack(target);
+        {
+            isPlayerNear();
+
+            if (isPlayerDetected)
+            {
+                if (IsNearTarget())
+                    Attack();
+                else
+                    Move();
+            }
+        }
         
     }
 
     void Move()
     {
-        target = GetNewTarget();
-        FollowTarget(target);
+        if (isInWave)
+            target = GetNewTarget();
+        FollowTarget();
     }
 
-    void FollowTarget(GameObject target)
+    void FollowTarget()
     {
         Vector2 targetPosition = target.transform.position;
         Vector2 direction;
@@ -43,20 +62,32 @@ public class Enemy : Character
         direction.x = transform.position.x - targetPosition.x;
         direction.y = transform.position.y - targetPosition.y;
 
-        transform.Translate(Time.deltaTime * speed * direction);
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
     }
 
-    bool IsNearTarget(GameObject target)
+    bool IsNearTarget()
     {
-        Vector2 targetPosition = target.transform.position;
-        float distanceToTarget;
+        if (target != null)
+        {
+            Vector2 targetPosition = target.transform.position;
+            float distanceToTarget;
 
-        distanceToTarget = DistanceCalculator(targetPosition);
+            distanceToTarget = DistanceCalculator(targetPosition);
 
-        if (distanceToTarget <= 5)
-            return true;
+            if (distanceToTarget <= enemyAttackRange)
+                return true;
+        }
 
         return false;
+    }
+
+    void isPlayerNear()
+    {
+        if (DistanceCalculator(player.transform.position) <= enemyDetectionRange)
+            isPlayerDetected = true;
+        else
+            if (DistanceCalculator(player.transform.position) <= enemyDetectionRange * 3)
+                isPlayerDetected = false;
     }
 
     GameObject GetNewTarget()
@@ -68,23 +99,27 @@ public class Enemy : Character
         float distanceToCurrentTarget = float.MaxValue;
         GameObject currentTarget = null;
 
-        for (int i = 0; i < structuresTargets.Length; i++)
+        if(GameObject.FindGameObjectsWithTag("Structure").Length > 0)
         {
-            Vector2 targetPosition = structuresTargets[i].transform.position;
-            distanceToTarget = DistanceCalculator(targetPosition);
-
-            
-            if (distanceToTarget < distanceToCurrentTarget)
+            foreach (GameObject structure in GameObject.FindGameObjectsWithTag("Structure"))
             {
-                distanceToCurrentTarget = distanceToTarget;
-                currentTarget = structuresTargets[i].gameObject;
+                distanceToTarget = DistanceCalculator(structure.transform.position);
+
+                if (distanceToTarget < distanceToCurrentTarget)
+                {
+                    distanceToCurrentTarget = distanceToTarget;
+                    currentTarget = structure.gameObject;
+                }
             }
         }
+        
+        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
+            currentTarget = player.gameObject;
 
         return currentTarget;
     }
 
-    void Attack(GameObject target)
+    void Attack()
     {
         
     }
