@@ -73,7 +73,7 @@ namespace Script.GameMaster.WaveSpawner
         {
             if (currentWaveContent[(int) direction] > 0)
             {
-                Instantiate(enemies[rndEnemy.Next(enemies.Length)], spawnPoints[(int) direction].transform.position,
+                Instantiate(enemies[rndEnemy.Next(0, enemies.Length)], spawnPoints[(int) direction].transform.position,
                     spawnPoints[(int) direction].transform.rotation);
                 currentWaveContent[(int) direction]--;
             }

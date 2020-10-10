@@ -11,7 +11,7 @@ namespace Script.Character.Player
 
         public void FireAttack(Vector3 position)
         {
-            Instantiate(fireProjectilePrefab, position, GetProjectileRotation(position));
+            Instantiate(fireProjectilePrefab, Camera.main.ScreenToWorldPoint(Input.mousePosition), GetProjectileRotation(position));
         }
 
         public void EarthAttack(Vector3 position)
