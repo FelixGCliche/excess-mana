@@ -12,6 +12,14 @@ public class Player : Character
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private KeyCode space = KeyCode.Space;
 
+    bool upKeyDown ;
+    bool leftKeyDown;
+    bool downKeyDown;
+    bool rightKeyDown;
+    bool spaceKeyDown;
+
+    StructureHandler structureHandler;
+
     private Elements currentSpellElement;
 
     // Start is called before the first frame update
