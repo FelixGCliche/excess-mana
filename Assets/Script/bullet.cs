@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using Script.Projectile;
+using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class bullet : Projectile
 {
     public Transform target;
-    public float speed = 35f;
 
 
 
@@ -22,7 +22,7 @@ public class bullet : MonoBehaviour
         }
 
         Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = (speed * Time.deltaTime) / 8;
+        float distanceThisFrame = (projectileSpeed * Time.deltaTime) / 8;
 
         if(dir.magnitude <= distanceThisFrame)
         {

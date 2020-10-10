@@ -7,7 +7,7 @@ namespace Script.Projectile
     {
         [SerializeField] private Elements projectileElement = Elements.NONE;
         [SerializeField][Range(1, 100)] private float projectileDamage = 10f;
-        [SerializeField][Range(1, 100)] private float projectileSpeed = 10f;
+        [SerializeField][Range(1, 100)] protected float projectileSpeed = 10f;
 
         private void Update()
         {
