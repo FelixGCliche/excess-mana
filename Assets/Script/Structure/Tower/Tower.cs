@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Xml;
+using UnityEngine;
 
 public class Tower : Structure
 {
@@ -9,6 +10,7 @@ public class Tower : Structure
     private Elements tower_element;
 
     private float radius;
+
 
     //================================ Methods
 
@@ -19,7 +21,7 @@ public class Tower : Structure
 
     void awake()
     {
-
+       
     }
 
     void Start()
@@ -31,6 +33,14 @@ public class Tower : Structure
     {
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+            print("urhtguirho");
+        
+    }
+
 
     //================================ Accessors
     public void SetAttackRadius(float radius)

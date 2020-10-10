@@ -14,8 +14,14 @@ public class Player : Character
     bool rightKeyDown;
     bool spaceKeyDown;
 
-    [SerializeField] private StructureHandler structureHandler;
+   private StructureHandler structureHandler;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        print("urhtguirho");
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,8 @@ public class Player : Character
         downKeyDown = false;
         rightKeyDown = false;
         spaceKeyDown = false;
+
+        structureHandler = gameObject.GetComponent<StructureHandler>();
     }
 
     // Update is called once per frame
@@ -35,7 +43,7 @@ public class Player : Character
 
         if (Input.GetKeyDown("space"))
         {
-            structureHandler.BuildTower(gameObject.transform, Elements.FIRE);
+            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
         }
     }
 

@@ -377,7 +377,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   altair: {fileID: 0}
-  tower: {fileID: 2653469037316508542, guid: 54c5ee8f7ad920549b1e76f042713d70, type: 3}
+  air_tower: {fileID: 8609010714329377155, guid: 870aa34f1ca6ce5478b8d9f27158c2ea, type: 3}
+  earth_tower: {fileID: 0}
+  fire_tower: {fileID: 0}
+  water_tower: {fileID: 0}
   current_tower_count: 0
 --- !u!1001 &8850474533191130730
 PrefabInstance:
@@ -392,6 +395,10 @@ PrefabInstance:
       objectReference: {fileID: 2653469037316508542, guid: 54c5ee8f7ad920549b1e76f042713d70, type: 3}
     - target: {fileID: 7634762382311311185, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
       propertyPath: s
+      value: 
+      objectReference: {fileID: 1143355894}
+    - target: {fileID: 7634762382311311185, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
+      propertyPath: structureHandler
       value: 
       objectReference: {fileID: 1143355894}
     - target: {fileID: 8850474533745349296, guid: c81a2e7f4938c4e468a9c6abde22dc0b, type: 3}
