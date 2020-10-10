@@ -68,7 +68,7 @@ public class Structure : MonoBehaviour
     protected void Destroy()
     {
         //[TODO] sprite
-        current_state = StructureState.Destroyed;
+        Destroy(this.gameObject);
     }
 
     protected void TakeDamage(float damage)
@@ -88,7 +88,7 @@ public class Structure : MonoBehaviour
         if (current_life <= 0)
             Destroy();
         else
-            healthBar.AdjustHealthBar(current_life / baseHealth);
+            healthBar.AdjustHealthBar(current_life / 100);
     }
 
     //================================ Accessors
