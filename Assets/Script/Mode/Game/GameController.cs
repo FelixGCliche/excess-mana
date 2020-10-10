@@ -1,9 +1,10 @@
-﻿using Harmony;
+﻿using GameController;
+using Harmony;
 using UnityEngine;
 
 namespace Game
 {
-  public class Game : MonoBehaviour
+  public class GameController : MonoBehaviour
   {
     private InputActions.GameActions gameInputs;
 

@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace Game
 {
   [Findable(Tags.MainController)]
-  public class Main : MonoBehaviour
+  public class MainController : MonoBehaviour
   {
     [Header("Scenes")] 
     [SerializeField] private SceneBundle gameScenes;
