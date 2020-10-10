@@ -1,6 +1,8 @@
-﻿using Script.Character;
+﻿using Harmony;
+using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : Character
 {
@@ -18,6 +20,12 @@ public class Player : Character
     bool rightKeyDown;
     bool spaceKeyDown;
 
+    private InputAction moveInputs;
+    private InputAction aimInput;
+    private bool fire;
+    private bool interact;
+    private bool build;
+
     StructureHandler structureHandler;
     private PlayerInventory inventory;
 
@@ -26,6 +34,12 @@ public class Player : Character
     private new void Awake()
     {
         base.Awake();
+
+        moveInputs = Finder.Inputs.Actions.Game.Move;
+        aimInput = Finder.Inputs.Actions.Game.Aim;
+        fire = Finder.Inputs.Actions.Game.Fire.triggered;
+        interact = Finder.Inputs.Actions.Game.Interact.triggered;
+        build = Finder.Inputs.Actions.Game.Interact.triggered;
     }
 
     // Start is called before the first frame update
@@ -48,37 +62,37 @@ public class Player : Character
     void Update()
     {
         UpdateElement();
-        if (Input.GetKeyDown(attackKey))
+        if (fire)
             Attack();
-        UpdateKeyState();
+        // UpdateKeyState();
         CheckForMovement();
 
-        if (Input.GetKeyDown("space"))
-        {
+        if (build)
             structureHandler.BuildTower(gameObject.transform, Elements.WIND);
-        }
+        
     }
 
     private void CheckForMovement()
     {
         Vector2 movement = Vector2.zero;
 
-        if (upKeyDown && !downKeyDown)
-            movement += Vector2.up;
-        else if(!upKeyDown && downKeyDown)
-            movement += Vector2.down;
+        // if (upKeyDown && !downKeyDown)
+        //     movement += Vector2.up;
+        // else if(!upKeyDown && downKeyDown)
+        //     movement += Vector2.down;
+        //
+        // if (leftKeyDown && !rightKeyDown)
+        //     movement += Vector2.left;
+        // else if (!leftKeyDown && rightKeyDown)
+        //     movement += Vector2.right;
+        //
+        // if (movement.x != 0 && movement.y != 0)
+        // {
+        //     movement.x *= 0.7f;
+        //     movement.y *= 0.7f;
+        // }
 
-        if (leftKeyDown && !rightKeyDown)
-            movement += Vector2.left;
-        else if (!leftKeyDown && rightKeyDown)
-            movement += Vector2.right;
-
-        if (movement.x != 0 && movement.y != 0)
-        {
-            movement.x *= 0.7f;
-            movement.y *= 0.7f;
-        }
-
+        
         transform.Translate(Time.deltaTime * speed * movement);
 
     }
