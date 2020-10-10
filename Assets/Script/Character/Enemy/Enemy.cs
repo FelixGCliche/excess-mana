@@ -10,42 +10,29 @@ public class Enemy : Character
     const int ENEMY_HEALTH = 25;
     const int ATTACK_RANGE = 5;
 
-    CircleCollider2D targetDetectionHitbox;
+    GameObject target;
+    Player player;
 
     void Start()
     {
-        targetDetectionHitbox = GameObject.Find(TARGET_DETECTION_HITBOX_NAME).GetComponent<CircleCollider2D>();
+        health = baseHealth;
+        player = GetComponent<Player>();
     }
 
 
     void Update()
     {
-        Move();
-        
+        if (!IsNearTarget(target))
+            Move();
+        else
+            Attack(target);
         
     }
 
     void Move()
     {
-
-        switch (initialDirection)
-        {
-            case EnemyDirections.RIGHT:
-                transform.Translate(Time.deltaTime * speed * Vector2.right);
-                break;
-            case EnemyDirections.LEFT:
-                transform.Translate(Time.deltaTime * speed * Vector2.left);
-                break;
-            case EnemyDirections.UP:
-                transform.Translate(Time.deltaTime * speed * Vector2.up);
-                break;
-            case EnemyDirections.DOWN:
-                transform.Translate(Time.deltaTime * speed * Vector2.down);
-                break;
-            case EnemyDirections.FOLLOW_TARGET:
-                //Follow target
-                break;
-        }
+        target = GetNewTarget();
+        FollowTarget(target);
     }
 
     void FollowTarget(GameObject target)
@@ -62,12 +49,9 @@ public class Enemy : Character
     bool IsNearTarget(GameObject target)
     {
         Vector2 targetPosition = target.transform.position;
-        Vector2 direction;
         float distanceToTarget;
 
-        direction.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
-        direction.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
-        distanceToTarget = Mathf.Sqrt(direction.x + direction.y);
+        distanceToTarget = DistanceCalculator(targetPosition);
 
         if (distanceToTarget <= 5)
             return true;
@@ -75,23 +59,52 @@ public class Enemy : Character
         return false;
     }
 
+    GameObject GetNewTarget()
+    {
+        Structure[] structuresTargets = new Structure[1];
+        structuresTargets = GetComponents<Structure>();
+        
+        float distanceToTarget = 0;
+        float distanceToCurrentTarget = float.MaxValue;
+        GameObject currentTarget = null;
+
+        for (int i = 0; i < structuresTargets.Length; i++)
+        {
+            Vector2 targetPosition = structuresTargets[i].transform.position;
+            distanceToTarget = DistanceCalculator(targetPosition);
+
+            
+            if (distanceToTarget < distanceToCurrentTarget)
+            {
+                distanceToCurrentTarget = distanceToTarget;
+                currentTarget = structuresTargets[i].gameObject;
+            }
+        }
+
+        return currentTarget;
+    }
+
     void Attack(GameObject target)
     {
         
     }
 
-    void detectTarget();
-
-
-    bool IsDetectingTarget()
-    {
-
-        return false;
-    }
 
     protected override void Kill()
     {
         //Play sound
         Destroy(gameObject);
+    }
+
+    float DistanceCalculator(Vector2 targetPosition)
+    {
+        Vector2 directionToTarget;
+        float distanceToTarget;
+
+        directionToTarget.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
+        directionToTarget.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
+        distanceToTarget = Mathf.Sqrt(directionToTarget.x + directionToTarget.y);
+
+        return distanceToTarget;
     }
 }
