@@ -1,4 +1,5 @@
 ﻿using System;
+using Harmony;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -43,10 +44,10 @@ namespace Game
     }
 
     private void SetSensorLayer()
-      {
-        // gameObject.layer = ;
-      }
+    {
+      gameObject.layer = Layers.Sensor;
     }
+  }
 
   public delegate void StimuliEventHandler(GameObject otherObject);
-  }
+}
