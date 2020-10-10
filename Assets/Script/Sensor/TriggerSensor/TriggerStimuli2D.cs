@@ -53,6 +53,4 @@ namespace Game
       if (OnDestroyed != null) OnDestroyed(transform.parent.gameObject);
     }
   }
-
-  public delegate void StimuliEventHandler(GameObject otherObject);
 }
