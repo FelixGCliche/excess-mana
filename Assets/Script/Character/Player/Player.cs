@@ -13,6 +13,7 @@ public class Player : Character
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private KeyCode space = KeyCode.Space;
+    [SerializeField] private KeyCode e = KeyCode.E;
 
 
     bool upKeyDown ;
@@ -21,13 +22,13 @@ public class Player : Character
     bool rightKeyDown;
     bool spaceKeyDown;
 
-    StructureHandler structureHandler;
+    public StructureHandler structureHandler;
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
     
     private new void Awake()
-    {
+    { 
         base.Awake();
     }
 
@@ -44,7 +45,6 @@ public class Player : Character
         rightKeyDown = false;
         spaceKeyDown = false;
 
-        structureHandler = gameObject.GetComponent<StructureHandler>();
     }
 
     // Update is called once per frame
@@ -59,6 +59,13 @@ public class Player : Character
         if (Input.GetKeyDown("space"))
         {
             structureHandler.BuildTower(gameObject.transform, Elements.WIND);
+        }
+
+        
+
+        if(Input.GetKeyDown("e"))
+        {
+            structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
         }
     }
 

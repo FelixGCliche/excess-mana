@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : Structure
 {
@@ -9,6 +10,8 @@ public class Tower : Structure
     public float radius;
 
     public Transform target;
+
+    public int max_level;
 
     public float  fire_rate = 1f;
     private float fire_countdown = 0.0f;
@@ -24,6 +27,9 @@ public class Tower : Structure
     bool interackKeyDown;
     bool neverDOne;
 
+    public TextMesh text;
+    public bool is_selected;
+
     //================================ Methods
 
 
@@ -33,12 +39,17 @@ public class Tower : Structure
         default_life = current_life;
         interackKeyDown = false;
         neverDOne = false;
+
+        text.text = "Current Level : " + current_level.ToString();
+        is_selected = false;
+
     }
 
     private void OnMouseOver()
     {
 
-        TakeDmage(00.01f, current_element);
+      //  TakeDmage(10f, current_element);
+        is_selected = true;
         /*if(Input.GetMouseButtonDown(2))
         {
             current_life = 45;
@@ -73,6 +84,11 @@ public class Tower : Structure
 
     }
 
+    private void OnMouseExit()
+    {
+        is_selected = false;
+    }
+
 
     void Update()
     {
@@ -88,6 +104,20 @@ public class Tower : Structure
         }
 
         fire_countdown -= Time.deltaTime;
+
+       
+
+    }
+
+    public void AddExp()
+    {
+
+    }
+
+    public override void SetCurrentLevel(int level)
+    {
+        this.current_level = level;
+        text.text = "Current Level : " + current_level.ToString();
     }
 
     private void Shoot()

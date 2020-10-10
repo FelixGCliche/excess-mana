@@ -60,26 +60,16 @@ public class Structure : MonoBehaviour
         current_life += health;
     }
 
-    protected void Upgrade()
-    {
-        LevelUp();
-        //[TODO] Asset upgrade
-    }
     protected void Destroy()
     {
         //[TODO] sprite
+        current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }
 
     protected void TakeDamage(float damage)
     {
         SetCurrentLife(damage);
-    }
-
-    protected void LevelUp()
-    {
-        int temp = GetCurrentLevel();
-        SetCurrentLevel(temp++);
     }
 
     public void TakeDmage(float damageAmount, Elements damageElement)
@@ -98,7 +88,7 @@ public class Structure : MonoBehaviour
         this.current_life = life;
     }
 
-    public void SetCurrentLevel(int level)
+    public virtual void SetCurrentLevel(int level)
     {
         this.current_level = level;
     }
@@ -131,6 +121,11 @@ public class Structure : MonoBehaviour
     public void SetCurrentElement(Elements e)
     {
         this.current_element = e;
+    }
+
+    public StructureState GetCurrentState()
+    {
+        return current_state;
     }
 
 
