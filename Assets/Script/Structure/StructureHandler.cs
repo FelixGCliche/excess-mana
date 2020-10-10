@@ -77,7 +77,6 @@ public class StructureHandler : MonoBehaviour
         }
         else 
         {
-            StopCoroutine(tower_list[tower_id].DoRepair(10));
             tower_list[tower_id].current_life = tower_list[tower_id].default_life;
         }
     }
