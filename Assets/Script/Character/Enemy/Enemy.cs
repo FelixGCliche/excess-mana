@@ -1,17 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Script.Util;
 using Script.Character;
 
 public class Enemy : Character
 {
     [SerializeField] int enemyAttackRange = 2;
+    [SerializeField] int enemyAttackSpeed = 1;
     [SerializeField] int enemyDetectionRange = 10;
+    [SerializeField] int damage = 10;
     [SerializeField] bool isInWave;
 
     private int test;
-    GameObject target;
+    Targets target = Targets.NONE;
+    Vector2 targetPosition;
+    Structure targetStructure;
     Player player;
-
+    bool isDealingDamage;
     bool isPlayerDetected;
 
     void Start()
@@ -20,7 +25,7 @@ public class Enemy : Character
         player = GameObject.Find("Player").gameObject.GetComponent<Player>();
 
         if (!isInWave)
-            target = player.gameObject;
+            target = Targets.PLAYER;
     }
 
     void Update()
@@ -34,7 +39,7 @@ public class Enemy : Character
         }
         else
         {
-            isPlayerNear();
+            IsPlayerNear();
 
             if (isPlayerDetected)
             {
@@ -49,13 +54,13 @@ public class Enemy : Character
     void Move()
     {
         if (isInWave)
-            target = GetNewTarget();
+            GetNewTarget();
+        
         FollowTarget();
     }
 
     void FollowTarget()
     {
-        Vector2 targetPosition = target.transform.position;
         Vector2 direction;
 
         direction.x = targetPosition.x - transform.position.x;
@@ -66,9 +71,11 @@ public class Enemy : Character
 
     bool IsNearTarget()
     {
-        if (target != null)
+        if (target == Targets.PLAYER)
+            targetPosition = player.transform.position;
+        
+        if (target != Targets.NONE)
         {
-            Vector2 targetPosition = target.transform.position;
             float distanceToTarget;
 
             distanceToTarget = DistanceCalculator(targetPosition);
@@ -80,44 +87,48 @@ public class Enemy : Character
         return false;
     }
 
-    void isPlayerNear()
+    void IsPlayerNear()
     {
         if (DistanceCalculator(player.transform.position) <= enemyDetectionRange)
             isPlayerDetected = true;
         else
-            if (DistanceCalculator(player.transform.position) <= enemyDetectionRange * 3)
-                isPlayerDetected = false;
+            isPlayerDetected = false;
     }
 
-    GameObject GetNewTarget()
+    void GetNewTarget()
     {
-        float distanceToTarget = 0;
+        float distanceToTarget;
         float distanceToCurrentTarget = float.MaxValue;
-        GameObject currentTarget = null;
+        Structure currentTarget = null;
 
-        if(GameObject.FindGameObjectsWithTag("Structure").Length > 0)
+        if(FindObjectsOfType<Structure>().Length > 0)
         {
-            foreach (GameObject structure in GameObject.FindGameObjectsWithTag("Structure"))
+            foreach (Structure structure in FindObjectsOfType<Structure>())
             {
                 distanceToTarget = DistanceCalculator(structure.transform.position);
 
                 if (distanceToTarget < distanceToCurrentTarget)
                 {
                     distanceToCurrentTarget = distanceToTarget;
-                    currentTarget = structure.gameObject;
+                    currentTarget = structure;
+                    target = Targets.STRUCTURE;
+                    targetPosition = currentTarget.transform.position;
+                    targetStructure = currentTarget;
                 }
             }
         }
-        
-        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
-            currentTarget = player.gameObject;
 
-        return currentTarget;
+        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
+        {
+            target = Targets.PLAYER;
+            targetPosition = player.transform.position;
+        }
     }
 
     void Attack()
     {
-        
+        if (!isDealingDamage)
+            StartCoroutine(DealDamage());
     }
 
 
@@ -137,5 +148,25 @@ public class Enemy : Character
         distanceToTarget = Mathf.Sqrt(directionToTarget.x + directionToTarget.y);
 
         return distanceToTarget;
+    }
+
+    IEnumerator DealDamage()
+    {
+        isDealingDamage = true;
+        while (IsNearTarget())
+        {
+            if (target == Targets.PLAYER)
+            {
+                player.TakeDamage(damage, element);
+            }
+            else if (target == Targets.STRUCTURE)
+            {
+                targetStructure.TakeDamage(damage);
+            }
+
+            yield return new WaitForSeconds(enemyAttackSpeed);
+        }
+
+        isDealingDamage = false;
     }
 }

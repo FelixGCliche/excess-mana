@@ -270,7 +270,9 @@ MonoBehaviour:
   element: 0
   healthBar: {fileID: 3150468271797856501}
   enemyAttackRange: 2
+  enemyAttackSpeed: 2
   enemyDetectionRange: 10
+  damage: 5
   isInWave: 0
 --- !u!50 &8649857712163085490
 Rigidbody2D:

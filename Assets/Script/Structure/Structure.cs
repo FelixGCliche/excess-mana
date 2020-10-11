@@ -88,7 +88,7 @@ public class Structure : MonoBehaviour
         current_state = StructureState.Destroyed;
     }
 
-    protected void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         SetCurrentLife(damage);
     }
