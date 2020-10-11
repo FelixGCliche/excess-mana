@@ -8,7 +8,7 @@ namespace Script.Character
     {
         [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
         [SerializeField] protected Elements element = Elements.NONE;
-        [SerializeField] private ProgressBar healthBar;
+        [SerializeField] protected ProgressBar healthBar;
 
         protected float health;
         private TriggerSensor2D triggerSensor;

@@ -1016,9 +1016,9 @@ MonoBehaviour:
   baseHealth: 100
   element: 0
   healthBar: {fileID: 2644557076933365669}
+  manaBar: {fileID: 4835544611222731631}
   playerAttack: {fileID: 8540752839408882116}
   spriteTransform: {fileID: 5631840820729640034}
-  manaBar: {fileID: 4835544611222731631}
   structureHandler: {fileID: 7697541526935344442}
   grid: {fileID: 0}
 --- !u!50 &8011928020265856009
