@@ -59,6 +59,6 @@ public class ElementHandler : MonoBehaviour
 
     private void InformPlayerThatElementIsDeactivated(Elements element) 
     {
-        //player.LearnThatElementIsDeactivated(element);
+        player.LearnThatElementIsDeactivated(element);
     }
 }
