@@ -106,7 +106,7 @@ public class Tower : Structure
         return Quaternion.Euler(0, 0, angle);
     }
 
-    private void Upgrade()
+    public void Upgrade()
     {
         if (currentHealth == initialHealth)
         {
