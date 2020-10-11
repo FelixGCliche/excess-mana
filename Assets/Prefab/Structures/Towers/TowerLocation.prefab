@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06d4f00409c8be46bb2ba7c1f399ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airTower: {fileID: 1667994736394323283, guid: 8eb63a3c9df501c43849a39632d4da82, type: 3}
-  earthTower: {fileID: 7635017335708383999, guid: 12462aa8f9177a64cacd71265eeed4b9, type: 3}
+  airTower: {fileID: 6325168864562159581, guid: 28838d452fbefd648a70311e90814bb3, type: 3}
+  earthTower: {fileID: 3388395022490535843, guid: d0bc368a1d075c141961df0ce80e2c82, type: 3}
   fireTower: {fileID: 3324738436461931963, guid: fcfbaebdeddea4d4a92bbf9640b9d019, type: 3}
-  waterTower: {fileID: 2724621609892854817, guid: 7159ab838afbf734abb18b8283f6e8db, type: 3}
+  waterTower: {fileID: 6231945472264828938, guid: 7567f8e61158dfb4894ff9b33b9de6c3, type: 3}
 --- !u!65 &-4222288003914796021
 BoxCollider:
   m_ObjectHideFlags: 0

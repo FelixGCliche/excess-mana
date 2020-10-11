@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileElement: 0
-  projectileDamage: 10
+  projectileDamage: 30
   projectileSpeed: 10
   projectileDuration: 0.2
   isPiercing: 1
