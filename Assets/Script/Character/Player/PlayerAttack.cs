@@ -70,8 +70,10 @@ namespace Game
             float lenghtMultiplier = distance / hypothenuse;
             float x = direction.x * lenghtMultiplier;
             float y = direction.y * lenghtMultiplier;
-            
-            parentTransform.DOMove(position + new Vector3(x, y, 0), 0.2f * lenghtMultiplier);
+            float duration = 0.2f;
+            if (lenghtMultiplier < 1)
+                duration *= lenghtMultiplier;
+            parentTransform.DOMove(position + new Vector3(x, y, 0), duration);
             timeBeforeNextAttack = timeBetweenAttack;
         }
 
