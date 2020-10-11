@@ -26,13 +26,21 @@ public class RuneZone : MonoBehaviour
         {
                 foreach (Rune rune in spawnedRunes)
                 {
-                        if (rune != null)
-                                Destroy(rune.gameObject);
+                    if (rune != null)
+                        Destroy(rune.gameObject);
                 }
 
                 for (int i = 0; i < amountToSpawn; i++)
                 {
                         spawnedRunes[i] = Instantiate(runeToSpawn, new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)), Quaternion.identity);
+                        if (spawnedRunes[i].IsInWall())
+                        {
+                                if (spawnedRunes[i] != null)
+                                {
+                                        Destroy(spawnedRunes[i].gameObject);
+                                        i--;
+                                } 
+                        }
                 }
         }
 }
