@@ -1,10 +1,15 @@
-﻿using Harmony;
+﻿using Game;
+using Harmony;
 
 public class Altar : Structure
 {
+    private GameController gameController;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        gameController = Finder.GameController;
     }
 
     // Update is called once per frame
@@ -13,10 +18,25 @@ public class Altar : Structure
 
     }
 
-    protected new void Destroy()
+    override protected void Destroy()
     {
         Finder.ElementHandler.DeactivateElement(currentElement);
+        areAllElementDeactivated();
         base.Destroy();
+    }
+
+    private void areAllElementDeactivated()
+    {
+        if (!Finder.ElementHandler.GetIsEarthActivated() && 
+            !Finder.ElementHandler.GetIsFireActivated() && 
+            !Finder.ElementHandler.GetIsWaterActivated() && 
+            !Finder.ElementHandler.GetIsWindActivated() )
+        AltarsAreDestoyed();
+    }
+
+    void AltarsAreDestoyed()
+    {
+        gameController.AltarsAreDestoyed();
     }
 }
 

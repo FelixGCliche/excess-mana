@@ -1,5 +1,6 @@
 ﻿using System;
 using Script.GameMaster.WaveSpawner;
+using Script.Util;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,6 +61,7 @@ public class CycleHandler : MonoBehaviour
         else if (waveSpawner.HaveAllEnemyBeenSlain())
         {
             BeginDay();
+            PlayerStats.Days++;
         }
         else
         {

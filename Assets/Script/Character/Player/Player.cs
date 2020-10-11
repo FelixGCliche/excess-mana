@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using  Game;
+using System.Collections.Generic;
+using Script.Menu;
+using UnityEngine.Serialization;
 
 [Findable(Tags.Player)]
 public class Player : Character
@@ -17,8 +20,9 @@ public class Player : Character
     [SerializeField] private Transform spriteTransform;
 
     private PlayerInventory inventory;
-
+    
     private InputAction moveInputs;
+    
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
     private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
@@ -61,6 +65,7 @@ public class Player : Character
     {
         health = baseHealth;
         currentSpellElement = Elements.FIRE;
+        elementHandler.SubscribePlayer(this);
 
         transform.position = new Vector3(0,0,0);
 
@@ -77,6 +82,9 @@ public class Player : Character
         if (Fire)
             Attack();
 
+        if (baseHealth <= 0)
+            Kill();
+        
         if (moveInputs.ReadValue<Vector2>() != Vector2.zero && !isRunning)
         {
             StartCoroutine(PlayRunSound());

@@ -41,7 +41,7 @@ public class Structure : MonoBehaviour
         }
     }
 
-    protected void Destroy()
+    virtual protected void Destroy()
     {
         Destroy(this.gameObject);
     }
