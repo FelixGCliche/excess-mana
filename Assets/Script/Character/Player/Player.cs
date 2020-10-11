@@ -255,6 +255,7 @@ public class Player : Character
        inventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
        inventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
 
+        StartCoroutine(DoRegenLife(1));
     }
 
     // Update is called once per frame
@@ -443,4 +444,27 @@ public class Player : Character
                 currentSpellElement = Elements.NONE;
         }
     }
+
+    public void RegenLife(int life_amount)
+    {
+        if (health < baseHealth)
+        {
+            health += life_amount;
+        }
+        else
+        {
+            health = baseHealth;
+        }
+        healthBar.UpdateProgressBar(health / baseHealth);
+    }
+
+    public IEnumerator DoRegenLife(int life_amount)
+    {
+        for(; ; )
+        {
+            RegenLife(life_amount);
+            yield return new WaitForSeconds(1);
+        }
+    }
+
 }
