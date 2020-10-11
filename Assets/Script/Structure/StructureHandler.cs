@@ -110,7 +110,7 @@ public class StructureHandler : MonoBehaviour
 
     public void SetLifeTo1(int tower_id)
     {
-        tower_list[tower_id].TakeDmage(99f,Elements.FIRE);
+        tower_list[tower_id].TakeDamage(99f,Elements.FIRE);
     }
 
     public void RepairTower(int tower_id)

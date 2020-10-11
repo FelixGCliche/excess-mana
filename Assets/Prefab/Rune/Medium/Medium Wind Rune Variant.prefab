@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 856589323475412935, guid: c17b2ffeab8f6e244a9391ce1e666605, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f0ba59dce12463a4d83199bf22509647, type: 3}
+      objectReference: {fileID: 21300000, guid: 13f578e8ff13c09429dc8ff2ac74ea05, type: 3}
     - target: {fileID: 856589323592844205, guid: c17b2ffeab8f6e244a9391ce1e666605, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 856589323592844208, guid: c17b2ffeab8f6e244a9391ce1e666605, type: 3}
       propertyPath: m_Name
-      value: Medium Wind Rune
+      value: Medium Wind Rune Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c17b2ffeab8f6e244a9391ce1e666605, type: 3}
