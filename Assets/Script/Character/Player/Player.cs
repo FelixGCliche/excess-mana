@@ -20,8 +20,6 @@ public class Player : Character
     [SerializeField] private Transform spriteTransform;
 
     private PlayerInventory inventory;
-
-    [FormerlySerializedAs("gameOverMenu")] [SerializeField] private GameOverController gameOverController;
     
     private InputAction moveInputs;
     
