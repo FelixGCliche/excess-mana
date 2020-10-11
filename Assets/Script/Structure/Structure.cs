@@ -8,36 +8,18 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
-    //================================ Variables
-    [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
+    [SerializeField] [Range(0, 1000)] protected float initialHealth = 100;
 
-    [SerializeField] protected Vector3 spawnPosition;
-
-    [SerializeField] protected Elements current_element;
-    [SerializeField] protected StructureState current_state;
-
-    [SerializeField] public float current_life;
-
-    [SerializeField] protected float default_time_to_build;
-    [SerializeField] protected float default_time_to_repair;
-    [SerializeField] protected float default_time_to_upgrade;
-
-    [SerializeField] protected int current_level;
-    [SerializeField] protected int current_exp;
-    [SerializeField] protected int exp_required;
-
-    [SerializeField] protected int current_rune_number;
-
-    [SerializeField] protected float time_between_attacks;
+    [SerializeField] protected Elements currentElement;
 
     [SerializeField] protected ProgressBar healthBar;
+
+    protected float currentHealth;
 
     private AudioSource createSource;
     private AudioSource repairSource;
     private AudioSource upgradeSource;
     private AudioSource destroySource;
-
-    //================================ Methods
 
     void Start()
     {
@@ -47,38 +29,21 @@ public class Structure : MonoBehaviour
         destroySource = GameObject.Find("TowerDestroySource").gameObject.GetComponent<AudioSource>();
         
         createSource.Play();
-        
-        current_state = StructureState.Idle;
-    }
-
-    protected void Build()
-    {
-        transform.position = spawnPosition;
-    }
-
-
-
-    protected IEnumerator DoRepair(float health)
-    {
-        for (; ; )
-        {
-            Repair(health);
-            yield return new WaitForSeconds(.1f);
-        }
     }
 
     protected void Repair(float health)
     {
         repairSource.Play();
-        current_state = StructureState.Repairing;
-        SetCurrentLife(health);
+        SetCurrentLife(currentHealth + health);
+        if (currentHealth > initialHealth)
+        {
+            currentHealth = initialHealth;
+        }
     }
 
     protected void Destroy()
     {
-        //[TODO] sprite
         destroySource.Play();
-        current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }
 
@@ -89,72 +54,30 @@ public class Structure : MonoBehaviour
 
     public void TakeDamage(float damageAmount, Elements damageElement)
     {
-        baseHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
-        if (baseHealth <= 0)
+        initialHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, currentElement);
+        if (initialHealth <= 0)
             Destroy();
         else
-            healthBar.UpdateProgressBar(baseHealth / 100);
+            healthBar.UpdateProgressBar(initialHealth / 100);
     }
-
-    //================================ Accessors
 
     public void SetCurrentLife(float life)
     {
-        this.current_life = life;
+        this.currentHealth = life;
     }
 
     public float GetCurrentLife()
     {
-        return current_life;
-    }
-
-    public virtual void SetCurrentLevel(int level)
-    {
-        this.current_level = level;
-    }
-
-    public void SetCurrentExp(int exp)
-    {
-        this.current_exp = exp;
-    }
-
-    public void SetCurrentRuneNumber(int number)
-    {
-        this.current_rune_number = number;
-    }
-
-    public int GetCurrentRuneNumber()
-    {
-        return current_rune_number;
-    }
-
-    public int GetCurrentLevel()
-    {
-        return current_level;
-    }
-
-    public void SetSpawnPosition(Vector2 position)
-    {
-        this.spawnPosition = position;
-    }
-
-    public void SetCurrentState(StructureState state)
-    {
-        this.current_state = state;
+        return currentHealth;
     }
 
     public void SetCurrentElement(Elements e)
     {
-        this.current_element = e;
+        this.currentElement = e;
     }
 
     public Elements GetCurrentElement()
     {
-        return this.current_element;
-    }
-
-    public StructureState GetCurrentState()
-    {
-        return current_state;
+        return this.currentElement;
     }
 }
