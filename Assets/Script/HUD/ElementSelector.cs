@@ -31,7 +31,7 @@ namespace Script.HUD
         Finder.Inputs.Actions.Game.WindElement,
         Finder.Inputs.Actions.Game.WaterElement
       };
-
+      
       for (int i = 0; i < elementSelectInputs.Length; i++)
       {
         SetButtonTextFromBinding(buttons[i], elementSelectInputs[i]);
