@@ -28,15 +28,19 @@ namespace Game
       {
         case Elements.FIRE:
           fireRuneRessources.Collect(value);
+          fireRuneRessources.NotifyCollect();
           break;
         case Elements.EARTH:
           earthRuneRessources.Collect(value);
+          earthRuneRessources.NotifyCollect();
           break;
         case Elements.WIND:
           windRuneRessources.Collect(value);
+          windRuneRessources.NotifyCollect();
           break;
         case Elements.WATER:
           waterRuneRessources.Collect(value);
+          waterRuneRessources.NotifyCollect();
           break;
         default:
           throw new Exception("The RuneRessource you are trying to fetch doesn't exist");
