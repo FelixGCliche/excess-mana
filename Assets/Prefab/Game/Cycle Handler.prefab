@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6c6f217fed4a24ca6c81b0fa641741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayDuration: 180
-  timeBetweenWaves: 30
+  dayDuration: 5
+  timeBetweenWaves: 5
   waveAmount: 1
   nightOverlay: {fileID: 7545092697674977744}
   nightOverlayFullOpacity: 0.5

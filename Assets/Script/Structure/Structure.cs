@@ -77,7 +77,8 @@ public class Structure : MonoBehaviour
     protected void Destroy()
     {
         //[TODO] sprite
-        destroySource.Play();
+        //TODO Add Audio source in altar prefab
+        //destroySource.Play();
         current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }

@@ -1016,9 +1016,9 @@ MonoBehaviour:
   baseHealth: 100
   element: 0
   healthBar: {fileID: 2644557076933365669}
+  manaBar: {fileID: 4835544611222731631}
   playerAttack: {fileID: 8540752839408882116}
   spriteTransform: {fileID: 5631840820729640034}
-  manaBar: {fileID: 4835544611222731631}
   structureHandler: {fileID: 7697541526935344442}
   grid: {fileID: 0}
 --- !u!50 &8011928020265856009
@@ -1604,8 +1604,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 4005947766816156025}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!1 &4005947766816156025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 310368186591129733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4835544611222731631 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
@@ -1679,11 +1688,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a223b54d0d4e6d34cb2a7e20c35f41a6, type: 3}
---- !u!4 &8597855190077915969 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8976410394200600087, guid: a223b54d0d4e6d34cb2a7e20c35f41a6, type: 3}
-  m_PrefabInstance: {fileID: 847567386887630166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8540752839408882116 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9026888728509201554, guid: a223b54d0d4e6d34cb2a7e20c35f41a6, type: 3}
@@ -1695,6 +1699,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cbb81901524c67a17699df67f270ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8597855190077915969 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8976410394200600087, guid: a223b54d0d4e6d34cb2a7e20c35f41a6, type: 3}
+  m_PrefabInstance: {fileID: 847567386887630166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7198637501890643023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1778,8 +1787,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 5782596455147462067}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!1 &5782596455147462067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 7198637501890643023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2644557076933365669 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}

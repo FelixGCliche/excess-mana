@@ -35,5 +35,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Altar Earth
       objectReference: {fileID: 0}
+    - target: {fileID: 6026395596304484728, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 3043803752083120856}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+--- !u!1 &3043803752083120856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823401469151124334, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+  m_PrefabInstance: {fileID: 942237276702505398}
+  m_PrefabAsset: {fileID: 0}
