@@ -1,11 +1,9 @@
 ﻿using Harmony;
 using Script.Character;
-using Script.Character.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using  Game;
-using System.Collections.Generic;
 
 [Findable(Tags.Player)]
 public class Player : Character
@@ -18,14 +16,14 @@ public class Player : Character
 
     [SerializeField] private Transform spriteTransform;
 
+    private PlayerInventory inventory;
+
     private InputAction moveInputs;
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
     private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
     private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
     private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
-
-    private PlayerInventory playerInventory;
 
     public Elements currentSpellElement;
     private ElementHandler elementHandler;
@@ -39,6 +37,8 @@ public class Player : Character
     private AudioSource earthAttackSource;
 
     private bool isRunning;
+
+    public PlayerInventory Inventory => inventory;
     private new void Awake()
     { 
         base.Awake();
@@ -53,20 +53,16 @@ public class Player : Character
         
         moveInputs = Finder.Inputs.Actions.Game.Move;
         elementHandler = Finder.ElementHandler;
+        inventory = new PlayerInventory();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
         health = baseHealth;
-        playerInventory = new PlayerInventory();
         currentSpellElement = Elements.FIRE;
 
         transform.position = new Vector3(0,0,0);
-
-       playerInventory.AddRune(100, Elements.WIND, RuneSize.SMALL);
-       playerInventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
-       playerInventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
 
         StartCoroutine(DoRegenLife(1));
     }
@@ -76,6 +72,7 @@ public class Player : Character
     {
         UpdateManaBar();
         UpdateElement();
+        CollectRune();
         
         if (Fire)
             Attack();
@@ -129,18 +126,6 @@ public class Player : Character
                     waterAttackSource.Play();
                     break;
             }
-        }
-    }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Rune rune = other.GetComponentInParent<Rune>();
-        if (rune != null)
-        {
-            Elements runeElement = rune.GetElement();
-            RuneSize runeSize = rune.GetSize();
-            playerInventory.AddRune(1, runeElement, runeSize);
-            rune.PickUp();
         }
     }
 
@@ -226,6 +211,20 @@ public class Player : Character
         {
             RegenLife(life_amount);
             yield return new WaitForSeconds(1);
+        }
+    }
+
+    private void CollectRune()
+    {
+        ISensor<Rune> runeSensor = ColliderSensor.For<Rune>();
+        if (runeSensor.SensedObjects.Count > 0)
+        {
+            Debug.Log("Collecting");
+            foreach (Rune rune in runeSensor.SensedObjects)
+            {
+                inventory.Collect(rune.Element, rune.Value);
+                rune.PickUp();
+            }
         }
     }
 
