@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿using System.Collections;
+using Harmony;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,22 +24,6 @@ namespace Game
       btnWindRune = buttons.WithName(GameObjects.WindRuneCard);
       btnWaterRune = buttons.WithName(GameObjects.WaterRuneCard);
     }
-
-    // private void OnEnable()
-    // {
-    //   btnFireRune.onClick.AddListener(inventory.FireRuneRessources.NotifyCollect);
-    //   btnEarthRune.onClick.AddListener(inventory.EarthRuneRessources.NotifyCollect);
-    //   btnWindRune.onClick.AddListener(inventory.WindRuneRessources.NotifyCollect);
-    //   btnWaterRune.onClick.AddListener(inventory.WaterRuneRessources.NotifyCollect);
-    // }
-    //
-    // private void OnDisable()
-    // {
-    //   btnFireRune.onClick.RemoveListener(inventory.FireRuneRessources.NotifyCollect);
-    //   btnEarthRune.onClick.RemoveListener(inventory.EarthRuneRessources.NotifyCollect);
-    //   btnWindRune.onClick.RemoveListener(inventory.WindRuneRessources.NotifyCollect);
-    //   btnWaterRune.onClick.RemoveListener(inventory.WaterRuneRessources.NotifyCollect);
-    // }
 
     private void Update()
     {

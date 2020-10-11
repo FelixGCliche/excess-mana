@@ -25,10 +25,5 @@
     {
       total += cost;
     }
-
-    public void NotifyCollect()
-    {
-      //Nothing to do here, only used as callback for button in HUD
-    }
   }
 }
