@@ -34,7 +34,7 @@ namespace Game
     {
       btnPlay.onClick.AddListener(StartGame);
       btnSettings.onClick.AddListener(StartSettings);
-      btnSettings.onClick.AddListener(MainController.QuitApplication);
+      btnQuit.onClick.AddListener(MainController.QuitApplication);
     }
 
     private void OnDisable()

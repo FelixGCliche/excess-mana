@@ -460,7 +460,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7826463941016480927}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Script.MainMenu.SettingsMenu, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -993,7 +993,6 @@ GameObject:
   - component: {fileID: 1343855327803645243}
   - component: {fileID: 1343855327803645240}
   - component: {fileID: 1343855327803645241}
-  - component: {fileID: 7826463941016480927}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -1083,24 +1082,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7826463941016480927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343855327803645246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29af48b3d8dd0c94c909e1df62f29e91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameScene:
-    m_Handle: 0
-  SettingsScene:
-    m_Handle: 0
-  MenuScene:
-    m_Handle: 0
 --- !u!1 &1343855327822674984
 GameObject:
   m_ObjectHideFlags: 0
