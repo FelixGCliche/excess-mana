@@ -72,9 +72,10 @@ namespace Script.GameMaster.WaveSpawner
         {
             if (currentWaveContent[(int) direction] > 0)
             {
-                Instantiate(enemies[rndEnemy.Next(0, enemies.Length)], spawnPoints[(int) direction].transform.position,
-                    spawnPoints[(int) direction].transform.rotation);
+                (Instantiate(enemies[rndEnemy.Next(0, enemies.Length)], spawnPoints[(int) direction].transform.position,
+                    spawnPoints[(int) direction].transform.rotation)).GetComponent<Enemy>().Suscribe(this);
                 currentWaveContent[(int) direction]--;
+                liveEnemyCount++;
             }
         }
 
@@ -92,11 +93,6 @@ namespace Script.GameMaster.WaveSpawner
             {
                 currentWaveContent[i] = 0;
             }
-        }
-
-        private void DecrementLiveEnemyCount()
-        {
-            liveEnemyCount--;
         }
 
         public void NextDay()
@@ -159,6 +155,16 @@ namespace Script.GameMaster.WaveSpawner
 
             timeBeforeSpawn = 0f;
             waveLeft--;
+        }
+    
+        public bool HaveAllEnemyBeenSlain()
+        {
+            return liveEnemyCount <= 0;
+        }
+
+        public void Notify()
+        {
+            liveEnemyCount--;
         }
     }
 }
