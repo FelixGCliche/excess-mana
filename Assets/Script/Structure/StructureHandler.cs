@@ -41,6 +41,36 @@ public class StructureHandler : MonoBehaviour
         
     }
 
+    public void TestAdd(int tower_id, int quantity, Elements e, RuneSize s)
+    {
+        tower_list[tower_id].inventory.AddRune(quantity, e, s);
+        if (tower_list[tower_id].CheckRuneQuantity(s))
+            LevelUpTower(tower_id, quantity, e, s);
+    }
+
+    public int GetRequiredRunes(int tower_id)
+    {
+        return tower_list[tower_id].required_small_runes;
+    }
+    /*
+    public void Test(int tower_id, RuneSize runesize, int rune_number)
+    {
+        switch( runesize)
+        {
+            case RuneSize.SMALL:
+                tower_list[tower_id].current_small_runes += rune_number;
+                break;
+
+            case RuneSize.MEDIUM:
+                tower_list[tower_id].current_medium_runes += rune_number;
+                break;
+
+            case RuneSize.LARGE:
+                tower_list[tower_id].current_large_runes += rune_number;
+                break;
+        }
+    }*/
+
     public int CheckIsSelectedTower()
     {
         foreach(Tower t in tower_list)
@@ -53,13 +83,14 @@ public class StructureHandler : MonoBehaviour
         return 9999;
     }
 
-    public void LevelUpTower(int tower_id)
+    public void LevelUpTower(int tower_id, int quantity, Elements e, RuneSize s)
     {
         int tempLevel = tower_list[tower_id].GetCurrentLevel();
         if(tempLevel < tower_list[tower_id].max_level)
         {
             tempLevel++;
             tower_list[tower_id].SetCurrentLevel(tempLevel);
+            tower_list[tower_id].inventory.RemoveRune(quantity, e, s);
         }
 
     }

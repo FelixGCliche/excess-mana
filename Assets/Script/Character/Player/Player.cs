@@ -14,6 +14,7 @@ public class Player : Character
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private KeyCode space = KeyCode.Space;
     [SerializeField] private KeyCode e = KeyCode.E;
+    [SerializeField] private KeyCode q = KeyCode.Q;
 
 
     bool upKeyDown ;
@@ -45,6 +46,8 @@ public class Player : Character
         rightKeyDown = false;
         spaceKeyDown = false;
 
+        inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+
     }
 
     // Update is called once per frame
@@ -61,15 +64,25 @@ public class Player : Character
             structureHandler.BuildTower(gameObject.transform, Elements.WIND);
         }
 
-        
+        if(Input.GetKeyDown("q"))
+        {
+            inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
 
-        if(Input.GetKeyDown("e"))
+        }
+
+        if (Input.GetKeyDown("e"))
         {
             // structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
-           
-           structureHandler.SetLifeTo1(structureHandler.CheckIsSelectedTower());
-            structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
+
+            // structureHandler.SetLifeTo1(structureHandler.CheckIsSelectedTower());
+            // structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
+
+            structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
+            inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower()), Elements.WIND, RuneSize.SMALL);
+            Debug.Log("Inventoory player reste : " + inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         }
+
+        Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
     }
 
     private void CheckForMovement()

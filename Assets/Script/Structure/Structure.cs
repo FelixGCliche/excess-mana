@@ -90,6 +90,11 @@ public class Structure : MonoBehaviour
         this.current_rune_number = number;
     }
 
+    public int GetCurrentRuneNumber()
+    {
+        return current_rune_number;
+    }
+
     public int GetCurrentLevel()
     {
         return current_level;

@@ -24,33 +24,66 @@ public class Tower : Structure
     public int id;
     public float default_life;
 
-    [SerializeField] private KeyCode interactKey = KeyCode.Mouse1;
-    bool interackKeyDown;
     bool neverDOne;
 
     public TextMesh text;
     public bool is_selected;
 
+    public int required_small_runes = 5;
+    public int required_medium_runes = 10;
+    public int required_large_runes = 15;
+
+    public int current_small_runes = 0;
+    public int current_medium_runes = 0;
+    public int current_large_runes = 0;
+
+    public Script.Character.Player.PlayerInventory inventory;
+
     //================================ Methods
 
+    public bool CheckRuneQuantity(RuneSize rune_size)
+    {
+        switch(rune_size)
+        {
+            case RuneSize.SMALL:
+                return (required_small_runes <= inventory.GetRuneQuantity(current_element, rune_size));
+
+            case RuneSize.MEDIUM:
+                return (required_medium_runes <= inventory.GetRuneQuantity(current_element, rune_size));
+
+            case RuneSize.LARGE:
+                return (required_large_runes <= inventory.GetRuneQuantity(current_element, rune_size));
+
+            default:
+                return false;
+        }
+    }
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.1f);
         default_life = current_life;
-        interackKeyDown = false;
         neverDOne = false;
 
         text.text = "Current Level : " + current_level.ToString();
         is_selected = false;
 
+        inventory = new Script.Character.Player.PlayerInventory();
     }
+
+
 
     private void OnMouseOver()
     {
 
+
       //  TakeDmage(10f, current_element);
         is_selected = true;
+
+
+        Debug.Log(current_element + "Runes number : " + inventory.GetRuneQuantity(current_element, RuneSize.SMALL));
+
+
         /*if(Input.GetMouseButtonDown(2))
         {
             current_life = 45;
@@ -82,6 +115,7 @@ public class Tower : Structure
             }
         
         Debug.Log(current_life);*/
+
 
     }
 
