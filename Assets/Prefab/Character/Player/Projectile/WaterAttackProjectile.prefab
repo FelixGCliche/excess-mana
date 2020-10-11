@@ -177,9 +177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileElement: 3
   projectileDamage: 10
-  projectileSpeed: 10
-  projectileRange: 10
+  projectileSpeed: 7
+  projectileDuration: 0.8
   isPiercing: 1
+  isImmobile: 0
 --- !u!50 &7849187545789009862
 Rigidbody2D:
   serializedVersion: 4

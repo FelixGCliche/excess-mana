@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Character;
+using Script.Util;
 using UnityEngine;
 
 
 public class Structure : MonoBehaviour
 {
     //================================ Variables
-    [SerializeField] protected Vector2 spawnPosition;
+    [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
+
+    [SerializeField] protected Vector3 spawnPosition;
 
     [SerializeField] protected Elements current_element;
     [SerializeField] protected StructureState current_state;
 
-    [SerializeField] protected float current_life;
+    [SerializeField] public float current_life;
 
     [SerializeField] protected float default_time_to_build;
     [SerializeField] protected float default_time_to_repair;
@@ -26,31 +30,14 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected float time_between_attacks;
 
+    [SerializeField] protected HealthBar healthBar;
+
+
     //================================ Methods
-
-    public Structure()
-    {
-  
-    }
-    
-    void awake()
-    {
-
-    }
 
     void Start()
     {
         current_state = StructureState.Idle;
-    }
-
-    void Update()
-    {
-
-    }
-
-    protected void Init()
-    {
-        
     }
 
     protected void Build()
@@ -75,36 +62,26 @@ public class Structure : MonoBehaviour
         SetCurrentLife(health);
     }
 
-    protected void Upgrade()
-    {
-        LevelUp();
-        //[TODO] sfx
-        //[TODO] Asset upgrade
-    }
     protected void Destroy()
     {
         //[TODO] sprite
         //[TODO] sfx
         current_state = StructureState.Destroyed;
+        Destroy(this.gameObject);
     }
 
-    protected void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         SetCurrentLife(damage);
     }
 
-    protected void Attack()
+    public void TakeDamage(float damageAmount, Elements damageElement)
     {
-        current_state = StructureState.Attacking;
-        //find ebject by tag ennemy
-        //draw debug line
-        //apply damages
-    }
-
-    protected void LevelUp()
-    {
-        int temp = GetCurrentLevel();
-        SetCurrentLevel(temp++);
+        baseHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
+        if (baseHealth <= 0)
+            Destroy();
+        else
+            healthBar.AdjustHealthBar(baseHealth / 100);
     }
 
     //================================ Accessors
@@ -114,7 +91,12 @@ public class Structure : MonoBehaviour
         this.current_life = life;
     }
 
-    public void SetCurrentLevel(int level)
+    public float GetCurrentLife()
+    {
+        return current_life;
+    }
+
+    public virtual void SetCurrentLevel(int level)
     {
         this.current_level = level;
     }
@@ -127,6 +109,11 @@ public class Structure : MonoBehaviour
     public void SetCurrentRuneNumber(int number)
     {
         this.current_rune_number = number;
+    }
+
+    public int GetCurrentRuneNumber()
+    {
+        return current_rune_number;
     }
 
     public int GetCurrentLevel()
@@ -144,9 +131,18 @@ public class Structure : MonoBehaviour
         this.current_state = state;
     }
 
+    public void SetCurrentElement(Elements e)
+    {
+        this.current_element = e;
+    }
 
-    
+    public Elements GetCurrentElement()
+    {
+        return this.current_element;
+    }
 
-
-
+    public StructureState GetCurrentState()
+    {
+        return current_state;
+    }
 }

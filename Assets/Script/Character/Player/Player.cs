@@ -3,109 +3,354 @@ using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Game;
+using System.Collections;
+using  Game;
+using System.Collections.Generic;
 
-[Findable(Tags.Player)]
 public class Player : Character
 {
-  [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerAttack playerAttack;
+    
+    private InputAction moveInputs;
+    private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
+    private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
+    private bool Build => Finder.Inputs.Actions.Game.Build.triggered;
+    private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
+    private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
+    private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
+    private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
 
-  private InputAction moveInputs;
-  private InputAction fireInput;
-  private InputAction interactInput;
-  private InputAction buildInput;
-  private InputAction fireElementInput;
-  private InputAction waterElementInput;
-  private InputAction windElementInput;
-  private InputAction earthElementInput;
+    public StructureHandler structureHandler;
+    private PlayerInventory inventory;
 
-  StructureHandler structureHandler;
-  private PlayerInventory inventory;
+    private Elements currentSpellElement;
+    private ElementHandler elementHandler;
 
-  private Elements currentSpellElement;
+    public Grid grid;
 
-  private new void Awake()
-  {
-    base.Awake();
+    List<double> validated_x = new List<double>();
+    List<double> validated_y = new List<double>();
 
-    moveInputs = Finder.Inputs.Actions.Game.Move;
-    fireInput = Finder.Inputs.Actions.Game.Fire;
-    interactInput = Finder.Inputs.Actions.Game.Interact;
-    buildInput = Finder.Inputs.Actions.Game.Interact;
-    fireElementInput = Finder.Inputs.Actions.Game.FireElement;
-    waterElementInput = Finder.Inputs.Actions.Game.WaterElement;
-    windElementInput = Finder.Inputs.Actions.Game.WindElement;
-    earthElementInput = Finder.Inputs.Actions.Game.EarthElement;
-  }
+    Vector3 v;
+    Vector3 v2;
+    Vector3 v3;
+    Vector3 v4;
 
-  // Start is called before the first frame update
-  void Start()
-  {
-    health = baseHealth;
-    inventory = new PlayerInventory();
-    currentSpellElement = Elements.FIRE;
 
-    structureHandler = gameObject.GetComponent<StructureHandler>();
-    transform.position = new Vector3(0, 0, 0);
-  }
 
-  // Update is called once per frame
-  void Update()
-  {
-    UpdateElement();
-    if (fireInput.triggered)
-      Attack();
+    private new void Awake()
+    { 
+        base.Awake();
 
-    Mover.Move(moveInputs.ReadValue<Vector2>());
+        moveInputs = Finder.Inputs.Actions.Game.Move;
+        elementHandler = Finder.ElementHandler;
+        grid = FindObjectOfType<Grid>();
 
-    if (buildInput.triggered)
-      structureHandler.BuildTower(gameObject.transform, Elements.WIND);
-  }
-
-  protected override void Kill()
-  {
-  }
-
-  public void Attack()
-  {
-    switch (currentSpellElement)
-    {
-      case Elements.FIRE:
-        playerAttack.FireAttack(transform.position);
-        break;
-      case Elements.EARTH:
-        playerAttack.EarthAttack(transform.position);
-        break;
-      case Elements.WIND:
-        playerAttack.WindAttack(transform.position);
-        break;
-      case Elements.WATER:
-        playerAttack.WaterAttack(transform.position);
-        break;
     }
-  }
 
-  private void OnTriggerEnter2D(Collider2D other)
-  {
-    Rune rune = other.GetComponentInParent<Rune>();
-    if (rune != null)
+    public void PlaceTowerNear(Vector2 nearPoint)
     {
-      Elements runeElement = rune.GetElement();
-      RuneSize runeSize = rune.GetSize();
-      inventory.AddRune(1, runeElement, runeSize);
-      rune.PickUp();
-    }
-  }
+        var finalPosition = grid.GetNearestPointOnGrid(nearPoint);
+       
 
-  private void UpdateElement()
-  {
-    if (fireElementInput.triggered)
-      currentSpellElement = Elements.FIRE;
-    else if (earthElementInput.triggered)
-      currentSpellElement = Elements.EARTH;
-    else if (windElementInput.triggered)
-      currentSpellElement = Elements.WIND;
-    else if (waterElementInput.triggered)
-      currentSpellElement = Elements.WATER;
-  }
+         v = new Vector3 ( -10, 10, 0 );
+         v2 = new Vector3 ( -1, 10, 0 );
+         v3 = new Vector3 ( -1, 2, 0 );
+         v4 = new Vector3 ( -10, 2, 0 );
+
+        if(finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y  )
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+         v = new Vector3(1, 10, 0);
+         v2 = new Vector3(10, 10, 0);
+         v3 = new Vector3(1, 2, 0);
+         v4 = new Vector3(10, 2, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-10, -1, 0);
+        v2 = new Vector3(-2, -1, 0);
+        v3 = new Vector3(-2, -10, 0);
+        v4 = new Vector3(-10, -10, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(1, -1, 0);
+        v2 = new Vector3(10, 1, 0);
+        v3 = new Vector3(1, -10, 0);
+        v4 = new Vector3(10, -10, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-15, 3, 0);
+        v2 = new Vector3(-12, 3, 0);
+        v3 = new Vector3(-12, -2, 0);
+        v4 = new Vector3(-15, -3, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(12, 3, 0);
+        v2 = new Vector3(15, 3, 0);
+        v3 = new Vector3(12, -2, 0);
+        v4 = new Vector3(15, -2, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-20, 2, 0);
+        v2 = new Vector3(-18, 2, 0);
+        v3 = new Vector3(-20, -1, 0);
+        v4 = new Vector3(-18, -1, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(18, 2, 0);
+        v2 = new Vector3(20, 2, 0);
+        v3 = new Vector3(-18, -1, 0);
+        v4 = new Vector3(-20, -1, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+
+        v = new Vector3(-3, 15, 0);
+        v2 = new Vector3(3, 15, 0);
+        v3 = new Vector3(-3, 12, 0);
+        v4 = new Vector3(3, 12, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-3, -12, 0);
+        v2 = new Vector3(3, -12, 0);
+        v3 = new Vector3(-3, -15, 0);
+        v4 = new Vector3(3, -15, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-2, -21, 0);
+        v2 = new Vector3(2, 21, 0);
+        v3 = new Vector3(-2, 18, 0);
+        v4 = new Vector3(2, 18, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-2, -18, 0);
+        v2 = new Vector3(2, -18, 0);
+        v3 = new Vector3(-2, -21, 0);
+        v4 = new Vector3(2, -21, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-15, 15, 0);
+        v2 = new Vector3(-12, 15, 0);
+        v3 = new Vector3(-15, 11, 0);
+        v4 = new Vector3(-12, 11, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(11, 15, 0);
+        v2 = new Vector3(15, 15, 0);
+        v3 = new Vector3(12, 11, 0);
+        v4 = new Vector3(15, 11, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(12, -11, 0);
+        v2 = new Vector3(15, -11, 0);
+        v3 = new Vector3(12, -15, 0);
+        v4 = new Vector3(15, -15, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-14, -11, 0);
+        v2 = new Vector3(-12, -11, 0);
+        v3 = new Vector3(-15, -14, 0);
+        v4 = new Vector3(-12, -14, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        Debug.DrawLine(v,v2,Color.green, 5.0f);
+
+
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        health = baseHealth;
+        inventory = new PlayerInventory();
+        currentSpellElement = Elements.FIRE;
+
+        structureHandler = gameObject.GetComponent<StructureHandler>();
+        transform.position = new Vector3(0,0,0);
+       inventory.AddRune(100, Elements.WIND, RuneSize.SMALL);
+       inventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
+       inventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateElement();
+        if (Fire)
+            Attack();
+
+        Mover.Move(moveInputs.ReadValue<Vector2>());
+
+        /*
+        if(Input.GetKeyDown("q"))
+        {
+            inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+            inventory.AddRune(10, Elements.WIND, RuneSize.MEDIUM);
+            inventory.AddRune(10, Elements.WIND, RuneSize.LARGE);
+
+        }*/
+        /*
+        if (Input.GetKeyDown("e"))
+        {
+
+            /* structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
+             inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
+             
+
+            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            Debug.Log("Inventoory player reste : " + inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
+        }*/
+
+        if (Build)
+        {
+            Vector2 a = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            PlaceTowerNear(a);
+        }
+
+        if(Interact)
+        {
+            Debug.Log("Interact");
+
+            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+        }
+    }
+
+    public void RuneSizeSwitch(RuneSize r, Elements e)
+    {
+        structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(e, r), e, r);
+        inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),r), e, r);
+    }
+
+    protected override void Kill()
+    {
+        
+    }
+    
+    public void Attack()
+    {
+        if (playerAttack.IsReadyToAttack())
+        {
+            switch (currentSpellElement)
+            {
+                case Elements.FIRE:
+                    playerAttack.FireAttack(transform.position);
+                    break;
+                case Elements.EARTH:
+                    playerAttack.EarthAttack(transform.position);
+                    break;
+                case Elements.WIND:
+                    playerAttack.WindAttack(transform);
+                    break;
+                case Elements.WATER:
+                    playerAttack.WaterAttack(transform.position);
+                    break;
+            }
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Rune rune = other.GetComponentInParent<Rune>();
+        if (rune != null)
+        {
+            Elements runeElement = rune.GetElement();
+            RuneSize runeSize = rune.GetSize();
+            inventory.AddRune(1, runeElement, runeSize);
+            rune.PickUp();
+        }
+    }
+
+    private void UpdateElement()
+    {
+        if (IsFireElement && elementHandler.GetIsFireActivated())
+            currentSpellElement = Elements.FIRE;
+        else if (IsEarthElement && elementHandler.GetIsEarthActivated())
+            currentSpellElement = Elements.EARTH;
+        else if (IsWindElement && elementHandler.GetIsWindActivated())
+            currentSpellElement = Elements.WIND;
+        else if (IsWaterElement && elementHandler.GetIsWaterActivated())
+            currentSpellElement = Elements.WATER;
+    }
+    public void LearnThatElementIsDeactivated(Elements element)
+    {
+        if (currentSpellElement == element)
+        {
+            if (elementHandler.GetIsFireActivated())
+                currentSpellElement = Elements.FIRE;
+            else if (elementHandler.GetIsEarthActivated())
+                currentSpellElement = Elements.EARTH;
+            else if (elementHandler.GetIsWindActivated())
+                currentSpellElement = Elements.WIND;
+            else if (elementHandler.GetIsWaterActivated())
+                currentSpellElement = Elements.WATER;
+            else
+                currentSpellElement = Elements.NONE;
+        }
+    }
 }

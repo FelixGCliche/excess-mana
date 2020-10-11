@@ -7,6 +7,7 @@ TagManager:
   - Ennemy
   - MainController
   - Structure
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Damage
   - Sensor
-  - 
+  - Walls
   - 
   - 
   - 
