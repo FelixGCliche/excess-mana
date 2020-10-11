@@ -907,8 +907,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 5313602967018605218}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!1 &5313602967018605218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 8819437589822640990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4409314092259449012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}

@@ -856,12 +856,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 6860112819443137251}
     - target: {fileID: 8871448350672035363, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!1 &6860112819443137251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 7849033350529606431}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3150468271797856501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}

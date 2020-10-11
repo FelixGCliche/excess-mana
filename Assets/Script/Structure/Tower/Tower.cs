@@ -1,13 +1,7 @@
-﻿
-using DG.Tweening;
-using Harmony;
-using Script.Character.Player;
+﻿using Harmony;
 using Script.Projectile;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml;
+using Game;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Tower : Structure
 {
@@ -49,7 +43,7 @@ public class Tower : Structure
         upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
         shootSource = GameObject.Find("TowerShootSource").gameObject.GetComponent<AudioSource>();
 
-        playerInventory = Finder.PlayerInventory;
+        playerInventory = Finder.Player.Inventory;
     }
 
     void Update()
