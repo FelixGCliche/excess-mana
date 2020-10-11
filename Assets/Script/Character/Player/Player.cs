@@ -24,8 +24,6 @@ public class Player : Character
     [FormerlySerializedAs("gameOverMenu")] [SerializeField] private GameOverController gameOverController;
     
     private InputAction moveInputs;
-
-    private GameController gameController;
     
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
@@ -51,7 +49,6 @@ public class Player : Character
     { 
         base.Awake();
 
-        gameController = Finder.GameController;
         deathSource = GameObject.Find("PlayerDeathSource").gameObject.GetComponent<AudioSource>();
         runSource = GameObject.Find("PlayerRunSource").gameObject.GetComponent<AudioSource>();
         attackedSource = GameObject.Find("PlayerAttackedSource").gameObject.GetComponent<AudioSource>();
@@ -113,7 +110,6 @@ public class Player : Character
     protected override void Kill()
     {
         deathSource.Play();
-        gameController.PlayerIsDead();
     }
     
     public void Attack()

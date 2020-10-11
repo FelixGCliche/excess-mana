@@ -29,7 +29,7 @@ namespace Game
       if (gameInputs.Exit.triggered) ApplicationExtensions.Quit();
     }
 
-    public void PlayerIsDead()
+    public void AltarsAreDestoyed()
     {
       main.LoadGameOverScenes();
       
