@@ -10,6 +10,7 @@ namespace Script.Character
 
         public void UpdateProgressBar(float percentage)
         {
+            if (percentage > 1f) percentage = 1f;
             bar.transform.localScale = new Vector2(percentage, 1f);
         }
     }
