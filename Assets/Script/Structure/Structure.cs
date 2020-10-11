@@ -21,8 +21,6 @@ public class Structure : MonoBehaviour
     private AudioSource upgradeSource;
     private AudioSource destroySource;
 
-    //================================ Methods
-
     void Start()
     {
         createSource = GameObject.Find("TowerCreateSource").gameObject.GetComponent<AudioSource>();
@@ -35,18 +33,12 @@ public class Structure : MonoBehaviour
 
     protected void Repair(float health)
     {
+        repairSource.Play();
         SetCurrentLife(currentHealth + health);
         if (currentHealth > initialHealth)
         {
             currentHealth = initialHealth;
         }
-    }
-
-    protected void Repair(float health)
-    {
-        repairSource.Play();
-        current_state = StructureState.Repairing;
-        SetCurrentLife(health);
     }
 
     protected void Destroy()
@@ -66,7 +58,7 @@ public class Structure : MonoBehaviour
         if (initialHealth <= 0)
             Destroy();
         else
-            healthBar.UpdateProgressBar(baseHealth / 100);
+            healthBar.UpdateProgressBar(initialHealth / 100);
     }
 
     public void SetCurrentLife(float life)

@@ -48,7 +48,6 @@ public class Tower : Structure
         text.text = currentLevel.ToString();
         upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
         shootSource = GameObject.Find("TowerShootSource").gameObject.GetComponent<AudioSource>();
-    }
 
         playerInventory = Finder.PlayerInventory;
     }
@@ -70,11 +69,11 @@ public class Tower : Structure
         fire_countdown -= Time.deltaTime;
     }
 
-    public override void SetCurrentLevel(int level)
+    public void SetCurrentLevel(int level)
     {
         upgradeSource.Play();
-        this.current_level = level;
-        text.text = current_level.ToString();
+        this.currentLevel = level;
+        text.text = currentLevel.ToString();
     }
 
     private void Shoot()
