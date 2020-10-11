@@ -7,12 +7,14 @@ namespace Script.HUD
 {
   public class ElementSelector : MonoBehaviour
   {
-    private Player player;
+    private InputAction[] elementSelectInputs;
 
     private Button btnFireElement;
     private Button btnEarthElement;
     private Button btnWindElement;
     private Button btnWaterElement;
+
+    Elements currentElement;
 
     private void Awake()
     {
@@ -22,20 +24,35 @@ namespace Script.HUD
       btnWindElement = buttons.WithName(GameObjects.WindSelect);
       btnWaterElement = buttons.WithName(GameObjects.WaterSelect);
 
-      for (int i = 0; i < buttons.Length; i++)
+      elementSelectInputs = new[]
       {
-        SetButtonTextFromBinding(buttons[i], player.ElementInputs[i]);
+        Finder.Inputs.Actions.Game.FireElement,
+        Finder.Inputs.Actions.Game.EarthElement,
+        Finder.Inputs.Actions.Game.WindElement,
+        Finder.Inputs.Actions.Game.WaterElement
+      };
+
+      for (int i = 0; i < elementSelectInputs.Length; i++)
+      {
+        SetButtonTextFromBinding(buttons[i], elementSelectInputs[i]);
       }
+      
+      currentElement = 0;
     }
 
     private void Update()
     {
+      for (int i = 0; i < elementSelectInputs.Length; i++)
+      {
+        if (elementSelectInputs[i].triggered) currentElement = (Elements) i;
+      }
+
       ShowSelectedElement();
     }
 
     private void ShowSelectedElement()
     {
-      switch (player.CurrentSpellElement)
+      switch (currentElement)
       {
         case Elements.FIRE:
           btnFireElement.Select();

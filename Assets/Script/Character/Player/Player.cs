@@ -24,16 +24,6 @@ public class Player : Character
 
   private Elements currentSpellElement;
 
-  public Elements CurrentSpellElement => currentSpellElement;
-
-  public InputAction[] ElementInputs => new[]
-  {
-    fireElementInput,
-    earthElementInput,
-    windElementInput,
-    waterElementInput
-  };
-
   private new void Awake()
   {
     base.Awake();
