@@ -22,12 +22,25 @@ public class Player : Character
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
-    
+
+    public Grid grid;
+
+
     private new void Awake()
     { 
         base.Awake();
 
         moveInputs = Finder.Inputs.Actions.Game.Move;
+        grid = FindObjectOfType<Grid>();
+
+    }
+
+    public void PlaceTowerNear(Vector2 nearPoint)
+    {
+        var finalPosition = grid.GetNearestPointOnGrid(nearPoint);
+        //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;.
+        structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+
     }
 
     // Start is called before the first frame update
@@ -39,7 +52,9 @@ public class Player : Character
 
         structureHandler = gameObject.GetComponent<StructureHandler>();
         transform.position = new Vector3(0,0,0);
-       inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+       inventory.AddRune(100, Elements.WIND, RuneSize.SMALL);
+       inventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
+       inventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
 
     }
 
@@ -85,19 +100,20 @@ public class Player : Character
         //Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         if (Build)
         {
-            structureHandler.BuildTower(gameObject.transform, currentSpellElement);
+            Vector2 a = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            PlaceTowerNear(a);
         }
 
         if(Interact)
         {
             Debug.Log("Interact");
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position,
+          /*  RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position,
                 Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
 
-            Debug.Log(hit.collider.name);
-            //RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            //RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            // RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            Debug.Log(hit.collider.name);*/
+            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
         }
 
         //Debug.Log(Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
