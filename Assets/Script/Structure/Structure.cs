@@ -75,13 +75,13 @@ public class Structure : MonoBehaviour
         SetCurrentLife(damage);
     }
 
-    public void TakeDmage(float damageAmount, Elements damageElement)
+    public void TakeDamage(float damageAmount, Elements damageElement)
     {
-        current_life -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
-        if (current_life <= 0)
+        baseHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
+        if (baseHealth <= 0)
             Destroy();
         else
-            healthBar.AdjustHealthBar(current_life / 100);
+            healthBar.AdjustHealthBar(baseHealth / 100);
     }
 
     //================================ Accessors

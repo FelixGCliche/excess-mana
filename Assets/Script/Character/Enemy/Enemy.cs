@@ -33,6 +33,9 @@ public class Enemy : Character
     {
         if (isInWave)
         {
+            if (target == Targets.STRUCTURE && targetStructure == null)
+                GetNewTarget();
+            
             if (!IsNearTarget())
                 Move();
             else
@@ -100,7 +103,7 @@ public class Enemy : Character
     {
         float distanceToTarget;
         float distanceToCurrentTarget = float.MaxValue;
-        Structure currentTarget = null;
+        Structure currentTarget;
 
         if(FindObjectsOfType<Structure>().Length > 0)
         {
@@ -128,6 +131,7 @@ public class Enemy : Character
 
     void Attack()
     {
+        //Play Sound
         if (!isDealingDamage)
             StartCoroutine(DealDamage());
     }
@@ -154,17 +158,15 @@ public class Enemy : Character
     IEnumerator DealDamage()
     {
         isDealingDamage = true;
-        while (IsNearTarget())
+        while (targetStructure != null && IsNearTarget() && target == Targets.STRUCTURE)
         {
-            if (target == Targets.PLAYER)
-            {
-                player.TakeDamage(damage, element);
-            }
-            else if (target == Targets.STRUCTURE)
-            {
-                targetStructure.TakeDamage(damage);
-            }
+            targetStructure.TakeDamage(damage, element);
+            yield return new WaitForSeconds(enemyAttackSpeed);
+        }
 
+        while (player != null && IsNearTarget() && target == Targets.PLAYER)
+        {
+            player.TakeDamage(damage, element);
             yield return new WaitForSeconds(enemyAttackSpeed);
         }
 
