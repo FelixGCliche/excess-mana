@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e08b67b967443c93513b78a19b26a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileElement: 3
+  projectileElement: 2
   projectileDamage: 10
   projectileSpeed: 10
 --- !u!50 &7180189555983334659
