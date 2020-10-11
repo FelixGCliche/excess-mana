@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2499879769458161215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.31, y: 3.88, z: -2}
+  m_LocalPosition: {x: -1.31, y: 1.88, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7092171595812244109}
@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 5659092000401024716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.0970296, y: 0.7670398, z: 0.035318445}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5429810207878706058}
   - {fileID: 7092171595812244109}
@@ -224,6 +224,7 @@ MonoBehaviour:
   current_medium_runes: 0
   current_large_runes: 0
   player: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!70 &3970870585401394290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -264,8 +265,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7204315383160604325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.095318444}
-  m_LocalScale: {x: 5, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8899743786805035901}
   - {fileID: 5075905398735827524}
@@ -332,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 1.263
       objectReference: {fileID: 0}
     - target: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
       propertyPath: m_LocalPosition.z
