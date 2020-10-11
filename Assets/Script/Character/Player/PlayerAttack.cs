@@ -3,6 +3,7 @@ using DG.Tweening;
 using Harmony;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
 
 namespace Game
@@ -13,9 +14,11 @@ namespace Game
         [SerializeField] private GameObject earthProjectilePrefab;
         [SerializeField] private GameObject windProjectilePrefab;
         [SerializeField] private GameObject waterProjectilePrefab;
+        [SerializeField] private float timeBetweenAttack = 3f;
         [SerializeField] private float dashLength = 5f;
         
         private InputAction aimInput;
+        private float timeBeforeNextAttack;
 
         private void Awake()
         {
@@ -29,14 +32,31 @@ namespace Game
         }
 #endif
 
+        private void Start()
+        {
+            timeBeforeNextAttack = 0f;
+        }
+
+        private void Update()
+        {
+            timeBeforeNextAttack -= Time.deltaTime;
+        }
+
+        public bool IsReadyToAttack()
+        {
+            return timeBeforeNextAttack <= 0;
+        }
+
         public void FireAttack(Vector3 position)
         {
             Instantiate(fireProjectilePrefab, position, GetProjectileRotation(position));
+            timeBeforeNextAttack = timeBetweenAttack;
         }
 
         public void EarthAttack(Vector3 position)
         {
             Instantiate(earthProjectilePrefab, position, GetProjectileRotation(position));
+            timeBeforeNextAttack = timeBetweenAttack;
         }
 
         public void WindAttack(Transform parentTransform)
@@ -50,13 +70,17 @@ namespace Game
             float lenghtMultiplier = distance / hypothenuse;
             float x = direction.x * lenghtMultiplier;
             float y = direction.y * lenghtMultiplier;
-            
-            parentTransform.DOMove(position + new Vector3(x, y, 0), 0.2f * lenghtMultiplier);
+            float duration = 0.2f;
+            if (lenghtMultiplier < 1)
+                duration *= lenghtMultiplier;
+            parentTransform.DOMove(position + new Vector3(x, y, 0), duration);
+            timeBeforeNextAttack = timeBetweenAttack;
         }
 
         public void WaterAttack(Vector3 position)
         {
             Instantiate(waterProjectilePrefab, position, GetProjectileRotation(position));
+            timeBeforeNextAttack = timeBetweenAttack;
         }
 
         private Quaternion GetProjectileRotation(Vector3 position)
