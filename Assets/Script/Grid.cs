@@ -16,7 +16,7 @@ public class Grid : MonoBehaviour
 
         Vector3 result = new Vector2
             (
-            (float)xCount * size,
+            (float)xCount * size -0.5f,
             (float)yCount * size
             );
 

@@ -285,9 +285,16 @@ public class Player : Character
         {
             Debug.Log("Interact");
 
-            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            if (structureHandler.GetCUrrentLife(structureHandler.CheckIsSelectedTower()) != 100)
+            {
+                structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
+            }
+            else
+            {
+                RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            }
         }
     }
 

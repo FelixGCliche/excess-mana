@@ -76,6 +76,11 @@ public class StructureHandler : MonoBehaviour
         }
     }*/
 
+    public float GetCUrrentLife(int tower_id)
+    {
+        return tower_list[tower_id].current_life;
+    }
+
     public void SwitchRUneTYpeByLevel(int tower_id)
     {
         tower_list[tower_id].GetCurrentLevel();
