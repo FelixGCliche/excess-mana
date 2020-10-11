@@ -65,6 +65,7 @@ public class Player : Character
     {
         health = baseHealth;
         currentSpellElement = Elements.FIRE;
+        elementHandler.SubscribePlayer(this);
 
         transform.position = new Vector3(0,0,0);
 

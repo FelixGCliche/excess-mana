@@ -18,7 +18,7 @@ public class Altar : Structure
 
     }
 
-    protected new void Destroy()
+    override protected void Destroy()
     {
         Finder.ElementHandler.DeactivateElement(currentElement);
         areAllElementDeactivated();
@@ -30,7 +30,7 @@ public class Altar : Structure
         if (!Finder.ElementHandler.GetIsEarthActivated() && 
             !Finder.ElementHandler.GetIsFireActivated() && 
             !Finder.ElementHandler.GetIsWaterActivated() && 
-            !Finder.ElementHandler.GetIsWindActivated() );
+            !Finder.ElementHandler.GetIsWindActivated() )
         AltarsAreDestoyed();
     }
 
