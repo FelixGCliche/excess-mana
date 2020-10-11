@@ -6,13 +6,13 @@ public class Enemy : Character
 {
     [SerializeField] int enemyAttackRange = 2;
     [SerializeField] int enemyDetectionRange = 10;
-    [SerializeField] bool isInWave = false;
+    [SerializeField] bool isInWave;
 
     private int test;
     GameObject target;
     Player player;
 
-    bool isPlayerDetected = false;
+    bool isPlayerDetected;
 
     void Start()
     {
@@ -44,7 +44,6 @@ public class Enemy : Character
                     Move();
             }
         }
-        
     }
 
     void Move()
@@ -59,10 +58,10 @@ public class Enemy : Character
         Vector2 targetPosition = target.transform.position;
         Vector2 direction;
 
-        direction.x = transform.position.x - targetPosition.x;
-        direction.y = transform.position.y - targetPosition.y;
-
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
+        direction.x = targetPosition.x - transform.position.x;
+        direction.y = targetPosition.y - transform.position.y;
+        
+        Mover.Move(direction.normalized);
     }
 
     bool IsNearTarget()
@@ -92,9 +91,6 @@ public class Enemy : Character
 
     GameObject GetNewTarget()
     {
-        Structure[] structuresTargets = new Structure[1];
-        structuresTargets = GetComponents<Structure>();
-        
         float distanceToTarget = 0;
         float distanceToCurrentTarget = float.MaxValue;
         GameObject currentTarget = null;
