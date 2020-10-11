@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: 
   scenes:
-  - sceneAsset: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-    sceneName: SampleScene
+  - sceneAsset: {fileID: 102900000, guid: 6b8ab722e49212647b0f6a4970d324b4, type: 3}
+    sceneName: Game
   setFirstAsActive: 1
