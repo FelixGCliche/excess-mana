@@ -34,7 +34,5 @@ namespace Script.MainMenu
             SceneManager.LoadScene(GameScene.name);
             SceneManager.UnloadSceneAsync(MenuScene.name);
         }
-
-
     }
 }

@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameScenes: {fileID: 11400000, guid: f45b843eab558fe428b5b75408a9153f, type: 2}
+  homeScenes: {fileID: 11400000, guid: c305229cc8227ed439090bd779c17498, type: 2}
+  settingsScenes: {fileID: 0}
 --- !u!114 &553974074
 MonoBehaviour:
   m_ObjectHideFlags: 0
