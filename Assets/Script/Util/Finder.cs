@@ -14,5 +14,17 @@
         return findableSceneBundleLoader;
       }
     }
+
+    private static Player findablePlayer = null;
+    public static Player Player
+    {
+      get
+      {
+        if (!findablePlayer)
+          findablePlayer = FindWithTag<Player>(Tags.Player);
+
+        return findablePlayer;
+      }
+    }
   }
 }
