@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,7 +8,6 @@ public class Rune : MonoBehaviour
 {
     [SerializeField] private Elements element = Elements.FIRE;
     [SerializeField] private RuneSize size = RuneSize.SMALL;
-
 
     public bool IsInWall()
     {

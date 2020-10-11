@@ -32,11 +32,22 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected ProgressBar healthBar;
 
+    private AudioSource createSource;
+    private AudioSource repairSource;
+    private AudioSource upgradeSource;
+    private AudioSource destroySource;
 
     //================================ Methods
 
     void Start()
     {
+        createSource = GameObject.Find("TowerCreateSource").gameObject.GetComponent<AudioSource>();
+        repairSource = GameObject.Find("TowerRepairSource").gameObject.GetComponent<AudioSource>();
+        upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
+        destroySource = GameObject.Find("TowerDestroySource").gameObject.GetComponent<AudioSource>();
+        
+        createSource.Play();
+        
         current_state = StructureState.Idle;
     }
 
@@ -58,6 +69,7 @@ public class Structure : MonoBehaviour
 
     protected void Repair(float health)
     {
+        repairSource.Play();
         current_state = StructureState.Repairing;
         SetCurrentLife(health);
     }
@@ -65,7 +77,7 @@ public class Structure : MonoBehaviour
     protected void Destroy()
     {
         //[TODO] sprite
-        //[TODO] sfx
+        destroySource.Play();
         current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }

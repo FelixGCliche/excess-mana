@@ -41,6 +41,13 @@ public class Tower : Structure
 
     public GameObject player;
     public SpriteRenderer sr;
+
+    private AudioSource createSource;
+    private AudioSource repairSource;
+    private AudioSource upgradeSource;
+    private AudioSource destroySource;
+    private AudioSource shootSource;
+    
     //================================ Methods
 
     public bool CheckRuneQuantity(RuneSize rune_size)
@@ -119,6 +126,10 @@ public class Tower : Structure
 
     void Start()
     {
+        upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
+        shootSource = GameObject.Find("TowerShootSource").gameObject.GetComponent<AudioSource>();
+        
+        
         InvokeRepeating("UpdateTarget", 0.0f, 0.1f);
         default_life = current_life;
         neverDOne = false;
@@ -185,6 +196,7 @@ public class Tower : Structure
 
     public override void SetCurrentLevel(int level)
     {
+        upgradeSource.Play();
         this.current_level = level;
         text.text = "Current Level : " + current_level.ToString();
     }
@@ -209,6 +221,8 @@ public class Tower : Structure
                 tower_attacks.EarthAttack(projectile_spawn_point.transform, target);
                 break;
         }
+        
+        shootSource.Play();
     }
 
     void UpdateTarget()
