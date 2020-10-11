@@ -47,9 +47,31 @@ public class Structure : MonoBehaviour
 
 
 
+    protected IEnumerator DoRepair(float health)
+    {
+        for (; ; )
+        {
+            Repair(health);
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    protected void Repair(float health)
+    {
+        current_state = StructureState.Repairing;
+        SetCurrentLife(health);
+    }
+
+    protected void Upgrade()
+    {
+        LevelUp();
+        //[TODO] sfx
+        //[TODO] Asset upgrade
+    }
     protected void Destroy()
     {
         //[TODO] sprite
+        //[TODO] sfx
         current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }

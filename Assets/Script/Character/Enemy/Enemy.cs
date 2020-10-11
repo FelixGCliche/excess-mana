@@ -1,27 +1,142 @@
-﻿
+﻿using UnityEngine;
+using Script.Util;
 using Script.Character;
 using UnityEngine;
 
 public class Enemy : Character
 {
-    // Start is called before the first frame update
+    [SerializeField] int enemyAttackRange = 2;
+    [SerializeField] int enemyDetectionRange = 10;
+    [SerializeField] bool isInWave;
+
+    private int test;
+    GameObject target;
+    Player player;
+
+    bool isPlayerDetected;
+
     void Start()
     {
         health = baseHealth;
+        player = GameObject.Find("Player").gameObject.GetComponent<Player>();
+
+        if (!isInWave)
+            target = player.gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector2 movement = Vector2.zero;
-        movement += Vector2.right;
+        if (isInWave)
+        {
+            if (!IsNearTarget())
+                Move();
+            else
+                Attack();
+        }
+        else
+        {
+            isPlayerNear();
 
-        transform.Translate(Time.deltaTime * 1 * movement);
-
+            if (isPlayerDetected)
+            {
+                if (IsNearTarget())
+                    Attack();
+                else
+                    Move();
+            }
+        }
     }
+
+    void Move()
+    {
+        if (isInWave)
+            target = GetNewTarget();
+        FollowTarget();
+    }
+
+    void FollowTarget()
+    {
+        Vector2 targetPosition = target.transform.position;
+        Vector2 direction;
+
+        direction.x = targetPosition.x - transform.position.x;
+        direction.y = targetPosition.y - transform.position.y;
+        
+        Mover.Move(direction.normalized);
+    }
+
+    bool IsNearTarget()
+    {
+        if (target != null)
+        {
+            Vector2 targetPosition = target.transform.position;
+            float distanceToTarget;
+
+            distanceToTarget = DistanceCalculator(targetPosition);
+
+            if (distanceToTarget <= enemyAttackRange)
+                return true;
+        }
+
+        return false;
+    }
+
+    void isPlayerNear()
+    {
+        if (DistanceCalculator(player.transform.position) <= enemyDetectionRange)
+            isPlayerDetected = true;
+        else
+            if (DistanceCalculator(player.transform.position) <= enemyDetectionRange * 3)
+                isPlayerDetected = false;
+    }
+
+    GameObject GetNewTarget()
+    {
+        float distanceToTarget = 0;
+        float distanceToCurrentTarget = float.MaxValue;
+        GameObject currentTarget = null;
+
+        if(GameObject.FindGameObjectsWithTag("Structure").Length > 0)
+        {
+            foreach (GameObject structure in GameObject.FindGameObjectsWithTag("Structure"))
+            {
+                distanceToTarget = DistanceCalculator(structure.transform.position);
+
+                if (distanceToTarget < distanceToCurrentTarget)
+                {
+                    distanceToCurrentTarget = distanceToTarget;
+                    currentTarget = structure.gameObject;
+                }
+            }
+        }
+        
+        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
+            currentTarget = player.gameObject;
+
+        return currentTarget;
+    }
+
+    void Attack()
+    {
+        
+    }
+
 
     protected override void Kill()
     {
+        //Play sound
         Destroy(gameObject);
+    }
+
+    float DistanceCalculator(Vector2 targetPosition)
+    {
+        Vector2 directionToTarget;
+        float distanceToTarget;
+
+        directionToTarget.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
+        directionToTarget.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
+        distanceToTarget = Mathf.Sqrt(directionToTarget.x + directionToTarget.y);
+
+        return distanceToTarget;
     }
 }
