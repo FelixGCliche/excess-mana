@@ -62,12 +62,6 @@ public class Structure : MonoBehaviour
         SetCurrentLife(health);
     }
 
-    protected void Upgrade()
-    {
-        LevelUp();
-        //[TODO] sfx
-        //[TODO] Asset upgrade
-    }
     protected void Destroy()
     {
         //[TODO] sprite
