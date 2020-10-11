@@ -111,15 +111,23 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5575079084195516812}
   radius: 0
   target: {fileID: 0}
+  max_level: 0
   fire_rate: 0
   projectile_spawn_point: {fileID: 4651661465359356125}
   tower_attacks: {fileID: 4101133400118153249}
   id: 0
-  interactKey: 324
-  text: {fileID: 0}
+  default_life: 0
+  text: {fileID: 8769203578395013201}
+  is_selected: 0
+  required_small_runes: 5
+  required_medium_runes: 10
+  required_large_runes: 15
+  current_small_runes: 0
+  current_medium_runes: 0
+  current_large_runes: 0
 --- !u!70 &2688864531727636821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -241,8 +249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7832896418532718978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2600003, y: 5.68, z: 0.11410964}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.74, y: 6.37, z: 0.11410964}
+  m_LocalScale: {x: 3.33, y: 3.33, z: 1}
   m_Children: []
   m_Father: {fileID: 5439834665734784877}
   m_RootOrder: 1
@@ -400,3 +408,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
   m_PrefabInstance: {fileID: 723743560365218406}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5575079084195516812 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 723743560365218406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

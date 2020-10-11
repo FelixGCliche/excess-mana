@@ -32,7 +32,6 @@ Transform:
   m_Children:
   - {fileID: 1666603762791006450}
   - {fileID: 5655444514951037992}
-  - {fileID: 4427495429429978756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,15 +111,23 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 3467930418739486282}
   radius: 0
   target: {fileID: 0}
+  max_level: 0
   fire_rate: 0
   projectile_spawn_point: {fileID: 5158804414884038549}
   tower_attacks: {fileID: 3970140724827648365}
   id: 0
-  interactKey: 324
-  text: {fileID: 0}
+  default_life: 0
+  text: {fileID: 4696168149389809771}
+  is_selected: 0
+  required_small_runes: 5
+  required_medium_runes: 10
+  required_large_runes: 15
+  current_small_runes: 0
+  current_medium_runes: 0
+  current_large_runes: 0
 --- !u!70 &5551428150527374116
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -212,6 +219,7 @@ Transform:
   m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
   m_Children:
   - {fileID: 8544360159735154051}
+  - {fileID: 4427495429429978756}
   m_Father: {fileID: 3432971452778559931}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,11 +249,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7733879261889288282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2599999, y: 5.79, z: 0.018791199}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.8, y: 6.28, z: 0.11410964}
+  m_LocalScale: {x: 3.33, y: 3.33, z: 1}
   m_Children: []
-  m_Father: {fileID: 3432971452778559931}
-  m_RootOrder: 2
+  m_Father: {fileID: 5655444514951037992}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5934128277769759011
 MeshRenderer:
@@ -400,3 +408,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
   m_PrefabInstance: {fileID: 8607918595337983392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3467930418739486282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 8607918595337983392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

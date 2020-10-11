@@ -77,6 +77,43 @@ public class Tower : Structure
         }
     }
 
+    public void LevelCap()
+    {
+        if(current_level <= 4)
+        {
+            required_small_runes = 5;
+            required_medium_runes = 0;
+            required_large_runes = 0;
+        }
+
+        if (current_level > 4 && current_level <= 8)
+        {
+            required_small_runes = 10;
+            required_medium_runes = 5;
+            required_large_runes = 0;
+        }
+
+        if (current_level > 8 && current_level <= 12)
+        {
+            required_small_runes = 15;
+            required_medium_runes = 10;
+            required_large_runes = 5;
+        }
+
+        if (current_level > 12 && current_level <= 14)
+        {
+            required_small_runes = 15;
+            required_medium_runes = 15;
+            required_large_runes = 10;
+        }
+
+        if (current_level > 14 )
+        {
+            required_small_runes = 15;
+            required_medium_runes = 15;
+            required_large_runes = 15;
+        }
+    }
 
     void Start()
     {

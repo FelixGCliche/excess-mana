@@ -61,12 +61,14 @@ public class Player : Character
 
         if (Input.GetKeyDown("space"))
         {
-            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
+            structureHandler.BuildTower(gameObject.transform, currentSpellElement);
         }
 
         if(Input.GetKeyDown("q"))
         {
             inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+            inventory.AddRune(10, Elements.WIND, RuneSize.MEDIUM);
+            inventory.AddRune(10, Elements.WIND, RuneSize.LARGE);
 
         }
 

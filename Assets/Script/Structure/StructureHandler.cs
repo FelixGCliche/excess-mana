@@ -93,6 +93,8 @@ public class StructureHandler : MonoBehaviour
         return 9999;
     }
 
+
+
     public void LevelUpTower(int tower_id, int quantity, Elements e, RuneSize s)
     {
         int tempLevel = tower_list[tower_id].GetCurrentLevel();
@@ -101,6 +103,7 @@ public class StructureHandler : MonoBehaviour
             tempLevel++;
             tower_list[tower_id].SetCurrentLevel(tempLevel);
             tower_list[tower_id].inventory.RemoveRune(quantity, e, s);
+            tower_list[tower_id].LevelCap();
         }
 
     }
