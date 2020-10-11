@@ -22,6 +22,8 @@ public class Player : Character
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
+
+    public Elements CurrentSpellElement => currentSpellElement;
     
     private new void Awake()
     {
