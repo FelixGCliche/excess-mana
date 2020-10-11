@@ -10,6 +10,10 @@ using System.Collections.Generic;
 [Findable(Tags.Player)]
 public class Player : Character
 {
+
+    [SerializeField]
+    private ProgressBar manaBar;
+    
     [SerializeField] private PlayerAttack playerAttack;
 
     [SerializeField] private Transform spriteTransform;
@@ -26,16 +30,33 @@ public class Player : Character
     public Elements currentSpellElement;
     private ElementHandler elementHandler;
 
+    private AudioSource deathSource;
+    private AudioSource runSource;
+    private AudioSource attackedSource;
+    private AudioSource fireAttackSource;
+    private AudioSource waterAttackSource;
+    private AudioSource airAttackSource;
+    private AudioSource earthAttackSource;
+
+    private bool isRunning;
     private new void Awake()
     { 
         base.Awake();
 
+        deathSource = GameObject.Find("PlayerDeathSource").gameObject.GetComponent<AudioSource>();
+        runSource = GameObject.Find("PlayerRunSource").gameObject.GetComponent<AudioSource>();
+        attackedSource = GameObject.Find("PlayerAttackedSource").gameObject.GetComponent<AudioSource>();
+        fireAttackSource = GameObject.Find("PlayerFireAttackSource").gameObject.GetComponent<AudioSource>();
+        waterAttackSource = GameObject.Find("PlayerWaterAttackSource").gameObject.GetComponent<AudioSource>();
+        airAttackSource = GameObject.Find("PlayerAirAttackSource").gameObject.GetComponent<AudioSource>();
+        earthAttackSource = GameObject.Find("PlayerEarthAttackSource").gameObject.GetComponent<AudioSource>();
+        
         moveInputs = Finder.Inputs.Actions.Game.Move;
         elementHandler = Finder.ElementHandler;
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         health = baseHealth;
         playerInventory = new PlayerInventory();
@@ -47,19 +68,32 @@ public class Player : Character
        playerInventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
        playerInventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
 
+        StartCoroutine(DoRegenLife(1));
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        UpdateManaBar();
         UpdateElement();
+        
         if (Fire)
             Attack();
 
+        if (moveInputs.ReadValue<Vector2>() != Vector2.zero && !isRunning)
+        {
+            StartCoroutine(PlayRunSound());
+        }
+
         Mover.Move(moveInputs.ReadValue<Vector2>());
+        ReflectPlayerSprite();
+    }
+
+    private void ReflectPlayerSprite()
+    {
         if (moveInputs.ReadValue<Vector2>().x < 0)
         {
-            spriteTransform.localScale = new Vector3(1,1,1);
+            spriteTransform.localScale = new Vector3(1, 1, 1);
         }
         else if (moveInputs.ReadValue<Vector2>().x > 0)
         {
@@ -69,7 +103,7 @@ public class Player : Character
 
     protected override void Kill()
     {
-        
+        deathSource.Play();
     }
     
     public void Attack()
@@ -80,15 +114,19 @@ public class Player : Character
             {
                 case Elements.FIRE:
                     playerAttack.FireAttack(transform.position);
+                    fireAttackSource.Play();
                     break;
                 case Elements.EARTH:
                     playerAttack.EarthAttack(transform.position);
+                    earthAttackSource.Play();
                     break;
                 case Elements.WIND:
                     playerAttack.WindAttack(transform);
+                    airAttackSource.Play();
                     break;
                 case Elements.WATER:
                     playerAttack.WaterAttack(transform.position);
+                    waterAttackSource.Play();
                     break;
             }
         }
@@ -109,13 +147,48 @@ public class Player : Character
     private void UpdateElement()
     {
         if (IsFireElement && elementHandler.GetIsFireActivated())
+        {
             currentSpellElement = Elements.FIRE;
+            fireAttackSource.Play();
+        }
         else if (IsEarthElement && elementHandler.GetIsEarthActivated())
+        {
             currentSpellElement = Elements.EARTH;
+            earthAttackSource.Play();
+        }
         else if (IsWindElement && elementHandler.GetIsWindActivated())
+        {
             currentSpellElement = Elements.WIND;
+            airAttackSource.Play();
+        }        
         else if (IsWaterElement && elementHandler.GetIsWaterActivated())
+        {
             currentSpellElement = Elements.WATER;
+            waterAttackSource.Play();
+        }    
+    }
+
+    public void PlayAttackedSound()
+    {
+        attackedSource.Play();
+    }
+
+    IEnumerator PlayRunSound()
+    {
+        isRunning = true;
+        while (moveInputs.ReadValue<Vector2>() != Vector2.zero)
+        {
+            runSource.Play();
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        isRunning = false;
+    }
+
+
+    private void UpdateManaBar()
+    {
+        manaBar.UpdateProgressBar(playerAttack.AttackCooldownPercentage);
     }
     public void LearnThatElementIsDeactivated(Elements element)
     {
@@ -133,4 +206,27 @@ public class Player : Character
                 currentSpellElement = Elements.NONE;
         }
     }
+
+    public void RegenLife(int life_amount)
+    {
+        if (health < baseHealth)
+        {
+            health += life_amount;
+        }
+        else
+        {
+            health = baseHealth;
+        }
+        healthBar.UpdateProgressBar(health / baseHealth);
+    }
+
+    public IEnumerator DoRegenLife(int life_amount)
+    {
+        for(; ; )
+        {
+            RegenLife(life_amount);
+            yield return new WaitForSeconds(1);
+        }
+    }
+
 }

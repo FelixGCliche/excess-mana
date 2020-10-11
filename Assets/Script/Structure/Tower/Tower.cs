@@ -30,6 +30,12 @@ public class Tower : Structure
 
     [SerializeField] private float levelUpDamageBonus = 1.0f;
 
+    private AudioSource createSource;
+    private AudioSource repairSource;
+    private AudioSource upgradeSource;
+    private AudioSource destroySource;
+    private AudioSource shootSource;
+
     public TextMesh text;
 
     private PlayerInventory playerInventory;
@@ -40,6 +46,9 @@ public class Tower : Structure
     {
 
         text.text = currentLevel.ToString();
+        upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
+        shootSource = GameObject.Find("TowerShootSource").gameObject.GetComponent<AudioSource>();
+    }
 
         playerInventory = Finder.PlayerInventory;
     }
@@ -61,16 +70,19 @@ public class Tower : Structure
         fire_countdown -= Time.deltaTime;
     }
 
-    public void SetCurrentLevel(int level)
+    public override void SetCurrentLevel(int level)
     {
-        this.currentLevel = level;
-        text.text = currentLevel.ToString();
+        upgradeSource.Play();
+        this.current_level = level;
+        text.text = current_level.ToString();
     }
 
     private void Shoot()
     {
         Projectile newProjectile = Instantiate(projectile, projectileSpawnPoint.transform.position, GetProjectileRotation(target, projectileSpawnPoint.transform));
         newProjectile.SetDamage(damage);
+        
+        shootSource.Play();
     }
 
     void UpdateTarget()

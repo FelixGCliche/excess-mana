@@ -8,7 +8,7 @@ namespace Script.Character
     {
         [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
         [SerializeField] protected Elements element = Elements.NONE;
-        [SerializeField] private HealthBar healthBar;
+        [SerializeField] protected ProgressBar healthBar;
 
         protected float health;
         private TriggerSensor2D triggerSensor;
@@ -32,7 +32,7 @@ namespace Script.Character
             if (health <= 0)
                 Kill();
             else
-                healthBar.AdjustHealthBar(health/baseHealth);
+                healthBar.UpdateProgressBar(health/baseHealth);
         }
 
         protected abstract void Kill();

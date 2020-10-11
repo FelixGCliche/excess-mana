@@ -12,13 +12,25 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected Elements currentElement;
 
-    [SerializeField] protected HealthBar healthBar;
+    [SerializeField] protected ProgressBar healthBar;
 
     protected float currentHealth;
 
+    private AudioSource createSource;
+    private AudioSource repairSource;
+    private AudioSource upgradeSource;
+    private AudioSource destroySource;
+
+    //================================ Methods
+
     void Start()
     {
-        currentHealth = initialHealth;
+        createSource = GameObject.Find("TowerCreateSource").gameObject.GetComponent<AudioSource>();
+        repairSource = GameObject.Find("TowerRepairSource").gameObject.GetComponent<AudioSource>();
+        upgradeSource = GameObject.Find("TowerUpgradeSource").gameObject.GetComponent<AudioSource>();
+        destroySource = GameObject.Find("TowerDestroySource").gameObject.GetComponent<AudioSource>();
+        
+        createSource.Play();
     }
 
     protected void Repair(float health)
@@ -30,8 +42,16 @@ public class Structure : MonoBehaviour
         }
     }
 
+    protected void Repair(float health)
+    {
+        repairSource.Play();
+        current_state = StructureState.Repairing;
+        SetCurrentLife(health);
+    }
+
     protected void Destroy()
     {
+        destroySource.Play();
         Destroy(this.gameObject);
     }
 
@@ -46,7 +66,7 @@ public class Structure : MonoBehaviour
         if (initialHealth <= 0)
             Destroy();
         else
-            healthBar.AdjustHealthBar(initialHealth / 100);
+            healthBar.UpdateProgressBar(baseHealth / 100);
     }
 
     public void SetCurrentLife(float life)
