@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1667994736394323283}
   m_Layer: 0
   m_Name: prefab_air_tower
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,4 +107,3 @@ MonoBehaviour:
   exp_required: 0
   current_rune_number: 0
   time_between_attacks: 0
-  range_collider: {fileID: 0}
