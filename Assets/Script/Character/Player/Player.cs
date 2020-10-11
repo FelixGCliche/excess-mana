@@ -39,7 +39,7 @@ public class Player : Character
 
         structureHandler = gameObject.GetComponent<StructureHandler>();
         transform.position = new Vector3(0,0,0);
-       // inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+       inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
 
     }
 
@@ -85,29 +85,17 @@ public class Player : Character
         //Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         if (Build)
         {
-            Debug.Log("fefef");
             structureHandler.BuildTower(gameObject.transform, currentSpellElement);
         }
 
-    }
-
-    public void TowerTypeSwitch(Elements e)
-    {
-        switch(e)
+        if(Interact)
         {
-            case Elements.WIND:
-                break;
-
-            case Elements.FIRE:
-                break;
-
-            case Elements.EARTH:
-                break;
-
-            case Elements.WATER:
-                break;
-
+            Debug.Log("Interact");
+           RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            //RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+           // RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
         }
+
     }
 
     public void RuneSizeSwitch(RuneSize r, Elements e)

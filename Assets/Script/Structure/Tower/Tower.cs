@@ -131,48 +131,10 @@ public class Tower : Structure
 
     private void OnMouseOver()
     {
-
-
       //  TakeDmage(10f, current_element);
         is_selected = true;
 
-
         Debug.Log(current_element + "Runes number : " + inventory.GetRuneQuantity(current_element, RuneSize.SMALL));
-
-
-        /*if(Input.GetMouseButtonDown(2))
-        {
-            current_life = 45;
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            neverDOne = true;
-        }
-            if (current_life != default_life)
-            {
-                if(neverDOne)
-                {
-                    //repair
-                    StartCoroutine(DoRepair(10));
-                    if (current_life >= default_life)
-                    {
-                        StopAllCoroutines();
-                        current_life = default_life;
-                        neverDOne = false;
-                    }
-                }
-
-            }
-            else
-            {
-                //upgrade
-                Upgrade();
-            }
-        
-        Debug.Log(current_life);*/
-
-
     }
 
     public IEnumerator DoRepair(float health)
