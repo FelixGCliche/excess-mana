@@ -30,7 +30,7 @@ public class Structure : MonoBehaviour
 
     [SerializeField] protected float time_between_attacks;
 
-    [SerializeField] protected HealthBar healthBar;
+    [SerializeField] protected ProgressBar healthBar;
 
     private AudioSource createSource;
     private AudioSource repairSource;
@@ -93,7 +93,7 @@ public class Structure : MonoBehaviour
         if (baseHealth <= 0)
             Destroy();
         else
-            healthBar.AdjustHealthBar(baseHealth / 100);
+            healthBar.UpdateProgressBar(baseHealth / 100);
     }
 
     //================================ Accessors

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Harmony;
+﻿using Harmony;
 using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
@@ -10,6 +9,10 @@ using System.Collections.Generic;
 
 public class Player : Character
 {
+
+    [SerializeField]
+    private ProgressBar manaBar;
+    
     [SerializeField] private PlayerAttack playerAttack;
 
     [SerializeField] private Transform spriteTransform;
@@ -48,8 +51,6 @@ public class Player : Character
     Vector3 v2;
     Vector3 v3;
     Vector3 v4;
-
-
 
     private new void Awake()
     { 
@@ -242,7 +243,7 @@ public class Player : Character
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         health = baseHealth;
         inventory = new PlayerInventory();
@@ -257,9 +258,11 @@ public class Player : Character
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        UpdateManaBar();
         UpdateElement();
+        
         if (Fire)
             Attack();
 
@@ -271,17 +274,7 @@ public class Player : Character
 
 
         Mover.Move(moveInputs.ReadValue<Vector2>());
-        if (moveInputs.ReadValue<Vector2>().x < 0)
-        
-        /*
-        if (Input.GetKeyDown("space"))
-        {
-            spriteTransform.localScale = new Vector3(1,1,1);
-        }
-        else if (moveInputs.ReadValue<Vector2>().x > 0)
-        {
-            spriteTransform.localScale = new Vector3(-1, 1, 1);
-        }
+        ReflectPlayerSprite();
         /*
         if(Input.GetKeyDown("q"))
         {
@@ -324,6 +317,18 @@ public class Player : Character
                 RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
                 RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
             }
+        }
+    }
+
+    private void ReflectPlayerSprite()
+    {
+        if (moveInputs.ReadValue<Vector2>().x < 0)
+        {
+            spriteTransform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveInputs.ReadValue<Vector2>().x > 0)
+        {
+            spriteTransform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -417,6 +422,11 @@ public class Player : Character
         isRunning = false;
     }
 
+
+    private void UpdateManaBar()
+    {
+        manaBar.UpdateProgressBar(playerAttack.AttackCooldownPercentage);
+    }
     public void LearnThatElementIsDeactivated(Elements element)
     {
         if (currentSpellElement == element)

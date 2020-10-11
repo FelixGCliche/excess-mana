@@ -21,8 +21,15 @@ public class CycleHandler : MonoBehaviour
     private Color nightOverlayColor;
     private int day;
     
+    public int WaveNumber => waveNumber;
+    public int WaveAmount => waveAmount;
+    public int Day => day;
+    public bool IsDay => cycleState == CycleState.DAY;
+    public float CycleTimer => cycleTimer;
+    public float DayPercentage => cycleTimer / dayDuration;
+    
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         nightOverlayColor = nightOverlay.color;
         nightOverlayColor.a = nightOverlayFullOpacity;
@@ -32,7 +39,7 @@ public class CycleHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         cycleTimer -= Time.deltaTime;
         if (cycleTimer > 0)

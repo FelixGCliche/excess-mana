@@ -157,7 +157,7 @@ public class Tower : Structure
         for (; ; )
         {
             current_life += health;
-            healthBar.AdjustHealthBar(current_life / 100);
+            healthBar.UpdateProgressBar(current_life / 100);
             yield return new WaitForSeconds(1.0f);
 
             if (current_life >= default_life)
