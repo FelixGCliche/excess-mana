@@ -734,7 +734,7 @@ MonoBehaviour:
   enemyAttackRange: 2
   enemyAttackSpeed: 2
   enemyDetectionRange: 10
-  damage: 10
+  damage: 2
   isInWave: 0
 --- !u!50 &8649857712163085490
 Rigidbody2D:

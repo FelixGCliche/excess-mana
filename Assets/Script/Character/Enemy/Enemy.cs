@@ -230,6 +230,7 @@ public class Enemy : Character
     {
         deathSource.Play();
         yield return new WaitForSeconds(0.3f);
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 }

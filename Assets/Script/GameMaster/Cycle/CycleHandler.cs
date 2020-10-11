@@ -65,7 +65,7 @@ public class CycleHandler : MonoBehaviour
         {
             cycleTimer = 0;
         }
-        UpdateTimerText();
+        //UpdateTimerText();
     }
 
     private void BeginDay()
