@@ -7,6 +7,7 @@ using System.Collections;
 using  Game;
 using System.Collections.Generic;
 
+[Findable(Tags.Player)]
 public class Player : Character
 {
     [SerializeField] private PlayerAttack playerAttack;
@@ -25,7 +26,7 @@ public class Player : Character
     public StructureHandler structureHandler;
     private PlayerInventory inventory;
 
-    private Elements currentSpellElement;
+    public Elements currentSpellElement;
     private ElementHandler elementHandler;
 
     public Grid grid;

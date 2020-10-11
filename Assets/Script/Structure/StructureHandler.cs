@@ -110,7 +110,6 @@ public class StructureHandler : MonoBehaviour
             tower_list[tower_id].inventory.RemoveRune(quantity, e, s);
             tower_list[tower_id].LevelCap();
         }
-
     }
 
     public void SetLifeTo1(int tower_id)
