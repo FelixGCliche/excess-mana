@@ -20,6 +20,11 @@ public class Enemy : Character
     Player player;
     bool isDealingDamage;
     bool isPlayerDetected;
+    bool isSlithering;
+
+    AudioSource deathSource;
+    AudioSource attackSource;
+    AudioSource slitherSource;
 
     private WaveSpawner waveSpawner;
 
@@ -27,7 +32,10 @@ public class Enemy : Character
     {
         health = baseHealth;
         player = GameObject.Find("Player").gameObject.GetComponent<Player>();
-
+        deathSource = GameObject.Find("EnemyDeathSource").gameObject.GetComponent<AudioSource>();
+        attackSource = GameObject.Find("EnemyAttackSource").gameObject.GetComponent<AudioSource>();
+        slitherSource = GameObject.Find("EnemySlitherSource").gameObject.GetComponent<AudioSource>();
+        
         if (!isInWave)
             target = Targets.PLAYER;
     }
@@ -40,9 +48,13 @@ public class Enemy : Character
                 GetNewTarget();
             
             if (!IsNearTarget())
+            {
                 Move();
+            }
             else
+            {
                 Attack();
+            }
         }
         else
         {
@@ -51,9 +63,14 @@ public class Enemy : Character
             if (isPlayerDetected)
             {
                 if (IsNearTarget())
+                {
                     Attack();
+                }
                 else
+                {
                     Move();
+                }
+                    
             }
         }
     }
@@ -73,6 +90,9 @@ public class Enemy : Character
         direction.x = targetPosition.x - transform.position.x;
         direction.y = targetPosition.y - transform.position.y;
         
+        if (!isSlithering)
+            StartCoroutine(PlaySlitherSound());
+            
         Mover.Move(direction.normalized);
     }
 
@@ -134,7 +154,6 @@ public class Enemy : Character
 
     void Attack()
     {
-        //Play Sound
         if (!isDealingDamage)
             StartCoroutine(DealDamage());
     }
@@ -142,6 +161,7 @@ public class Enemy : Character
 
     protected override void Kill()
     {
+        StartCoroutine(Die());
         //Play sound
         if (waveSpawner != null)
         {
@@ -169,12 +189,15 @@ public class Enemy : Character
         while (targetStructure != null && IsNearTarget() && target == Targets.STRUCTURE)
         {
             targetStructure.TakeDamage(damage, element);
+            attackSource.Play();
             yield return new WaitForSeconds(enemyAttackSpeed);
         }
 
         while (player != null && IsNearTarget() && target == Targets.PLAYER)
         {
             player.TakeDamage(damage, element);
+            attackSource.Play();
+            player.PlayAttackedSound();
             yield return new WaitForSeconds(enemyAttackSpeed);
         }
 
@@ -184,5 +207,31 @@ public class Enemy : Character
     public void Suscribe(WaveSpawner spawner)
     {
         waveSpawner = spawner;
+    }
+
+    IEnumerator PlaySlitherSound()
+    {
+        isSlithering = true;
+        while (!IsNearTarget())
+        {
+            if (target == Targets.PLAYER && isPlayerDetected)
+            {
+                slitherSource.Play();
+                yield return new WaitForSeconds(2);
+            }
+            else if (target == Targets.STRUCTURE)
+            {
+                slitherSource.Play();
+                yield return new WaitForSeconds(2);
+            }
+        }
+        isSlithering = false;
+    }
+
+    IEnumerator Die()
+    {
+        deathSource.Play();
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 }

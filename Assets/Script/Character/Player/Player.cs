@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿using System.Collections;
+using Harmony;
 using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
@@ -28,6 +29,16 @@ public class Player : Character
     private Elements currentSpellElement;
     private ElementHandler elementHandler;
 
+    private AudioSource deathSource;
+    private AudioSource runSource;
+    private AudioSource attackedSource;
+    private AudioSource fireAttackSource;
+    private AudioSource waterAttackSource;
+    private AudioSource airAttackSource;
+    private AudioSource earthAttackSource;
+
+    private bool isRunning;
+    
     public Grid grid;
 
     List<double> validated_x = new List<double>();
@@ -44,6 +55,14 @@ public class Player : Character
     { 
         base.Awake();
 
+        deathSource = GameObject.Find("PlayerDeathSource").gameObject.GetComponent<AudioSource>();
+        runSource = GameObject.Find("PlayerRunSource").gameObject.GetComponent<AudioSource>();
+        attackedSource = GameObject.Find("PlayerAttackedSource").gameObject.GetComponent<AudioSource>();
+        fireAttackSource = GameObject.Find("PlayerFireAttackSource").gameObject.GetComponent<AudioSource>();
+        waterAttackSource = GameObject.Find("PlayerWaterAttackSource").gameObject.GetComponent<AudioSource>();
+        airAttackSource = GameObject.Find("PlayerAirAttackSource").gameObject.GetComponent<AudioSource>();
+        earthAttackSource = GameObject.Find("PlayerEarthAttackSource").gameObject.GetComponent<AudioSource>();
+        
         moveInputs = Finder.Inputs.Actions.Game.Move;
         elementHandler = Finder.ElementHandler;
         grid = FindObjectOfType<Grid>();
@@ -244,8 +263,18 @@ public class Player : Character
         if (Fire)
             Attack();
 
+        if (moveInputs.ReadValue<Vector2>() != Vector2.zero && !isRunning)
+        {
+            StartCoroutine(PlayRunSound());
+        }
+            
+
+
         Mover.Move(moveInputs.ReadValue<Vector2>());
         if (moveInputs.ReadValue<Vector2>().x < 0)
+        
+        /*
+        if (Input.GetKeyDown("space"))
         {
             spriteTransform.localScale = new Vector3(1,1,1);
         }
@@ -306,7 +335,7 @@ public class Player : Character
 
     protected override void Kill()
     {
-        
+        deathSource.Play();
     }
     
     public void Attack()
@@ -317,15 +346,19 @@ public class Player : Character
             {
                 case Elements.FIRE:
                     playerAttack.FireAttack(transform.position);
+                    fireAttackSource.Play();
                     break;
                 case Elements.EARTH:
                     playerAttack.EarthAttack(transform.position);
+                    earthAttackSource.Play();
                     break;
                 case Elements.WIND:
                     playerAttack.WindAttack(transform);
+                    airAttackSource.Play();
                     break;
                 case Elements.WATER:
                     playerAttack.WaterAttack(transform.position);
+                    waterAttackSource.Play();
                     break;
             }
         }
@@ -346,14 +379,44 @@ public class Player : Character
     private void UpdateElement()
     {
         if (IsFireElement && elementHandler.GetIsFireActivated())
+        {
             currentSpellElement = Elements.FIRE;
+            fireAttackSource.Play();
+        }
         else if (IsEarthElement && elementHandler.GetIsEarthActivated())
+        {
             currentSpellElement = Elements.EARTH;
+            earthAttackSource.Play();
+        }
         else if (IsWindElement && elementHandler.GetIsWindActivated())
+        {
             currentSpellElement = Elements.WIND;
+            airAttackSource.Play();
+        }        
         else if (IsWaterElement && elementHandler.GetIsWaterActivated())
+        {
             currentSpellElement = Elements.WATER;
+            waterAttackSource.Play();
+        }    
     }
+
+    public void PlayAttackedSound()
+    {
+        attackedSource.Play();
+    }
+
+    IEnumerator PlayRunSound()
+    {
+        isRunning = true;
+        while (moveInputs.ReadValue<Vector2>() != Vector2.zero)
+        {
+            runSource.Play();
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        isRunning = false;
+    }
+
     public void LearnThatElementIsDeactivated(Elements element)
     {
         if (currentSpellElement == element)
