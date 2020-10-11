@@ -1,29 +1,29 @@
-﻿using Script.Character;
+﻿using Harmony;
+using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using  Game;
 
 public class Player : Character
 {
     [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
-
-
     [SerializeField] private KeyCode upKey = KeyCode.W;
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode downKey = KeyCode.S;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private PlayerAttack playerAttack;
-    [SerializeField] private KeyCode space = KeyCode.Space;
-    [SerializeField] private KeyCode e = KeyCode.E;
-    [SerializeField] private KeyCode q = KeyCode.Q;
+    
+    private InputAction moveInputs;
+    private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
+    private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
+    private bool Build => Finder.Inputs.Actions.Game.Interact.triggered;
+    private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
+    private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
+    private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
+    private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
 
-
-    bool upKeyDown ;
-    bool leftKeyDown;
-    bool downKeyDown;
-    bool rightKeyDown;
-    bool spaceKeyDown;
-
-    public StructureHandler structureHandler;
+    StructureHandler structureHandler;
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
@@ -31,6 +31,8 @@ public class Player : Character
     private new void Awake()
     { 
         base.Awake();
+
+        moveInputs = Finder.Inputs.Actions.Game.Move;
     }
 
     // Start is called before the first frame update
@@ -39,13 +41,9 @@ public class Player : Character
         health = baseHealth;
         inventory = new PlayerInventory();
         currentSpellElement = Elements.FIRE;
-        
-        upKeyDown = false;
-        leftKeyDown = false;
-        downKeyDown = false;
-        rightKeyDown = false;
-        spaceKeyDown = false;
 
+        structureHandler = gameObject.GetComponent<StructureHandler>();
+        transform.position = new Vector3(0,0,0);
         inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
 
     }
@@ -54,10 +52,10 @@ public class Player : Character
     void Update()
     {
         UpdateElement();
-        if (Input.GetKeyDown(attackKey))
+        if (Fire)
             Attack();
-        UpdateKeyState();
-        CheckForMovement();
+        
+        Mover.Move(moveInputs.ReadValue<Vector2>());
 
         if (Input.GetKeyDown("space"))
         {
@@ -90,6 +88,9 @@ public class Player : Character
         }
 
         Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
+        if (Build)
+            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
+        
     }
 
     public void TowerTypeSwitch(Elements e)
@@ -176,69 +177,16 @@ public class Player : Character
             rune.PickUp();
         }
     }
-    
-    #region Input
 
     private void UpdateElement()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (IsFireElement)
             currentSpellElement = Elements.FIRE;
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (IsEarthElement)
             currentSpellElement = Elements.EARTH;
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (IsWindElement)
             currentSpellElement = Elements.WIND;
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (IsWaterElement)
             currentSpellElement = Elements.WATER;
     }
-    
-    private void UpdateKeyState()
-    {
-        UpdateUpKeyState();
-        UpdateLeftKeyState();
-        UpdateDownKeyState();
-        UpdateRightKeyState();
-        UpdateSpaceKeyState();
-    }
-
-    private void UpdateUpKeyState()
-    {
-        if (!upKeyDown && Input.GetKeyDown(upKey))
-            upKeyDown = true;
-        else if (upKeyDown && Input.GetKeyUp(upKey))
-            upKeyDown = false;
-    }
-
-    private void UpdateLeftKeyState()
-    {
-        if (!leftKeyDown && Input.GetKeyDown(leftKey))
-            leftKeyDown = true;
-        else if (leftKeyDown && Input.GetKeyUp(leftKey))
-            leftKeyDown = false;
-    }
-
-    private void UpdateDownKeyState()
-    {
-        if (!downKeyDown && Input.GetKeyDown(downKey))
-            downKeyDown = true;
-        else if (downKeyDown && Input.GetKeyUp(downKey))
-            downKeyDown = false;
-    }
-
-    private void UpdateRightKeyState()
-    {
-        if (!rightKeyDown && Input.GetKeyDown(rightKey))
-            rightKeyDown = true;
-        else if (rightKeyDown && Input.GetKeyUp(rightKey))
-            rightKeyDown = false;
-    }
-
-    private void UpdateSpaceKeyState()
-    {
-        if (!spaceKeyDown && Input.GetKeyDown(space))
-            spaceKeyDown = true;
-        else if (spaceKeyDown && Input.GetKeyUp(space))
-            spaceKeyDown = false;
-    }
-    
-    #endregion
 }

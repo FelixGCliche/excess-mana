@@ -10,8 +10,7 @@
             {
                 if (IsEffective(damageElement, targetElement))
                     damageAmount *= DAMAGE_MULTIPLIER;
-                else 
-                if (IsIneffective(damageElement, targetElement))
+                else if (IsIneffective(damageElement, targetElement))
                     damageAmount /= DAMAGE_MULTIPLIER;
             }
             return damageAmount;
