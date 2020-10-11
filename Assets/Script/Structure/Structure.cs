@@ -75,6 +75,11 @@ public class Structure : MonoBehaviour
         this.current_life = life;
     }
 
+    public float GetCurrentLife()
+    {
+        return current_life;
+    }
+
     public virtual void SetCurrentLevel(int level)
     {
         this.current_level = level;

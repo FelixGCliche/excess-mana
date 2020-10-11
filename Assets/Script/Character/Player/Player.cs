@@ -7,11 +7,6 @@ using  Game;
 
 public class Player : Character
 {
-    [SerializeField] private KeyCode attackKey = KeyCode.Mouse0;
-    [SerializeField] private KeyCode upKey = KeyCode.W;
-    [SerializeField] private KeyCode leftKey = KeyCode.A;
-    [SerializeField] private KeyCode downKey = KeyCode.S;
-    [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private PlayerAttack playerAttack;
     
     private InputAction moveInputs;
@@ -23,7 +18,7 @@ public class Player : Character
     private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
     private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
 
-    StructureHandler structureHandler;
+    public StructureHandler structureHandler;
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
@@ -56,20 +51,20 @@ public class Player : Character
             Attack();
         
         Mover.Move(moveInputs.ReadValue<Vector2>());
-
+        /*
         if (Input.GetKeyDown("space"))
         {
             structureHandler.BuildTower(gameObject.transform, currentSpellElement);
-        }
-
+        }*/
+        /*
         if(Input.GetKeyDown("q"))
         {
             inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
             inventory.AddRune(10, Elements.WIND, RuneSize.MEDIUM);
             inventory.AddRune(10, Elements.WIND, RuneSize.LARGE);
 
-        }
-
+        }*/
+        /*
         if (Input.GetKeyDown("e"))
         {
             // structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
@@ -79,18 +74,21 @@ public class Player : Character
 
             /* structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
              inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
-             */
+             
 
             RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
             RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
             RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
             Debug.Log("Inventoory player reste : " + inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
+        }*/
+
+        //Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
+        if (Build)
+        {
+            Debug.Log("fefef");
+            structureHandler.BuildTower(gameObject.transform, currentSpellElement);
         }
 
-        Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
-        if (Build)
-            structureHandler.BuildTower(gameObject.transform, Elements.WIND);
-        
     }
 
     public void TowerTypeSwitch(Elements e)
@@ -116,30 +114,6 @@ public class Player : Character
     {
         structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(e, r), e, r);
         inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),r), e, r);
-    }
-
-    private void CheckForMovement()
-    {
-        Vector2 movement = Vector2.zero;
-
-        if (upKeyDown && !downKeyDown)
-            movement += Vector2.up;
-        else if(!upKeyDown && downKeyDown)
-            movement += Vector2.down;
-
-        if (leftKeyDown && !rightKeyDown)
-            movement += Vector2.left;
-        else if (!leftKeyDown && rightKeyDown)
-            movement += Vector2.right;
-
-        if (movement.x != 0 && movement.y != 0)
-        {
-            movement.x *= 0.7f;
-            movement.y *= 0.7f;
-        }
-
-        transform.Translate(Time.deltaTime * speed * movement);
-
     }
 
     protected override void Kill()
