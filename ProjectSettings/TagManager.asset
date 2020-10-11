@@ -8,6 +8,7 @@ TagManager:
   - MainController
   - Structure
   - Walls
+  - EnemyCollision
   layers:
   - Default
   - TransparentFX

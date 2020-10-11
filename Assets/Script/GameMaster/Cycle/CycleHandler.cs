@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CycleHandler : MonoBehaviour
 {
-    [SerializeField] private float dayDuration = 300f;
+    [SerializeField] private float dayDuration = 120f;
     [SerializeField] private float timeBetweenWaves = 30f;
     [SerializeField] private int waveAmount = 1;
     [SerializeField] private SpriteRenderer nightOverlay;
@@ -50,7 +50,7 @@ public class CycleHandler : MonoBehaviour
         {
             StartWave();
         }
-        else if (HaveAllEnemyBeenSlain())
+        else if (waveSpawner.HaveAllEnemyBeenSlain())
         {
             BeginDay();
         }
@@ -87,14 +87,9 @@ public class CycleHandler : MonoBehaviour
     private void StartWave()
     {
         waveSpawner.StartWave();
-        cycleTimer = timeBetweenWaves;
         waveNumber++;
-    }
-
-    private bool HaveAllEnemyBeenSlain()
-    {
-        //TODO
-        return true;
+        if (waveNumber < waveAmount)
+            cycleTimer = timeBetweenWaves;
     }
 
     private void UpdateNightOverlay()
@@ -124,10 +119,13 @@ public class CycleHandler : MonoBehaviour
         {
             timerText.text = "Time left before night : " + minutes.ToString("0") + ":" + seconds.ToString("00");
         }
-        else
+        else if (waveNumber < waveAmount)
         {
             timerText.text = "Time left before next wave : " + minutes.ToString("0") + ":" + seconds.ToString("00");
         }
-            
+        else
+        {
+            timerText.text = "Last wave";
+        }
     }
 }

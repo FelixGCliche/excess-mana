@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Script.Util;
 using Script.Character;
+using Script.GameMaster.WaveSpawner;
 using UnityEngine;
 
 public class Enemy : Character
@@ -19,6 +21,8 @@ public class Enemy : Character
     Player player;
     bool isDealingDamage;
     bool isPlayerDetected;
+
+    private WaveSpawner waveSpawner;
 
     void Start()
     {
@@ -140,6 +144,11 @@ public class Enemy : Character
     protected override void Kill()
     {
         //Play sound
+        if (waveSpawner != null)
+        {
+            waveSpawner.Notify();
+            Debug.Log(gameObject.name);
+        }
         Destroy(gameObject);
     }
 
@@ -171,5 +180,10 @@ public class Enemy : Character
         }
 
         isDealingDamage = false;
+    }
+
+    public void Suscribe(WaveSpawner spawner)
+    {
+        waveSpawner = spawner;
     }
 }
