@@ -22,6 +22,7 @@ public class Player : Character
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
+    private ElementHandler elementHandler;
 
     public Grid grid;
 
@@ -31,6 +32,7 @@ public class Player : Character
         base.Awake();
 
         moveInputs = Finder.Inputs.Actions.Game.Move;
+        elementHandler = Finder.ElementHandler;
         grid = FindObjectOfType<Grid>();
 
     }
@@ -40,7 +42,6 @@ public class Player : Character
         var finalPosition = grid.GetNearestPointOnGrid(nearPoint);
         //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;.
         structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
-
     }
 
     // Start is called before the first frame update
@@ -167,13 +168,29 @@ public class Player : Character
 
     private void UpdateElement()
     {
-        if (IsFireElement)
+        if (IsFireElement && elementHandler.GetIsFireActivated())
             currentSpellElement = Elements.FIRE;
-        else if (IsEarthElement)
+        else if (IsEarthElement && elementHandler.GetIsEarthActivated())
             currentSpellElement = Elements.EARTH;
-        else if (IsWindElement)
+        else if (IsWindElement && elementHandler.GetIsWindActivated())
             currentSpellElement = Elements.WIND;
-        else if (IsWaterElement)
+        else if (IsWaterElement && elementHandler.GetIsWaterActivated())
             currentSpellElement = Elements.WATER;
+    }
+    public void LearnThatElementIsDeactivated(Elements element)
+    {
+        if (currentSpellElement == element)
+        {
+            if (elementHandler.GetIsFireActivated())
+                currentSpellElement = Elements.FIRE;
+            else if (elementHandler.GetIsEarthActivated())
+                currentSpellElement = Elements.EARTH;
+            else if (elementHandler.GetIsWindActivated())
+                currentSpellElement = Elements.WIND;
+            else if (elementHandler.GetIsWaterActivated())
+                currentSpellElement = Elements.WATER;
+            else
+                currentSpellElement = Elements.NONE;
+        }
     }
 }
