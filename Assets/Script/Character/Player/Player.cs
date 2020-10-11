@@ -9,12 +9,13 @@ using System.Collections.Generic;
 
 public class Player : Character
 {
-    [SerializeField] private PlayerAttack playerAttack;
-
-    [SerializeField] private Transform spriteTransform;
 
     [SerializeField]
     private ProgressBar manaBar;
+    
+    [SerializeField] private PlayerAttack playerAttack;
+
+    [SerializeField] private Transform spriteTransform;
 
     private InputAction moveInputs;
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
