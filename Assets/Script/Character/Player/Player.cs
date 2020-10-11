@@ -216,10 +216,10 @@ public class Player : Character
 
     private void CollectRune()
     {
-        Debug.Log("Collecting");
         ISensor<Rune> runeSensor = ColliderSensor.For<Rune>();
         if (runeSensor.SensedObjects.Count > 0)
         {
+            Debug.Log("Collecting");
             foreach (Rune rune in runeSensor.SensedObjects)
             {
                 inventory.Collect(rune.Element, rune.Value);

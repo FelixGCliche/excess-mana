@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2731774450507946298}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2655279722592980115
 AudioSource:
@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 2731774450507946297}
   - component: {fileID: 2731774450507946296}
   - component: {fileID: -1527094718259226414}
+  - component: {fileID: 736987049896842639}
   m_Layer: 0
   m_Name: Rune
   m_TagString: Untagged
@@ -158,7 +159,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2731774450591841631}
-  - {fileID: 2731774451958768504}
   - {fileID: 7407785759491915634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -177,6 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 0
   size: 0
+  smallRuneValue: 1
+  mediumRuneValue: 5
+  largeRuneValue: 25
 --- !u!50 &2731774450507946296
 Rigidbody2D:
   serializedVersion: 4
@@ -210,6 +213,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0919a19f98dd4b0885bf3ee200e7a7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &736987049896842639
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731774450507946279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &2731774450591841630
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,50 +311,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2731774451958768487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2731774451958768504}
-  - component: {fileID: 2731774451958768505}
-  m_Layer: 0
-  m_Name: Collision box
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2731774451958768504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731774451958768487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2731774450507946298}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2731774451958768505
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731774451958768487}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15
