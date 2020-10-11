@@ -1,9 +1,7 @@
 ﻿using System;
-using Harmony;
 
-namespace Script.Character.Player
+namespace Game
 {
-  [Findable(Tags.Player)]
   public class PlayerInventory
   {
     private RuneRessource fireRuneRessources;
@@ -24,7 +22,28 @@ namespace Script.Character.Player
       waterRuneRessources = new RuneRessource(Elements.WATER);
     }
 
-    public bool CanPay(Elements element, int cost)
+    public void Collect(Elements element, int value)
+    {
+      switch (element)
+      {
+        case Elements.FIRE:
+          fireRuneRessources.Collect(value);
+          break;
+        case Elements.EARTH:
+          earthRuneRessources.Collect(value);
+          break;
+        case Elements.WIND:
+          windRuneRessources.Collect(value);
+          break;
+        case Elements.WATER:
+          waterRuneRessources.Collect(value);
+          break;
+        default:
+          throw new Exception("The RuneRessource you are trying to fetch doesn't exist");
+      }
+    }
+
+    public bool CanPay(int cost, Elements element)
     {
       switch (element)
       {

@@ -33,7 +33,7 @@ public class RuneZone : MonoBehaviour
                 for (int i = 0; i < amountToSpawn; i++)
                 {
                         spawnedRunes[i] = Instantiate(runeToSpawn, new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)), Quaternion.identity);
-                        if (spawnedRunes[i].IsInWall())
+                        if (spawnedRunes[i].IsInWall)
                         {
                                 if (spawnedRunes[i] != null)
                                 {

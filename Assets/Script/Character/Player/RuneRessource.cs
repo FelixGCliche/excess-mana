@@ -1,4 +1,4 @@
-﻿namespace Script.Character.Player
+﻿namespace Game
 {
   public struct RuneRessource
   {
