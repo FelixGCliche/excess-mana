@@ -126,7 +126,7 @@ public class Player : Character
                 playerAttack.EarthAttack(transform.position);
                 break;
             case Elements.WIND :
-                playerAttack.WindAttack(transform.position);
+                playerAttack.WindAttack(transform);
                 break;
             case Elements.WATER :
                 playerAttack.WaterAttack(transform.position);
