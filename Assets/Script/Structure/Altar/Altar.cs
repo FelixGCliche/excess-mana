@@ -15,7 +15,7 @@ public class Altar : Structure
 
     protected new void Destroy()
     {
-        Finder.ElementHandler.DeactivateElement(current_element);
+        Finder.ElementHandler.DeactivateElement(currentElement);
         base.Destroy();
     }
 }

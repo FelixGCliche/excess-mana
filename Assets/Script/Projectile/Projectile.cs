@@ -43,5 +43,10 @@ namespace Script.Projectile
                 }
             }
         }
+
+        public void SetDamage(float damage)
+        {
+            projectileDamage = damage;
+        }
     }
 }
