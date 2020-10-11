@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 8196932158872676025, guid: 3427da2b373e41d49bd2a954c422eea4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2b0f9f748b26639459b8a856d24d259a, type: 3}
+      objectReference: {fileID: 21300000, guid: bf1b157dd0eb78948817787a8da0c03a, type: 3}
     - target: {fileID: 8196932158956552910, guid: 3427da2b373e41d49bd2a954c422eea4, type: 3}
       propertyPath: m_Name
-      value: Large Earth Rune
+      value: Large Earth Rune Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8196932158956552912, guid: 3427da2b373e41d49bd2a954c422eea4, type: 3}
       propertyPath: element

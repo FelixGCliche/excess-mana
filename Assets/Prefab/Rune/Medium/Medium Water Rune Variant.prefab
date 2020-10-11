@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9117633825116182323, guid: 5668754eae47fd44a84dfdf78b04af47, type: 3}
       propertyPath: m_Name
-      value: Medium Water Rune
+      value: Medium Water Rune Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9117633825166521156, guid: 5668754eae47fd44a84dfdf78b04af47, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 434c5374777912d49b15d2f3d39c5e8b, type: 3}
+      objectReference: {fileID: 21300000, guid: 9e0908628fa1b7e46915c26fea861843, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5668754eae47fd44a84dfdf78b04af47, type: 3}

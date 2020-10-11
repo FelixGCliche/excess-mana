@@ -93,11 +93,17 @@ namespace Game
 
         private Vector3 GetPointerPositionInWorld()
         {
-            Plane plane = new Plane(Vector3.back, transform.parent.position);
-            var ray = Camera.main.ScreenPointToRay(aimInput.ReadValue<Vector2>());
+            var camera = Camera.main;
+            
+            if (camera != null)
+            {
+                Plane plane = new Plane(Vector3.back, transform.parent.position);
+                var ray = camera.ScreenPointToRay(aimInput.ReadValue<Vector2>());
         
-            plane.Raycast(ray, out float enter);
-            return ray.GetPoint(enter);
+                plane.Raycast(ray, out float enter);
+                return ray.GetPoint(enter);
+            }
+            return Vector3.zero;
         }
         
         private float GetFirstWallHitDistance (Vector3 spawnPointPosition, Vector3 direction, float maxLenght)
