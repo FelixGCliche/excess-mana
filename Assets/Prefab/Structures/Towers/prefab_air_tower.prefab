@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 35f5e32f390f3b643a9adde39fcf6b78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,12 +114,20 @@ MonoBehaviour:
   healthBar: {fileID: 8026895765160684207}
   radius: 0
   target: {fileID: 0}
+  max_level: 0
   fire_rate: 0
   projectile_spawn_point: {fileID: 7392183132699171008}
   tower_attacks: {fileID: 5243626708108396121}
   id: 0
-  interactKey: 324
+  default_life: 0
   text: {fileID: 438641458827742822}
+  is_selected: 0
+  required_small_runes: 5
+  required_medium_runes: 10
+  required_large_runes: 15
+  current_small_runes: 0
+  current_medium_runes: 0
+  current_large_runes: 0
 --- !u!70 &3893375193443553291
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

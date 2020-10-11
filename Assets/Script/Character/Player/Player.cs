@@ -12,7 +12,7 @@ public class Player : Character
     private InputAction moveInputs;
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
-    private bool Build => Finder.Inputs.Actions.Game.Interact.triggered;
+    private bool Build => Finder.Inputs.Actions.Game.Build.triggered;
     private bool IsFireElement => Finder.Inputs.Actions.Game.FireElement.triggered;
     private bool IsWaterElement => Finder.Inputs.Actions.Game.WaterElement.triggered;
     private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
@@ -39,7 +39,7 @@ public class Player : Character
 
         structureHandler = gameObject.GetComponent<StructureHandler>();
         transform.position = new Vector3(0,0,0);
-        inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
+       // inventory.AddRune(10, Elements.WIND, RuneSize.SMALL);
 
     }
 
@@ -49,7 +49,7 @@ public class Player : Character
         UpdateElement();
         if (Fire)
             Attack();
-        
+
         Mover.Move(moveInputs.ReadValue<Vector2>());
         /*
         if (Input.GetKeyDown("space"))
