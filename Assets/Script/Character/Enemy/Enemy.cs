@@ -8,6 +8,7 @@ public class Enemy : Character
     [SerializeField] int enemyDetectionRange = 10;
     [SerializeField] bool isInWave = false;
 
+    private int test;
     GameObject target;
     Player player;
 
