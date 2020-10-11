@@ -20,17 +20,12 @@ namespace Game
         private InputAction aimInput;
         private float timeBeforeNextAttack;
 
+        public float AttackCooldownPercentage => 1f - (timeBeforeNextAttack / timeBetweenAttack);
+
         private void Awake()
         {
             aimInput = Finder.Inputs.Actions.Game.Aim;
         }
-        
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        { 
-            Gizmos.DrawLine(transform.parent.position, GetPointerPositionInWorld());
-        }
-#endif
 
         private void Start()
         {
