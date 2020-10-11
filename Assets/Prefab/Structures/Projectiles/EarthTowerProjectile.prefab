@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1700780848548752018}
   - component: {fileID: 2107347648844989598}
   m_Layer: 8
-  m_Name: EarthAttackProjectile
+  m_Name: EarthTowerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,9 @@ MonoBehaviour:
   projectileElement: 1
   projectileDamage: 10
   projectileSpeed: 10
+  projectileDuration: 2
+  isPiercing: 0
+  isImmobile: 0
 --- !u!50 &2107347648844989598
 Rigidbody2D:
   serializedVersion: 4
