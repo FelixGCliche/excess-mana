@@ -50,6 +50,7 @@ public class Structure : MonoBehaviour
     protected void Destroy()
     {
         //[TODO] sprite
+        //[TODO] sfx
         current_state = StructureState.Destroyed;
         Destroy(this.gameObject);
     }

@@ -10,6 +10,8 @@ namespace Game
   {
     [Header("Scenes")] 
     [SerializeField] private SceneBundle gameScenes;
+    [SerializeField] private SceneBundle homeScenes;
+    [SerializeField] private SceneBundle settingsScenes;
 
     private SceneBundleLoader loader;
 
@@ -18,14 +20,11 @@ namespace Game
       loader = Finder.SceneBundleLoader;
       DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
       DOTween.SetTweensCapacity(200, 125);
-
-      // Should be placed in home menu
-      LoadGameScenes();
     }
 
     private IEnumerator Start()
     {
-      yield return loader.Load(gameScenes);
+      yield return loader.Load(homeScenes);
     }
 
     public Coroutine LoadGameScenes()
@@ -36,6 +35,31 @@ namespace Game
     public Coroutine UnloadGameScenes()
     {
       return loader.Unload(gameScenes);
+    }
+
+    public Coroutine LoadHomeScenes()
+    {
+      return loader.Load(homeScenes);
+    }
+
+    public Coroutine UnloadHomeScenes()
+    {
+      return loader.Unload(homeScenes);
+    }
+
+    public Coroutine LoadSettingsScenes()
+    {
+      return loader.Load(settingsScenes);
+    }
+
+    public Coroutine UnloadSettingsScenes()
+    {
+      return loader.Unload(settingsScenes);
+    }
+
+    public static void QuitApplication()
+    {
+      ApplicationExtensions.Quit();
     }
   }
 }

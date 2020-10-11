@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: CavernRuleTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -109607226005291706, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+  m_DefaultSprite: {fileID: -3919362319059431781, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 2
     m_Sprites:
-    - {fileID: -9172993009685630508, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+    - {fileID: 2334309671624081365, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -32,7 +32,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 0
     m_Sprites:
-    - {fileID: -2558676426744560151, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+    - {fileID: 2682301380969273958, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 1
     m_Sprites:
-    - {fileID: 7699438493687345804, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+    - {fileID: -2272896817649060443, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -60,7 +60,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 4
     m_Sprites:
-    - {fileID: -7098242065137767628, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+    - {fileID: -259576954847296299, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
@@ -77,7 +77,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 3
     m_Sprites:
-    - {fileID: -109607226005291706, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
+    - {fileID: -3919362319059431781, guid: dc9abaec61078b34596015495f45ae2a, type: 3}
     m_GameObject: {fileID: 0}
     m_AnimationSpeed: 1
     m_PerlinScale: 0.5
