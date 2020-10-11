@@ -49,6 +49,9 @@ MonoBehaviour:
   projectileElement: 0
   projectileDamage: 10
   projectileSpeed: 10
+  projectileDuration: 0.3
+  isPiercing: 1
+  isImmobile: 1
 --- !u!50 &6707600453098851253
 Rigidbody2D:
   serializedVersion: 4
@@ -95,7 +98,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734631380594938149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.157, y: 0.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7403647160729144676}
@@ -141,8 +144,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.9528302, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5f2cba5470de0b94b8fd04bdf4f3ae65, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -192,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2627560107415760028}
-  - component: {fileID: 2432017033073402335}
+  - component: {fileID: 3892396050097768581}
   m_Layer: 8
   m_Name: Collision Box
   m_TagString: Untagged
@@ -207,15 +210,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8267459743064894544}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0010278062, w: 0.99999946}
+  m_LocalPosition: {x: 1.0559319, y: -0.4947834, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 1}
   m_Children: []
   m_Father: {fileID: 2530034678720841920}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2432017033073402335
-CircleCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.118}
+--- !u!61 &3892396050097768581
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -223,10 +226,20 @@ CircleCollider2D:
   m_GameObject: {fileID: 8267459743064894544}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3ca29610206c5e347948f21806c8f865, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.52399254, y: 2.597656}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 11.10075, y: 6.195312}
+  m_EdgeRadius: 0
