@@ -22,18 +22,10 @@ public class TowerLocation : MonoBehaviour
         aimInput = Finder.Inputs.Actions.Game.Aim;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (build)
         {
-            
             Ray ray = Camera.main.ScreenPointToRay(aimInput.ReadValue<Vector2>());
             RaycastHit hit;
 
@@ -51,7 +43,7 @@ public class TowerLocation : MonoBehaviour
     {
         if (tower != null)
         {
-
+            tower.Upgrade();
         }
         else 
         {

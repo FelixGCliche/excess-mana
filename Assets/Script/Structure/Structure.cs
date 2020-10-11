@@ -8,31 +8,26 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1000)] protected float baseHealth = 100f;
+    [SerializeField] [Range(0, 1000)] protected float initialHealth = 100;
 
-    [SerializeField] protected Elements current_element;
+    [SerializeField] protected Elements currentElement;
 
     [SerializeField] protected HealthBar healthBar;
 
-    private float current_life;
+    protected float currentHealth;
 
     void Start()
     {
-        current_life = baseHealth;
-    }
-
-    protected IEnumerator DoRepair(float health)
-    {
-        for (; ; )
-        {
-            Repair(health);
-            yield return new WaitForSeconds(.1f);
-        }
+        currentHealth = initialHealth;
     }
 
     protected void Repair(float health)
     {
-        SetCurrentLife(health);
+        SetCurrentLife(currentHealth + health);
+        if (currentHealth > initialHealth)
+        {
+            currentHealth = initialHealth;
+        }
     }
 
     protected void Destroy()
@@ -47,30 +42,30 @@ public class Structure : MonoBehaviour
 
     public void TakeDamage(float damageAmount, Elements damageElement)
     {
-        baseHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, current_element);
-        if (baseHealth <= 0)
+        initialHealth -= DamageCalculator.CalculateDamage(damageAmount, damageElement, currentElement);
+        if (initialHealth <= 0)
             Destroy();
         else
-            healthBar.AdjustHealthBar(baseHealth / 100);
+            healthBar.AdjustHealthBar(initialHealth / 100);
     }
 
     public void SetCurrentLife(float life)
     {
-        this.current_life = life;
+        this.currentHealth = life;
     }
 
     public float GetCurrentLife()
     {
-        return current_life;
+        return currentHealth;
     }
 
     public void SetCurrentElement(Elements e)
     {
-        this.current_element = e;
+        this.currentElement = e;
     }
 
     public Elements GetCurrentElement()
     {
-        return this.current_element;
+        return this.currentElement;
     }
 }

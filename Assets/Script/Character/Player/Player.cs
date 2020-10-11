@@ -21,7 +21,7 @@ public class Player : Character
     private bool IsWindElement => Finder.Inputs.Actions.Game.WindElement.triggered;
     private bool IsEarthElement => Finder.Inputs.Actions.Game.EarthElement.triggered;
 
-    private PlayerInventory inventory;
+    private PlayerInventory playerInventory;
 
     public Elements currentSpellElement;
     private ElementHandler elementHandler;
@@ -38,14 +38,14 @@ public class Player : Character
     void Start()
     {
         health = baseHealth;
-        inventory = new PlayerInventory();
+        playerInventory = new PlayerInventory();
         currentSpellElement = Elements.FIRE;
 
         transform.position = new Vector3(0,0,0);
 
-       inventory.AddRune(100, Elements.WIND, RuneSize.SMALL);
-       inventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
-       inventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
+       playerInventory.AddRune(100, Elements.WIND, RuneSize.SMALL);
+       playerInventory.AddRune(100, Elements.WIND, RuneSize.MEDIUM);
+       playerInventory.AddRune(100, Elements.WIND, RuneSize.LARGE);
 
     }
 
@@ -101,7 +101,7 @@ public class Player : Character
         {
             Elements runeElement = rune.GetElement();
             RuneSize runeSize = rune.GetSize();
-            inventory.AddRune(1, runeElement, runeSize);
+            playerInventory.AddRune(1, runeElement, runeSize);
             rune.PickUp();
         }
     }
