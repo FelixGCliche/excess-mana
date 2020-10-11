@@ -30,7 +30,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2049475964266316920}
+  - {fileID: 7000528212578251922}
   - {fileID: 2738338641296961005}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,17 +100,13 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1001 &5697666055038323237
+--- !u!1001 &3622514508423264975
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 5906649533596085}
     m_Modifications:
-    - target: {fileID: 4645519775449559422, guid: b4559493e8c438e409b634729851e9d2, type: 3}
-      propertyPath: m_Name
-      value: DayTimer
-      objectReference: {fileID: 0}
     - target: {fileID: 6008679936004968017, guid: b4559493e8c438e409b634729851e9d2, type: 3}
       propertyPath: m_Name
       value: CycleStats
@@ -165,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008679936004968029, guid: b4559493e8c438e409b634729851e9d2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -152
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 6008679936004968029, guid: b4559493e8c438e409b634729851e9d2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -173,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008679936004968029, guid: b4559493e8c438e409b634729851e9d2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 256
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 6008679936004968029, guid: b4559493e8c438e409b634729851e9d2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -213,10 +209,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4559493e8c438e409b634729851e9d2, type: 3}
---- !u!224 &2049475964266316920 stripped
+--- !u!224 &7000528212578251922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6008679936004968029, guid: b4559493e8c438e409b634729851e9d2, type: 3}
-  m_PrefabInstance: {fileID: 5697666055038323237}
+  m_PrefabInstance: {fileID: 3622514508423264975}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9055398278553298373
 PrefabInstance:

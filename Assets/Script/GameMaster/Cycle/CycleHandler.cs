@@ -20,8 +20,13 @@ public class CycleHandler : MonoBehaviour
     private int waveNumber;
     private Color nightOverlayColor;
     private int day;
-
-    public float NightDuration => CalculateNightDuration();
+    
+    public int WaveNumber => waveNumber;
+    public int WaveAmount => waveAmount;
+    public int Day => day;
+    public bool IsDay => cycleState == CycleState.DAY;
+    public float CycleTimer => cycleTimer;
+    public float DayPercentage => cycleTimer / dayDuration;
     
     // Start is called before the first frame update
     private void Start()
@@ -108,11 +113,6 @@ public class CycleHandler : MonoBehaviour
             nightOverlayColor.a = Mathf.Lerp(nightOverlayFullOpacity, 0, overlayProgression);
             nightOverlay.color = nightOverlayColor;
         }
-    }
-
-    private float CalculateNightDuration()
-    {
-        return 0;
     }
 
     private void UpdateTimerText()
