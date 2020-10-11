@@ -77,10 +77,11 @@ MonoBehaviour:
   initialSpawnCurrency: 10
   spawnCurrencyProgression: 5
   hardWaveCurrencyMultiplier: 2
-  fireEnemyPrefab: {fileID: 8243416684533866683, guid: dea8908770b97394799f07d27d4e916f, type: 3}
-  earthEnemyPrefab: {fileID: 6036763105530780535, guid: 6d7594a6666454d499b378d0a3c7c7c9, type: 3}
-  windEnemyPrefab: {fileID: 6456950462337658789, guid: 92fb72e6e7ae4bb46853a5f235ed05c3, type: 3}
-  waterEnemyPrefab: {fileID: 3248825773114097556, guid: 22498bf4a80b7594f87128109d6d9e5c, type: 3}
+  timeBetweenSpawn: 0.5
+  fireEnemyPrefab: {fileID: 5850401457473257821, guid: a3ae2a476c020904db092e5f7c4034cf, type: 3}
+  earthEnemyPrefab: {fileID: 8871620825455765915, guid: 77251f0eb2bcf9743abda050dd561d16, type: 3}
+  windEnemyPrefab: {fileID: 6590858954630530509, guid: 2c50d6056abbc7542b0f86c3b012cfdc, type: 3}
+  waterEnemyPrefab: {fileID: 605860132407560373, guid: 29ea3938e577eef408fb1ad76314e032, type: 3}
   northSpawnpoint: {fileID: 9184721061840221034}
   eastSpawnpoint: {fileID: 4302112918469352280}
   southSpawnpoint: {fileID: 3124036951300913126}

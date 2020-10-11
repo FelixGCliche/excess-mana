@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8385802482831707109, guid: 6254028b22e9b4f4ab151783a6577f6f, type: 3}
       propertyPath: m_Name
-      value: Large Wind Rune
+      value: Large Wind Rune Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8385802482831707128, guid: 6254028b22e9b4f4ab151783a6577f6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,6 +62,6 @@ PrefabInstance:
     - target: {fileID: 8385802482915602322, guid: 6254028b22e9b4f4ab151783a6577f6f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 13f578e8ff13c09429dc8ff2ac74ea05, type: 3}
+      objectReference: {fileID: 21300000, guid: e6920044343dc9c4f8658586e010a2e5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6254028b22e9b4f4ab151783a6577f6f, type: 3}

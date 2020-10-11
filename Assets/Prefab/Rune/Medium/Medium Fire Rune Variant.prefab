@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2772416271096013131, guid: 9886493094309974e81ed7c6bad69bfd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bfd214baaae28974faf2f7090f2975d9, type: 3}
     - target: {fileID: 2772416271213446433, guid: 9886493094309974e81ed7c6bad69bfd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2772416271213446460, guid: 9886493094309974e81ed7c6bad69bfd, type: 3}
       propertyPath: m_Name
-      value: Medium Fire Rune
+      value: Medium Fire Rune Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9886493094309974e81ed7c6bad69bfd, type: 3}

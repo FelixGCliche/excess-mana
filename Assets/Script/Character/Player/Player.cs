@@ -4,12 +4,16 @@ using Script.Character;
 using Script.Character.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using  Game;
+using System.Collections.Generic;
 
 public class Player : Character
 {
     [SerializeField] private PlayerAttack playerAttack;
-    
+
+    [SerializeField] private Transform spriteTransform;
+
     private InputAction moveInputs;
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
@@ -23,6 +27,7 @@ public class Player : Character
     private PlayerInventory inventory;
 
     private Elements currentSpellElement;
+    private ElementHandler elementHandler;
 
     private AudioSource deathSource;
     private AudioSource runSource;
@@ -35,6 +40,15 @@ public class Player : Character
     private bool isRunning;
     
     public Grid grid;
+
+    List<double> validated_x = new List<double>();
+    List<double> validated_y = new List<double>();
+
+    Vector3 v;
+    Vector3 v2;
+    Vector3 v3;
+    Vector3 v4;
+
 
 
     private new void Awake()
@@ -50,15 +64,180 @@ public class Player : Character
         earthAttackSource = GameObject.Find("PlayerEarthAttackSource").gameObject.GetComponent<AudioSource>();
         
         moveInputs = Finder.Inputs.Actions.Game.Move;
+        elementHandler = Finder.ElementHandler;
         grid = FindObjectOfType<Grid>();
 
+        
     }
 
     public void PlaceTowerNear(Vector2 nearPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(nearPoint);
-        //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;.
-        structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+       
+
+         v = new Vector3 ( -10, 10, 0 );
+         v2 = new Vector3 ( -1, 10, 0 );
+         v3 = new Vector3 ( -1, 2, 0 );
+         v4 = new Vector3 ( -10, 2, 0 );
+
+        if(finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y  )
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+         v = new Vector3(1, 10, 0);
+         v2 = new Vector3(10, 10, 0);
+         v3 = new Vector3(1, 2, 0);
+         v4 = new Vector3(10, 2, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-10, -1, 0);
+        v2 = new Vector3(-2, -1, 0);
+        v3 = new Vector3(-2, -10, 0);
+        v4 = new Vector3(-10, -10, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(1, -1, 0);
+        v2 = new Vector3(10, 1, 0);
+        v3 = new Vector3(1, -10, 0);
+        v4 = new Vector3(10, -10, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-15, 3, 0);
+        v2 = new Vector3(-12, 3, 0);
+        v3 = new Vector3(-12, -2, 0);
+        v4 = new Vector3(-15, -3, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(12, 3, 0);
+        v2 = new Vector3(15, 3, 0);
+        v3 = new Vector3(12, -2, 0);
+        v4 = new Vector3(15, -2, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-20, 2, 0);
+        v2 = new Vector3(-18, 2, 0);
+        v3 = new Vector3(-20, -1, 0);
+        v4 = new Vector3(-18, -1, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(18, 2, 0);
+        v2 = new Vector3(20, 2, 0);
+        v3 = new Vector3(-18, -1, 0);
+        v4 = new Vector3(-20, -1, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+
+        v = new Vector3(-3, 15, 0);
+        v2 = new Vector3(3, 15, 0);
+        v3 = new Vector3(-3, 12, 0);
+        v4 = new Vector3(3, 12, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-3, -12, 0);
+        v2 = new Vector3(3, -12, 0);
+        v3 = new Vector3(-3, -15, 0);
+        v4 = new Vector3(3, -15, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-2, -21, 0);
+        v2 = new Vector3(2, 21, 0);
+        v3 = new Vector3(-2, 18, 0);
+        v4 = new Vector3(2, 18, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-2, -18, 0);
+        v2 = new Vector3(2, -18, 0);
+        v3 = new Vector3(-2, -21, 0);
+        v4 = new Vector3(2, -21, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-15, 15, 0);
+        v2 = new Vector3(-12, 15, 0);
+        v3 = new Vector3(-15, 11, 0);
+        v4 = new Vector3(-12, 11, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(11, 15, 0);
+        v2 = new Vector3(15, 15, 0);
+        v3 = new Vector3(12, 11, 0);
+        v4 = new Vector3(15, 11, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(12, -11, 0);
+        v2 = new Vector3(15, -11, 0);
+        v3 = new Vector3(12, -15, 0);
+        v4 = new Vector3(15, -15, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        v = new Vector3(-14, -11, 0);
+        v2 = new Vector3(-12, -11, 0);
+        v3 = new Vector3(-15, -14, 0);
+        v4 = new Vector3(-12, -14, 0);
+
+        if (finalPosition.x >= v.x && finalPosition.x <= v2.x && finalPosition.y >= v4.y && finalPosition.y <= v2.y)
+        {
+            structureHandler.BuildTower(finalPosition, gameObject.transform, currentSpellElement);
+        }
+
+        Debug.DrawLine(v,v2,Color.green, 5.0f);
+
 
     }
 
@@ -92,12 +271,17 @@ public class Player : Character
 
 
         Mover.Move(moveInputs.ReadValue<Vector2>());
+        if (moveInputs.ReadValue<Vector2>().x < 0)
         
         /*
         if (Input.GetKeyDown("space"))
         {
-            structureHandler.BuildTower(gameObject.transform, currentSpellElement);
-        }*/
+            spriteTransform.localScale = new Vector3(1,1,1);
+        }
+        else if (moveInputs.ReadValue<Vector2>().x > 0)
+        {
+            spriteTransform.localScale = new Vector3(-1, 1, 1);
+        }
         /*
         if(Input.GetKeyDown("q"))
         {
@@ -109,10 +293,6 @@ public class Player : Character
         /*
         if (Input.GetKeyDown("e"))
         {
-            // structureHandler.LevelUpTower(structureHandler.CheckIsSelectedTower());
-
-            // structureHandler.SetLifeTo1(structureHandler.CheckIsSelectedTower());
-            // structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
 
             /* structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
              inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
@@ -124,7 +304,6 @@ public class Player : Character
             Debug.Log("Inventoory player reste : " + inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         }*/
 
-        //Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         if (Build)
         {
             Vector2 a = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
@@ -134,17 +313,18 @@ public class Player : Character
         if(Interact)
         {
             Debug.Log("Interact");
-          /*  RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position,
-                Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
 
-            Debug.Log(hit.collider.name);*/
-            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            if (structureHandler.GetCUrrentLife(structureHandler.CheckIsSelectedTower()) != 100)
+            {
+                structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
+            }
+            else
+            {
+                RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            }
         }
-
-        //Debug.Log(Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
-
     }
 
     public void RuneSizeSwitch(RuneSize r, Elements e)
@@ -198,22 +378,22 @@ public class Player : Character
 
     private void UpdateElement()
     {
-        if (IsFireElement)
+        if (IsFireElement && elementHandler.GetIsFireActivated())
         {
             currentSpellElement = Elements.FIRE;
             fireAttackSource.Play();
         }
-        else if (IsEarthElement)
+        else if (IsEarthElement && elementHandler.GetIsEarthActivated())
         {
             currentSpellElement = Elements.EARTH;
             earthAttackSource.Play();
         }
-        else if (IsWindElement)
+        else if (IsWindElement && elementHandler.GetIsWindActivated())
         {
             currentSpellElement = Elements.WIND;
             airAttackSource.Play();
         }        
-        else if (IsWaterElement)
+        else if (IsWaterElement && elementHandler.GetIsWaterActivated())
         {
             currentSpellElement = Elements.WATER;
             waterAttackSource.Play();
@@ -237,4 +417,20 @@ public class Player : Character
         isRunning = false;
     }
 
+    public void LearnThatElementIsDeactivated(Elements element)
+    {
+        if (currentSpellElement == element)
+        {
+            if (elementHandler.GetIsFireActivated())
+                currentSpellElement = Elements.FIRE;
+            else if (elementHandler.GetIsEarthActivated())
+                currentSpellElement = Elements.EARTH;
+            else if (elementHandler.GetIsWindActivated())
+                currentSpellElement = Elements.WIND;
+            else if (elementHandler.GetIsWaterActivated())
+                currentSpellElement = Elements.WATER;
+            else
+                currentSpellElement = Elements.NONE;
+        }
+    }
 }
