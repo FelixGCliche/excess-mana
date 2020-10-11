@@ -91,10 +91,16 @@ public class Player : Character
         if(Interact)
         {
             Debug.Log("Interact");
-           RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.transform.position,
+                Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
+
+            Debug.Log(hit.collider.name);
+            //RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
             //RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-           // RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            // RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
         }
+
+        //Debug.Log(Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue()));
 
     }
 
