@@ -117,20 +117,23 @@ public class Player : Character
     
     public void Attack()
     {
-        switch (currentSpellElement)
+        if (playerAttack.IsReadyToAttack())
         {
-            case Elements.FIRE :
-                playerAttack.FireAttack(transform.position);
-                break;
-            case Elements.EARTH :
-                playerAttack.EarthAttack(transform.position);
-                break;
-            case Elements.WIND :
-                playerAttack.WindAttack(transform);
-                break;
-            case Elements.WATER :
-                playerAttack.WaterAttack(transform.position);
-                break;
+            switch (currentSpellElement)
+            {
+                case Elements.FIRE:
+                    playerAttack.FireAttack(transform.position);
+                    break;
+                case Elements.EARTH:
+                    playerAttack.EarthAttack(transform.position);
+                    break;
+                case Elements.WIND:
+                    playerAttack.WindAttack(transform);
+                    break;
+                case Elements.WATER:
+                    playerAttack.WaterAttack(transform.position);
+                    break;
+            }
         }
     }
     
