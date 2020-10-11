@@ -29,8 +29,6 @@ namespace Game
       title.text = String.Format(DayCountFormat, cycleHandler.Day);
       header.text = DayTimerHeaderFormat;
       data.text = FormatTimerText(cycleHandler.CycleTimer);
-      
-      Debug.Log(data);
     }
 
     private void Update()

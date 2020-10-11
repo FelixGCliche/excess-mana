@@ -47,22 +47,25 @@ public class TowerLocation : MonoBehaviour
         }
         else 
         {
-            Vector3 position = transform.position;
-            position.y = position.y + 0.5f;
-            switch (Finder.Player.currentSpellElement) 
+            if (Finder.Player.Inventory.CanPay(10,Finder.Player.currentSpellElement))
             {
-                case Elements.FIRE:
-                    tower = Instantiate(fireTower, position, transform.rotation);
-                    break;
-                case Elements.WATER:
-                    tower = Instantiate(waterTower, position, transform.rotation);
-                    break;
-                case Elements.WIND:
-                    tower = Instantiate(airTower, position, transform.rotation);
-                    break;
-                case Elements.EARTH:
-                    tower = Instantiate(earthTower, position, transform.rotation);
-                    break;
+                Vector3 position = transform.position;
+                position.y = position.y + 0.5f;
+                switch (Finder.Player.currentSpellElement) 
+                {
+                    case Elements.FIRE:
+                        tower = Instantiate(fireTower, position, transform.rotation);
+                        break;
+                    case Elements.WATER:
+                        tower = Instantiate(waterTower, position, transform.rotation);
+                        break;
+                    case Elements.WIND:
+                        tower = Instantiate(airTower, position, transform.rotation);
+                        break;
+                    case Elements.EARTH:
+                        tower = Instantiate(earthTower, position, transform.rotation);
+                        break;
+                }
             }
         }
     }
