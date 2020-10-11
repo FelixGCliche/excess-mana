@@ -43,7 +43,6 @@ public class Structure : MonoBehaviour
 
     protected void Destroy()
     {
-        destroySource.Play();
         Destroy(this.gameObject);
     }
 

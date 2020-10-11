@@ -379,7 +379,6 @@ Transform:
   - {fileID: 4632429543507297070}
   - {fileID: 353044457412367654}
   - {fileID: 5091516590669749767}
-  - {fileID: 5704526873869467637}
   - {fileID: 2249831996393873618}
   m_Father: {fileID: 2614416884502538273}
   m_RootOrder: 2
@@ -413,7 +412,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6073124616927245483}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3988688717968007281
 AudioSource:
@@ -610,14 +609,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f27cf5c1744e3b42a193583a552ad49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 100
-  current_element: 0
+  initialHealth: 100
+  currentElement: 0
   healthBar: {fileID: 4409314092259449012}
   radius: 5
+  damage: 10
   target: {fileID: 0}
   fireRate: 1
   projectileSpawnPoint: {fileID: 7669753185975827266}
   projectile: {fileID: 8399079620910289059, guid: c16997490af35bc45a65796322b191d0, type: 3}
+  levelUpFireRateBonus: 0.1
+  levelUpMaxHealthBonus: 20
+  levelUpDamageBonus: 1
   text: {fileID: 6058488795688233825}
 --- !u!70 &3970870585401394290
 CapsuleCollider2D:
@@ -907,8 +910,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 5313602967018605218}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!4 &8899743786805035901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 8819437589822640990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4409314092259449012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
@@ -920,8 +932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8899743786805035901 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+--- !u!1 &5313602967018605218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
   m_PrefabInstance: {fileID: 8819437589822640990}
   m_PrefabAsset: {fileID: 0}
