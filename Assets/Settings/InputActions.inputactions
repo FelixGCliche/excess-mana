@@ -234,14 +234,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "WaterElement",
-                    "type": "Button",
-                    "id": "3a4db2af-3ade-4c3e-a737-f4e1e5d7672b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "EarthElement",
                     "type": "Button",
                     "id": "0fffb95c-af16-4145-83ff-a827286054c7",
@@ -253,6 +245,14 @@
                     "name": "WindElement",
                     "type": "Button",
                     "id": "0d030288-fce5-4826-90be-47c9ad144c4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WaterElement",
+                    "type": "Button",
+                    "id": "3a4db2af-3ade-4c3e-a737-f4e1e5d7672b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -383,7 +383,7 @@
                 {
                     "name": "",
                     "id": "2f108671-0571-4f85-957f-77ab653be96f",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -394,7 +394,7 @@
                 {
                     "name": "",
                     "id": "8be3f48e-d70a-4664-9a15-84b3c7cc94a9",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -405,7 +405,7 @@
                 {
                     "name": "",
                     "id": "2f9765a5-9b7a-4b21-aa33-daa9b05fa68d",
-                    "path": "<Keyboard>/4",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
