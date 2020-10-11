@@ -17,6 +17,5 @@ namespace Game
     {
       parentTransform.Translate(direction * (speed * Time.deltaTime));
     }
-
   }
 }
