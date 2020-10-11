@@ -76,6 +76,11 @@ public class StructureHandler : MonoBehaviour
         }
     }*/
 
+    public void SwitchRUneTYpeByLevel(int tower_id)
+    {
+        tower_list[tower_id].GetCurrentLevel();
+    }
+
     public int CheckIsSelectedTower()
     {
         foreach(Tower t in tower_list)

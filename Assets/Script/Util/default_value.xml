@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <labels>
   <key name="MAX_TOWER_LIFE"> 100 </key>
-  <key name="MAX_TOWER_LEVEL"> 4 </key>
+  <key name="MAX_TOWER_LEVEL"> 12 </key>
   <key name="default_time_to_build"> 1</key>
   <key name="default_time_to_repair"> 4 </key>
   <key name="default_time_to_upgrade"> 10 </key>
