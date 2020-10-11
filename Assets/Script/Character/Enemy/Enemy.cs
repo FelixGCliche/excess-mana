@@ -4,57 +4,51 @@ using Script.Character;
 
 public class Enemy : Character
 {
+    [SerializeField] EnemyDirections initialDirection = EnemyDirections.NONE;
 
-    [SerializeField] int enemyAttackRange = 2;
-    [SerializeField] int enemyDetectionRange = 10;
-    [SerializeField] bool isInWave = false;
+    const string TARGET_DETECTION_HITBOX_NAME = "TagetDetectionHitbox";
+    const int ENEMY_HEALTH = 25;
+    const int ATTACK_RANGE = 5;
 
-    GameObject target;
-    Player player;
-
-    bool isPlayerDetected = false;
+    CircleCollider2D targetDetectionHitbox;
 
     void Start()
     {
-        health = baseHealth;
-        player = GameObject.Find("Player").gameObject.GetComponent<Player>();
-
-        if (!isInWave)
-            target = player.gameObject;
+        targetDetectionHitbox = GameObject.Find(TARGET_DETECTION_HITBOX_NAME).GetComponent<CircleCollider2D>();
     }
+
 
     void Update()
     {
-        if (isInWave)
-        {
-            if (!IsNearTarget())
-                Move();
-            else
-                Attack();
-        }
-        else
-        {
-            isPlayerNear();
-
-            if (isPlayerDetected)
-            {
-                if (IsNearTarget())
-                    Attack();
-                else
-                    Move();
-            }
-        }
+        Move();
+        
         
     }
 
     void Move()
     {
-        if (isInWave)
-            target = GetNewTarget();
-        FollowTarget();
+
+        switch (initialDirection)
+        {
+            case EnemyDirections.RIGHT:
+                transform.Translate(Time.deltaTime * speed * Vector2.right);
+                break;
+            case EnemyDirections.LEFT:
+                transform.Translate(Time.deltaTime * speed * Vector2.left);
+                break;
+            case EnemyDirections.UP:
+                transform.Translate(Time.deltaTime * speed * Vector2.up);
+                break;
+            case EnemyDirections.DOWN:
+                transform.Translate(Time.deltaTime * speed * Vector2.down);
+                break;
+            case EnemyDirections.FOLLOW_TARGET:
+                //Follow target
+                break;
+        }
     }
 
-    void FollowTarget()
+    void FollowTarget(GameObject target)
     {
         Vector2 targetPosition = target.transform.position;
         Vector2 direction;
@@ -62,84 +56,42 @@ public class Enemy : Character
         direction.x = transform.position.x - targetPosition.x;
         direction.y = transform.position.y - targetPosition.y;
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed);
+        transform.Translate(Time.deltaTime * speed * direction);
     }
 
-    bool IsNearTarget()
+    bool IsNearTarget(GameObject target)
     {
-        if (target != null)
-        {
-            Vector2 targetPosition = target.transform.position;
-            float distanceToTarget;
+        Vector2 targetPosition = target.transform.position;
+        Vector2 direction;
+        float distanceToTarget;
 
-            distanceToTarget = DistanceCalculator(targetPosition);
+        direction.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
+        direction.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
+        distanceToTarget = Mathf.Sqrt(direction.x + direction.y);
 
-            if (distanceToTarget <= enemyAttackRange)
-                return true;
-        }
+        if (distanceToTarget <= 5)
+            return true;
 
         return false;
     }
 
-    void isPlayerNear()
-    {
-        if (DistanceCalculator(player.transform.position) <= enemyDetectionRange)
-            isPlayerDetected = true;
-        else
-            if (DistanceCalculator(player.transform.position) <= enemyDetectionRange * 3)
-                isPlayerDetected = false;
-    }
-
-    GameObject GetNewTarget()
-    {
-        Structure[] structuresTargets = new Structure[1];
-        structuresTargets = GetComponents<Structure>();
-        
-        float distanceToTarget = 0;
-        float distanceToCurrentTarget = float.MaxValue;
-        GameObject currentTarget = null;
-
-        if(GameObject.FindGameObjectsWithTag("Structure").Length > 0)
-        {
-            foreach (GameObject structure in GameObject.FindGameObjectsWithTag("Structure"))
-            {
-                distanceToTarget = DistanceCalculator(structure.transform.position);
-
-                if (distanceToTarget < distanceToCurrentTarget)
-                {
-                    distanceToCurrentTarget = distanceToTarget;
-                    currentTarget = structure.gameObject;
-                }
-            }
-        }
-        
-        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
-            currentTarget = player.gameObject;
-
-        return currentTarget;
-    }
-
-    void Attack()
+    void Attack(GameObject target)
     {
         
     }
 
+    void detectTarget();
+
+
+    bool IsDetectingTarget()
+    {
+
+        return false;
+    }
 
     protected override void Kill()
     {
         //Play sound
         Destroy(gameObject);
-    }
-
-    float DistanceCalculator(Vector2 targetPosition)
-    {
-        Vector2 directionToTarget;
-        float distanceToTarget;
-
-        directionToTarget.x = (transform.position.x - targetPosition.x) * (transform.position.x - targetPosition.x);
-        directionToTarget.y = (transform.position.y - targetPosition.y) * (transform.position.y - targetPosition.y);
-        distanceToTarget = Mathf.Sqrt(directionToTarget.x + directionToTarget.y);
-
-        return distanceToTarget;
     }
 }
