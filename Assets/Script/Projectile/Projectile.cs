@@ -33,7 +33,6 @@ namespace Script.Projectile
         {
             if (other.CompareTag("EnemyCollision"))
             {
-                Debug.Log(other.name);
                 Enemy enemy = other.GetComponentInParent<Enemy>();
                 if (enemy != null)
                 {
