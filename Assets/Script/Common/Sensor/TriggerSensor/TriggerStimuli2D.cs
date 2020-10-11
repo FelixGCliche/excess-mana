@@ -43,7 +43,7 @@ namespace Game
 
     private void SetSensorLayer()
     {
-      gameObject.layer = Layers.Sensor;
+      gameObject.layer = 9;
     }
 
     private void NotifyDestroyed()

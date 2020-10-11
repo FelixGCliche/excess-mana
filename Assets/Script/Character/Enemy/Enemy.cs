@@ -2,6 +2,7 @@
 using UnityEngine;
 using Script.Util;
 using Script.Character;
+using UnityEngine;
 
 public class Enemy : Character
 {
