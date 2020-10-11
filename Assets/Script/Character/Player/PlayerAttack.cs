@@ -3,6 +3,7 @@ using DG.Tweening;
 using Harmony;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 namespace Game
 {
@@ -45,10 +46,12 @@ namespace Game
             
             Vector3 direction = GetPointerPositionInWorld() - position;
             float hypothenuse = Mathf.Abs(Mathf.Sqrt(direction.x * direction.x + direction.y * direction.y));
-            float lenghtMultiplier = dashLength / hypothenuse;
+            float distance = GetFirstWallHitDistance(position, direction, dashLength);
+            float lenghtMultiplier = distance / hypothenuse;
             float x = direction.x * lenghtMultiplier;
             float y = direction.y * lenghtMultiplier;
-            parentTransform.DOMove(position + new Vector3(x, y, 0), 0.1f);
+            
+            parentTransform.DOMove(position + new Vector3(x, y, 0), 0.2f * lenghtMultiplier);
         }
 
         public void WaterAttack(Vector3 position)
@@ -71,6 +74,20 @@ namespace Game
         
             plane.Raycast(ray, out float enter);
             return ray.GetPoint(enter);
+        }
+        
+        private float GetFirstWallHitDistance (Vector3 spawnPointPosition, Vector3 direction, float maxLenght)
+        {
+            var detectedObjects = Physics2D.RaycastAll(spawnPointPosition, direction, maxLenght);
+
+            for (int i = 0; i < detectedObjects.Length; i++)
+            {
+                if (detectedObjects[i].collider.GetComponent<TilemapCollider2D>() != null)
+                {
+                    return detectedObjects[i].distance;
+                }
+            }
+            return maxLenght;
         }
     }
 }

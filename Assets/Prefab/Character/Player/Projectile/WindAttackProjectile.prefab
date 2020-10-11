@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileElement: 2
   projectileDamage: 10
-  projectileSpeed: 50
-  projectileDuration: 0.1
+  projectileSpeed: 25
+  projectileDuration: 0.2
   isPiercing: 1
   isImmobile: 0
 --- !u!50 &7180189555983334659
