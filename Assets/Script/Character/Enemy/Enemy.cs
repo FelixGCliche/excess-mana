@@ -44,7 +44,7 @@ public class Enemy : Character
         {
             if (target == Targets.STRUCTURE && targetStructure == null)
                 GetNewTarget();
-            
+
             if (!IsNearTarget())
             {
                 Move();
@@ -75,9 +75,8 @@ public class Enemy : Character
 
     void Move()
     {
-        if (isInWave)
+        if (isInWave) 
             GetNewTarget();
-        
         FollowTarget();
     }
 
@@ -106,7 +105,9 @@ public class Enemy : Character
             distanceToTarget = DistanceCalculator(targetPosition);
 
             if (distanceToTarget <= enemyAttackRange)
+            {
                 return true;
+            }
         }
 
         return false;
@@ -143,11 +144,11 @@ public class Enemy : Character
             }
         }
 
-        if (DistanceCalculator(player.transform.position) <= distanceToCurrentTarget)
+        /*if (DistanceCalculator(player.transform.position) < distanceToCurrentTarget)
         {
             target = Targets.PLAYER;
             targetPosition = player.transform.position;
-        }
+        }*/
     }
 
     void Attack()
@@ -162,10 +163,7 @@ public class Enemy : Character
         StartCoroutine(Die());
         //Play sound
         if (waveSpawner != null)
-        {
             waveSpawner.Notify();
-            Debug.Log(gameObject.name);
-        }
         Destroy(gameObject);
     }
 
@@ -184,14 +182,14 @@ public class Enemy : Character
     IEnumerator DealDamage()
     {
         isDealingDamage = true;
-        while (targetStructure != null && IsNearTarget() && target == Targets.STRUCTURE)
+        while ( target == Targets.STRUCTURE && targetStructure != null && IsNearTarget())
         {
             targetStructure.TakeDamage(damage, element);
             attackSource.Play();
             yield return new WaitForSeconds(enemyAttackSpeed);
         }
 
-        while (player != null && IsNearTarget() && target == Targets.PLAYER)
+        while (target == Targets.PLAYER && player != null && IsNearTarget())
         {
             player.TakeDamage(damage, element);
             attackSource.Play();
@@ -202,9 +200,11 @@ public class Enemy : Character
         isDealingDamage = false;
     }
 
-    public void Suscribe(WaveSpawner spawner)
+    public void Subscribe(WaveSpawner spawner)
     {
         waveSpawner = spawner;
+        isInWave = true;
+        target = Targets.STRUCTURE;
     }
 
     IEnumerator PlaySlitherSound()

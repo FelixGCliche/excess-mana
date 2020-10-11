@@ -74,8 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10c29e3eaae4fbeb12b37a6bcc108ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpawnCurrency: 10
-  spawnCurrencyProgression: 5
+  initialSpawnCurrency: 5
+  spawnCurrencyProgression: 3
   hardWaveCurrencyMultiplier: 2
   timeBetweenSpawn: 0.5
   fireEnemyPrefab: {fileID: 5850401457473257821, guid: a3ae2a476c020904db092e5f7c4034cf, type: 3}

@@ -185,19 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d815856c5b716824da4dc015247fa5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 100
-  spawnPosition: {x: 0, y: 0, z: 0}
-  current_element: 0
-  current_state: 0
-  current_life: 0
-  default_time_to_build: 0
-  default_time_to_repair: 0
-  default_time_to_upgrade: 0
-  current_level: 0
-  current_exp: 0
-  exp_required: 0
-  current_rune_number: 0
-  time_between_attacks: 0
+  initialHealth: 100
+  currentElement: 0
   healthBar: {fileID: 6026395596304484728}
 --- !u!1001 &1510929985354957458
 PrefabInstance:
@@ -254,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health bar
       objectReference: {fileID: 0}
+    - target: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 2823401469151124334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
 --- !u!4 &1518052555233137329 stripped
@@ -272,3 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2823401469151124334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3736116856021326332, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 1510929985354957458}
+  m_PrefabAsset: {fileID: 0}
