@@ -39,6 +39,8 @@ public class Tower : Structure
 
     public Script.Character.Player.PlayerInventory inventory;
 
+    public GameObject player;
+    public SpriteRenderer sr;
     //================================ Methods
 
     public bool CheckRuneQuantity(RuneSize rune_size)
@@ -125,6 +127,8 @@ public class Tower : Structure
         is_selected = false;
 
         inventory = new Script.Character.Player.PlayerInventory();
+
+        sr = GetComponent<SpriteRenderer>();
     }
 
 
@@ -171,7 +175,6 @@ public class Tower : Structure
 
         fire_countdown -= Time.deltaTime;
 
-       
 
     }
 
@@ -239,6 +242,28 @@ public class Tower : Structure
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        Player player = collision.GetComponentInParent<Player>();
+        if(player != null)
+        {
+            is_selected = true;
+            sr.color = new Color(0,255,0,50);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player player = collision.GetComponentInParent<Player>();
+        if (player != null)
+        {
+            is_selected = false;
+            sr.color = new Color(255, 255, 255, 100);
+
+        }
     }
 
     //================================ Accessors
