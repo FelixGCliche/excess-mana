@@ -4,7 +4,6 @@ using Script.Character;
 
 public class Enemy : Character
 {
-
     [SerializeField] int enemyAttackRange = 2;
     [SerializeField] int enemyDetectionRange = 10;
     [SerializeField] bool isInWave = false;
