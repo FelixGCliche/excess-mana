@@ -78,11 +78,37 @@ public class Player : Character
             // structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
 
             structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
-            inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower()), Elements.WIND, RuneSize.SMALL);
+            inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),RuneSize.SMALL), Elements.WIND, RuneSize.SMALL);
             Debug.Log("Inventoory player reste : " + inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
         }
 
         Debug.Log(inventory.GetRuneQuantity(Elements.WIND, RuneSize.SMALL));
+    }
+
+    public void TowerTypeSwitch(Elements e)
+    {
+        switch(e)
+        {
+            case Elements.WIND:
+                break;
+
+            case Elements.FIRE:
+                break;
+
+            case Elements.EARTH:
+                break;
+
+            case Elements.WATER:
+                break;
+
+        }
+    }
+
+    public void RuneSizeSwitch(RuneSize r, Elements e)
+    {
+        structureHandler.TestAdd(structureHandler.CheckIsSelectedTower(), inventory.GetRuneQuantity(e, r), e, r);
+        inventory.RemoveRune(structureHandler.GetRequiredRunes(structureHandler.CheckIsSelectedTower(),r), e, r);
+
     }
 
     private void CheckForMovement()

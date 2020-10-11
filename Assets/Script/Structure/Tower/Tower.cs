@@ -59,6 +59,25 @@ public class Tower : Structure
         }
     }
 
+    public int RuneQuantityNumber(RuneSize rune_size)
+    {
+        switch (rune_size)
+        {
+            case RuneSize.SMALL:
+                return (required_small_runes);
+
+            case RuneSize.MEDIUM:
+                return (required_medium_runes);
+
+            case RuneSize.LARGE:
+                return (required_large_runes);
+
+            default:
+                return 9999; // ?
+        }
+    }
+
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.1f);

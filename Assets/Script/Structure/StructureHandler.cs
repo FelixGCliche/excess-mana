@@ -41,6 +41,11 @@ public class StructureHandler : MonoBehaviour
         
     }
 
+    public Elements GetTowerElement(int tower_id)
+    {
+        return tower_list[tower_id].GetCurrentElement();
+    }
+
     public void TestAdd(int tower_id, int quantity, Elements e, RuneSize s)
     {
         tower_list[tower_id].inventory.AddRune(quantity, e, s);
@@ -48,9 +53,9 @@ public class StructureHandler : MonoBehaviour
             LevelUpTower(tower_id, quantity, e, s);
     }
 
-    public int GetRequiredRunes(int tower_id)
+    public int GetRequiredRunes(int tower_id, RuneSize rune_size)
     {
-        return tower_list[tower_id].required_small_runes;
+        return tower_list[tower_id].RuneQuantityNumber(rune_size);
     }
     /*
     public void Test(int tower_id, RuneSize runesize, int rune_number)

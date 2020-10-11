@@ -115,14 +115,13 @@ public class Structure : MonoBehaviour
         this.current_element = e;
     }
 
+    public Elements GetCurrentElement()
+    {
+        return this.current_element;
+    }
+
     public StructureState GetCurrentState()
     {
         return current_state;
     }
-
-
-    
-
-
-
 }
