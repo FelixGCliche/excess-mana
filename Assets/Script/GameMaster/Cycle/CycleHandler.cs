@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CycleHandler : MonoBehaviour
 {
-    [SerializeField] private float dayDuration = 120f;
+    [SerializeField] private float dayDuration = 180f;
     [SerializeField] private float timeBetweenWaves = 30f;
     [SerializeField] private int waveAmount = 1;
     [SerializeField] private SpriteRenderer nightOverlay;
