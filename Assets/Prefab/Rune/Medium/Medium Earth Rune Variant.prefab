@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 4881301402479902710, guid: 33fdad76a81c1df4b8ccfb4ecfa19769, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ea844b1c882726045885beec7fa12185, type: 3}
+      objectReference: {fileID: 21300000, guid: 2b0f9f748b26639459b8a856d24d259a, type: 3}
     - target: {fileID: 4881301402597333889, guid: 33fdad76a81c1df4b8ccfb4ecfa19769, type: 3}
       propertyPath: m_Name
-      value: Medium Earth Rune
+      value: Medium Earth Rune Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4881301402597333916, guid: 33fdad76a81c1df4b8ccfb4ecfa19769, type: 3}
       propertyPath: m_LocalPosition.x
