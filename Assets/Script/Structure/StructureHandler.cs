@@ -125,31 +125,31 @@ public class StructureHandler : MonoBehaviour
         }
     }
 
-    public void BuildTower(Transform t, Elements element)
+    public void BuildTower(Vector2 v,Transform t, Elements element)
     {
         switch(element)
         {
             case Elements.EARTH:
                 print("Earth");
-                temp = Instantiate(earth_tower, t.position, t.rotation);
+                  temp = Instantiate(earth_tower, v, t.rotation);
                 initialise_tower(temp, t, element,current_tower_count);
                 break;
 
             case Elements.FIRE:
                 print("fire");
-                temp = Instantiate(fire_tower, t.position, t.rotation);
+                temp = Instantiate(fire_tower, v, t.rotation);
                 initialise_tower(temp, t, element, current_tower_count);
                 break;
 
             case Elements.WATER:
                 print("Water");
-                temp = Instantiate(water_tower, t.position, t.rotation);
+                temp = Instantiate(water_tower, v, t.rotation);
                 initialise_tower(temp, t, element, current_tower_count);
                 break;
 
             case Elements.WIND:
                 print("AIR");
-                temp = Instantiate(air_tower, t.position, t.rotation);
+                temp = Instantiate(air_tower, v, t.rotation);
                 initialise_tower(temp, t,element, current_tower_count);
                 break;
 
