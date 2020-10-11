@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using  Game;
 using System.Collections.Generic;
+using Script.Menu;
+using UnityEngine.Serialization;
 
 public class Player : Character
 {
@@ -13,7 +15,12 @@ public class Player : Character
 
     [SerializeField] private Transform spriteTransform;
 
+    [FormerlySerializedAs("gameOverMenu")] [SerializeField] private GameOverController gameOverController;
+    
     private InputAction moveInputs;
+
+    private GameController gameController;
+    
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
     private bool Build => Finder.Inputs.Actions.Game.Build.triggered;
@@ -44,6 +51,7 @@ public class Player : Character
     { 
         base.Awake();
 
+        gameController = Finder.GameController;
         moveInputs = Finder.Inputs.Actions.Game.Move;
         elementHandler = Finder.ElementHandler;
         grid = FindObjectOfType<Grid>();
@@ -244,6 +252,9 @@ public class Player : Character
         if (Fire)
             Attack();
 
+        if (baseHealth <= 0)
+            Kill();
+        
         Mover.Move(moveInputs.ReadValue<Vector2>());
         if (moveInputs.ReadValue<Vector2>().x < 0)
         {
@@ -306,7 +317,7 @@ public class Player : Character
 
     protected override void Kill()
     {
-        
+        gameController.PlayerIsDead();
     }
     
     public void Attack()

@@ -12,6 +12,7 @@ namespace Game
     [SerializeField] private SceneBundle gameScenes;
     [SerializeField] private SceneBundle homeScenes;
     [SerializeField] private SceneBundle settingsScenes;
+    [SerializeField] private SceneBundle gameOverScenes;
 
     private SceneBundleLoader loader;
 
@@ -55,6 +56,16 @@ namespace Game
     public Coroutine UnloadSettingsScenes()
     {
       return loader.Unload(settingsScenes);
+    }
+    
+    public Coroutine LoadGameOverScenes()
+    {
+      return loader.Load(gameOverScenes);
+    }
+
+    public Coroutine UnloadGameOverScenes()
+    {
+      return loader.Unload(gameOverScenes);
     }
 
     public static void QuitApplication()
