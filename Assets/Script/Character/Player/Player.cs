@@ -10,7 +10,9 @@ using System.Collections.Generic;
 public class Player : Character
 {
     [SerializeField] private PlayerAttack playerAttack;
-    
+
+    [SerializeField] private Transform spriteTransform;
+
     private InputAction moveInputs;
     private bool Fire => Finder.Inputs.Actions.Game.Fire.triggered;
     private bool Interact => Finder.Inputs.Actions.Game.Interact.triggered;
@@ -46,6 +48,7 @@ public class Player : Character
         elementHandler = Finder.ElementHandler;
         grid = FindObjectOfType<Grid>();
 
+        
     }
 
     public void PlaceTowerNear(Vector2 nearPoint)
@@ -242,7 +245,14 @@ public class Player : Character
             Attack();
 
         Mover.Move(moveInputs.ReadValue<Vector2>());
-
+        if (moveInputs.ReadValue<Vector2>().x < 0)
+        {
+            spriteTransform.localScale = new Vector3(1,1,1);
+        }
+        else if (moveInputs.ReadValue<Vector2>().x > 0)
+        {
+            spriteTransform.localScale = new Vector3(-1, 1, 1);
+        }
         /*
         if(Input.GetKeyDown("q"))
         {
@@ -275,9 +285,16 @@ public class Player : Character
         {
             Debug.Log("Interact");
 
-            RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
-            RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            if (structureHandler.GetCUrrentLife(structureHandler.CheckIsSelectedTower()) != 100)
+            {
+                structureHandler.RepairTower(structureHandler.CheckIsSelectedTower());
+            }
+            else
+            {
+                RuneSizeSwitch(RuneSize.SMALL, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.MEDIUM, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+                RuneSizeSwitch(RuneSize.LARGE, structureHandler.GetTowerElement(structureHandler.CheckIsSelectedTower()));
+            }
         }
     }
 

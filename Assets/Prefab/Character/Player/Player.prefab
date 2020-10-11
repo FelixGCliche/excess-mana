@@ -328,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 5631840820729640035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.96, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5631840821010270364}
   m_RootOrder: 0
@@ -471,7 +471,9 @@ MonoBehaviour:
   element: 0
   healthBar: {fileID: 2644557076933365669}
   playerAttack: {fileID: 8540752839408882116}
+  spriteTransform: {fileID: 5631840820729640034}
   structureHandler: {fileID: 7697541526935344442}
+  grid: {fileID: 0}
 --- !u!50 &8011928020265856009
 Rigidbody2D:
   serializedVersion: 4
