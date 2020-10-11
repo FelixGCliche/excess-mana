@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 1638590087898074924, guid: 11136183dd1ca8d4b98a8b7e7f1562d2, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 62694821609387907}
+      objectReference: {fileID: 4471251355184998943}
     - target: {fileID: 7481563743483339345, guid: 11136183dd1ca8d4b98a8b7e7f1562d2, type: 3}
       propertyPath: m_Name
       value: Fire Enemy Variant
@@ -77,9 +77,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11136183dd1ca8d4b98a8b7e7f1562d2, type: 3}
---- !u!114 &62694821609387907 stripped
+--- !u!114 &4471251355184998943 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1543355621886653801, guid: 11136183dd1ca8d4b98a8b7e7f1562d2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3150468271797856501, guid: 11136183dd1ca8d4b98a8b7e7f1562d2, type: 3}
   m_PrefabInstance: {fileID: 1564338249398174442}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

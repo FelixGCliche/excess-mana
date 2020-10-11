@@ -221,10 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303bada0d82d37a4a95c561c36740745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   baseHealth: 100
   element: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 3150468271797856501}
 --- !u!50 &8649857712163085490
 Rigidbody2D:
   serializedVersion: 4
@@ -421,3 +420,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 137027807134486563, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
   m_PrefabInstance: {fileID: 7849033350529606431}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3150468271797856501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5140269690503072746, guid: 92d63c940fde1be43a9ab6a87ef6f903, type: 3}
+  m_PrefabInstance: {fileID: 7849033350529606431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96362d2b51624a12aecd8975dee5a187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
