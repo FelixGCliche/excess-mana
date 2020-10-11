@@ -1,0 +1,2002 @@
+fileFormatVersion: 2
+guid: dc9abaec61078b34596015495f45ae2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8213782765776912250
+    second: TileSet_0
+  - first:
+      213: -8518063296010493290
+    second: TileSet_1
+  - first:
+      213: -8871038989383191861
+    second: TileSet_2
+  - first:
+      213: 3637694436591301765
+    second: TileSet_3
+  - first:
+      213: -8921557701501664739
+    second: TileSet_4
+  - first:
+      213: 658610804543150169
+    second: TileSet_5
+  - first:
+      213: 1303555410413672225
+    second: TileSet_6
+  - first:
+      213: -3462126092104230500
+    second: TileSet_7
+  - first:
+      213: 3818911086006376876
+    second: TileSet_8
+  - first:
+      213: -2968160521145883719
+    second: TileSet_9
+  - first:
+      213: -8082063572214372527
+    second: TileSet_10
+  - first:
+      213: -8265232490957100610
+    second: TileSet_11
+  - first:
+      213: -3293226114871820431
+    second: TileSet_12
+  - first:
+      213: 3253857429519456842
+    second: TileSet_13
+  - first:
+      213: -92138599614758986
+    second: TileSet_14
+  - first:
+      213: 8886558474639481304
+    second: TileSet_15
+  - first:
+      213: -5913383478371155081
+    second: TileSet_16
+  - first:
+      213: 8568142618917566389
+    second: TileSet_17
+  - first:
+      213: -5142650238756481487
+    second: TileSet_18
+  - first:
+      213: -9220975972155412195
+    second: TileSet_19
+  - first:
+      213: 8290902767777311385
+    second: TileSet_20
+  - first:
+      213: 8872051553670027449
+    second: TileSet_21
+  - first:
+      213: -3732473049520515647
+    second: TileSet_22
+  - first:
+      213: 1647431860368624933
+    second: TileSet_23
+  - first:
+      213: 4126501046328475923
+    second: TileSet_24
+  - first:
+      213: -8781195206041585980
+    second: TileSet_25
+  - first:
+      213: 927177990519731529
+    second: TileSet_26
+  - first:
+      213: 7842336126166950848
+    second: TileSet_27
+  - first:
+      213: 6646749294878654471
+    second: TileSet_28
+  - first:
+      213: 7609080790651641447
+    second: TileSet_29
+  - first:
+      213: -171840168374121442
+    second: TileSet_30
+  - first:
+      213: 145889726448105504
+    second: TileSet_31
+  - first:
+      213: -375647225257794138
+    second: TileSet_32
+  - first:
+      213: 1741211380175115904
+    second: TileSet_33
+  - first:
+      213: 569002774457595050
+    second: TileSet_34
+  - first:
+      213: -3265415099871117597
+    second: TileSet_35
+  - first:
+      213: -5267706714917848589
+    second: TileSet_36
+  - first:
+      213: -3047483046365333407
+    second: TileSet_37
+  - first:
+      213: 4583682835345809999
+    second: TileSet_38
+  - first:
+      213: 2727717926491812537
+    second: TileSet_39
+  - first:
+      213: -1951840979382037087
+    second: TileSet_40
+  - first:
+      213: 3567465218501897913
+    second: TileSet_41
+  - first:
+      213: 6586386896919627156
+    second: TileSet_42
+  - first:
+      213: -1046420329090645541
+    second: TileSet_43
+  - first:
+      213: -512356190192154145
+    second: TileSet_44
+  - first:
+      213: -7212017409328989379
+    second: TileSet_45
+  - first:
+      213: -446153718990418000
+    second: TileSet_46
+  - first:
+      213: 5252869131104312869
+    second: TileSet_47
+  - first:
+      213: -468231340053932426
+    second: TileSet_48
+  - first:
+      213: -5404636900936874202
+    second: TileSet_49
+  - first:
+      213: 6331435263435098996
+    second: TileSet_50
+  - first:
+      213: -3190286679791668692
+    second: TileSet_51
+  - first:
+      213: -1673589869024149336
+    second: TileSet_52
+  - first:
+      213: -1114862016970203334
+    second: TileSet_53
+  - first:
+      213: -7760887414530472273
+    second: TileSet_54
+  - first:
+      213: 8650857287153177800
+    second: TileSet_55
+  - first:
+      213: -5220270223039394446
+    second: TileSet_56
+  - first:
+      213: -1224487362431401745
+    second: TileSet_57
+  - first:
+      213: -6576608018827450033
+    second: TileSet_58
+  - first:
+      213: -4094331801850594807
+    second: BackGroundTileSet_0
+  - first:
+      213: 7649128140400933342
+    second: BackGroundTileSet_1
+  - first:
+      213: 7206748202241071342
+    second: BackGroundTileSet_2
+  - first:
+      213: -6004074414191602567
+    second: BackGroundTileSet_3
+  - first:
+      213: -2945702844388275834
+    second: BackGroundTileSet_4
+  - first:
+      213: -2894919231858693411
+    second: BackGroundTileSet_5
+  - first:
+      213: -823735497326943678
+    second: BackGroundTileSet_6
+  - first:
+      213: 4009901066394157509
+    second: BackGroundTileSet_7
+  - first:
+      213: 6143912608622941969
+    second: BackGroundTileSet_8
+  - first:
+      213: -1677003971835219640
+    second: BackGroundTileSet_9
+  - first:
+      213: -3784665988187593431
+    second: BackGroundTileSet_10
+  - first:
+      213: -364043839841259932
+    second: BackGroundTileSet_11
+  - first:
+      213: -8244425600295840165
+    second: BackGroundTileSet_12
+  - first:
+      213: 4195810502871685414
+    second: BackGroundTileSet_13
+  - first:
+      213: -259576954847296299
+    second: BackGroundTileSet_14
+  - first:
+      213: 2682301380969273958
+    second: BackGroundTileSet_15
+  - first:
+      213: 2334309671624081365
+    second: BackGroundTileSet_16
+  - first:
+      213: 3615191524810976795
+    second: BackGroundTileSet_17
+  - first:
+      213: 480105479491718851
+    second: BackGroundTileSet_18
+  - first:
+      213: 4345765368213190954
+    second: BackGroundTileSet_19
+  - first:
+      213: -2558676426744560151
+    second: BackGroundTileSet_20
+  - first:
+      213: -9172993009685630508
+    second: BackGroundTileSet_21
+  - first:
+      213: 2335304842003334458
+    second: BackGroundTileSet_22
+  - first:
+      213: -3919362319059431781
+    second: BackGroundTileSet_23
+  - first:
+      213: -2272896817649060443
+    second: BackGroundTileSet_24
+  - first:
+      213: 5193208145303644069
+    second: BackGroundTileSet_25
+  - first:
+      213: -3083480448472393100
+    second: BackGroundTileSet_26
+  - first:
+      213: 4200568800362590123
+    second: BackGroundTileSet_27
+  - first:
+      213: -109607226005291706
+    second: BackGroundTileSet_28
+  - first:
+      213: 7699438493687345804
+    second: BackGroundTileSet_29
+  - first:
+      213: -2991438444910228445
+    second: BackGroundTileSet_30
+  - first:
+      213: 417048962793978176
+    second: BackGroundTileSet_31
+  - first:
+      213: 2159774567325748455
+    second: BackGroundTileSet_32
+  - first:
+      213: -5627144689625655050
+    second: BackGroundTileSet_33
+  - first:
+      213: -3572306119991210925
+    second: BackGroundTileSet_34
+  - first:
+      213: 3628895023757646050
+    second: BackGroundTileSet_35
+  - first:
+      213: 1404739451863212801
+    second: BackGroundTileSet_36
+  - first:
+      213: 7028148746140262050
+    second: BackGroundTileSet_37
+  - first:
+      213: -1005122027172700318
+    second: BackGroundTileSet_38
+  - first:
+      213: -7887861660993991110
+    second: BackGroundTileSet_39
+  - first:
+      213: 6692018762248476284
+    second: BackGroundTileSet_40
+  - first:
+      213: -7225984686260992133
+    second: BackGroundTileSet_41
+  - first:
+      213: 2139517387443712524
+    second: BackGroundTileSet_42
+  - first:
+      213: -5595544866366158191
+    second: BackGroundTileSet_43
+  - first:
+      213: 7552528392826542786
+    second: BackGroundTileSet_44
+  - first:
+      213: -7948795124793436390
+    second: BackGroundTileSet_45
+  - first:
+      213: -1478526257468036465
+    second: BackGroundTileSet_46
+  - first:
+      213: 501988384870241249
+    second: BackGroundTileSet_47
+  - first:
+      213: 7728836729726239883
+    second: BackGroundTileSet_48
+  - first:
+      213: 5898370690272631693
+    second: BackGroundTileSet_49
+  - first:
+      213: -1889390045995454416
+    second: BackGroundTileSet_50
+  - first:
+      213: -4310535550792073070
+    second: BackGroundTileSet_51
+  - first:
+      213: 1266772848473619901
+    second: BackGroundTileSet_52
+  - first:
+      213: 2456836263569264658
+    second: BackGroundTileSet_53
+  - first:
+      213: 6014089303466371545
+    second: BackGroundTileSet_54
+  - first:
+      213: -6810431566510485590
+    second: BackGroundTileSet_55
+  - first:
+      213: 7676991143995627159
+    second: BackGroundTileSet_56
+  - first:
+      213: -2226916020130675858
+    second: BackGroundTileSet_57
+  - first:
+      213: 8120721355708664105
+    second: BackGroundTileSet_58
+  - first:
+      213: -2683461126939039522
+    second: BackGroundTileSet_59
+  - first:
+      213: -7098242065137767628
+    second: BackGroundTileSet_60
+  - first:
+      213: 2051488916161631155
+    second: BackGroundTileSet_61
+  - first:
+      213: 8089946460510394119
+    second: BackGroundTileSet_62
+  - first:
+      213: 4464455490929045903
+    second: BackGroundTileSet_63
+  - first:
+      213: -7583120630609249184
+    second: BackGroundTileSet_64
+  - first:
+      213: -2304388900508359507
+    second: BackGroundTileSet_65
+  - first:
+      213: 4209031800966607587
+    second: BackGroundTileSet_66
+  - first:
+      213: -4395063158037806694
+    second: BackGroundTileSet_67
+  - first:
+      213: 1304965219518730183
+    second: BackGroundTileSet_68
+  - first:
+      213: 6483019920076496880
+    second: BackGroundTileSet_69
+  - first:
+      213: 3532483610033289563
+    second: BackGroundTileSet_70
+  - first:
+      213: 4586728190644859106
+    second: BackGroundTileSet_71
+  - first:
+      213: 2027513001050802667
+    second: BackGroundTileSet_72
+  - first:
+      213: -6007038275491734364
+    second: BackGroundTileSet_73
+  - first:
+      213: -428938841332951288
+    second: BackGroundTileSet_74
+  - first:
+      213: 3933912218494107430
+    second: BackGroundTileSet_75
+  - first:
+      213: -7846633853184498985
+    second: BackGroundTileSet_76
+  - first:
+      213: -7914381698842243511
+    second: BackGroundTileSet_77
+  - first:
+      213: -9217665530935852222
+    second: BackGroundTileSet_78
+  - first:
+      213: -1783495058258093730
+    second: BackGroundTileSet_79
+  - first:
+      213: 9017918832530937636
+    second: BackGroundTileSet_80
+  - first:
+      213: 2421081029382466753
+    second: BackGroundTileSet_81
+  - first:
+      213: 5103171417150213294
+    second: BackGroundTileSet_82
+  - first:
+      213: -4131693674592730973
+    second: BackGroundTileSet_83
+  - first:
+      213: -7400513901934427264
+    second: BackGroundTileSet_84
+  - first:
+      213: -836220702033212114
+    second: BackGroundTileSet_8
+  - first:
+      213: 4740879610985502365
+    second: BackGroundTileSet_9
+  - first:
+      213: 1262996409486550272
+    second: BackGroundTileSet_10
+  - first:
+      213: -2027114778444971335
+    second: BackGroundTileSet_11
+  - first:
+      213: -9024674576025174215
+    second: BackGroundTileSet_12
+  - first:
+      213: -230661675482853345
+    second: BackGroundTileSet_13
+  - first:
+      213: 4978081089438723540
+    second: BackGroundTileSet_14
+  - first:
+      213: -6394165952240495604
+    second: BackGroundTileSet_15
+  - first:
+      213: -815085035235593537
+    second: BackGroundTileSet_16
+  - first:
+      213: -98667426902183542
+    second: BackGroundTileSet_17
+  - first:
+      213: 4655906698773359948
+    second: BackGroundTileSet_18
+  - first:
+      213: -3487833576428859627
+    second: BackGroundTileSet_19
+  - first:
+      213: 6461775294946658935
+    second: BackGroundTileSet_20
+  - first:
+      213: 7195720530511484415
+    second: BackGroundTileSet_21
+  - first:
+      213: -328508700485868136
+    second: BackGroundTileSet_22
+  - first:
+      213: -2041189233198407041
+    second: BackGroundTileSet_23
+  - first:
+      213: 1503551466048420096
+    second: BackGroundTileSet_24
+  - first:
+      213: 7668825289663327472
+    second: BackGroundTileSet_25
+  - first:
+      213: 5420683191003999291
+    second: BackGroundTileSet_26
+  - first:
+      213: -3132766675052749703
+    second: BackGroundTileSet_27
+  - first:
+      213: 845421013997216711
+    second: BackGroundTileSet_28
+  - first:
+      213: -3817736319767223749
+    second: BackGroundTileSet_29
+  - first:
+      213: -6142574981671034106
+    second: BackGroundTileSet_30
+  - first:
+      213: 8641105976817202265
+    second: BackGroundTileSet_31
+  - first:
+      213: 2727995530942387142
+    second: BackGroundTileSet_32
+  - first:
+      213: -3460562426050784415
+    second: BackGroundTileSet_33
+  - first:
+      213: -7279495407169713744
+    second: BackGroundTileSet_34
+  - first:
+      213: -3972287406793747958
+    second: BackGroundTileSet_35
+  - first:
+      213: -7410948267104256832
+    second: BackGroundTileSet_36
+  - first:
+      213: 6510501791852363600
+    second: BackGroundTileSet_37
+  - first:
+      213: -8288703509469190750
+    second: BackGroundTileSet_38
+  - first:
+      213: 7041367389990942345
+    second: BackGroundTileSet_39
+  - first:
+      213: 6666670985242010421
+    second: BackGroundTileSet_40
+  - first:
+      213: 8273032536093436160
+    second: BackGroundTileSet_41
+  - first:
+      213: 6338240046954822820
+    second: BackGroundTileSet_42
+  - first:
+      213: 7462379764567117156
+    second: BackGroundTileSet_43
+  - first:
+      213: -520074323209460900
+    second: BackGroundTileSet_44
+  - first:
+      213: -7612017082046316713
+    second: BackGroundTileSet_45
+  - first:
+      213: 3121326618857610734
+    second: BackGroundTileSet_46
+  - first:
+      213: 7074508647282460006
+    second: BackGroundTileSet_47
+  - first:
+      213: -5777764163289984719
+    second: BackGroundTileSet_48
+  - first:
+      213: -6264022226177402957
+    second: BackGroundTileSet_49
+  - first:
+      213: -233297955198443531
+    second: BackGroundTileSet_50
+  - first:
+      213: -3834830585543557323
+    second: BackGroundTileSet_51
+  - first:
+      213: 4007020745186934300
+    second: BackGroundTileSet_52
+  - first:
+      213: -3991703036095836205
+    second: BackGroundTileSet_53
+  - first:
+      213: -657088812414777765
+    second: BackGroundTileSet_54
+  - first:
+      213: -5500368561176827596
+    second: BackGroundTileSet_55
+  - first:
+      213: 2998514747378945197
+    second: BackGroundTileSet_56
+  - first:
+      213: -7938220075772930811
+    second: BackGroundTileSet_57
+  - first:
+      213: 1297402991296302961
+    second: BackGroundTileSet_58
+  - first:
+      213: 1123220169566231393
+    second: BackGroundTileSet_59
+  - first:
+      213: -1201254840663977954
+    second: BackGroundTileSet_60
+  - first:
+      213: 5063962391487081994
+    second: BackGroundTileSet_61
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 32
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 127
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BackGroundTileSet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1032
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a3c1e3be20e27c0800000000000000
+      internalID: -4094331801850594807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1032
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9ba025489272a60800000000000000
+      internalID: 7649128140400933342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_2
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1032
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee893449e43830460800000000000000
+      internalID: 7206748202241071342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_3
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1032
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9741919912e3daca0800000000000000
+      internalID: -6004074414191602567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689016abed2ce17d0800000000000000
+      internalID: -2945702844388275834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaad9beb4e23d7d0800000000000000
+      internalID: -2894919231858693411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242a2f4fde08194f0800000000000000
+      internalID: -823735497326943678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_7
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c142e646c706a730800000000000000
+      internalID: 4009901066394157509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_8
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d8b75b3b52564f0800000000000000
+      internalID: -836220702033212114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_9
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 903
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96deaf43ecfac140800000000000000
+      internalID: 4740879610985502365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_10
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0052a04fa80178110800000000000000
+      internalID: 1262996409486550272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_11
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2c7df59dd3ed3e0800000000000000
+      internalID: -2027114778444971335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_12
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f3582b94ae1c280800000000000000
+      internalID: -9024674576025174215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_13
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f105c81ad668cccf0800000000000000
+      internalID: -230661675482853345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_14
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dda5173062b51540800000000000000
+      internalID: 4978081089438723540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_15
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04dec5b1fb5347a0800000000000000
+      internalID: -6394165952240495604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_16
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 774
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2bb0d9a7c30b4f0800000000000000
+      internalID: -815085035235593537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81f79c7f7671aef0800000000000000
+      internalID: -98667426902183542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_18
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d6fb7797a1d9040800000000000000
+      internalID: 4655906698773359948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_19
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f074177d9b89fc0800000000000000
+      internalID: -3487833576428859627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ac0b11566dca950800000000000000
+      internalID: 6461775294946658935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_21
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff55f1ca2b55cd360800000000000000
+      internalID: 7195720530511484415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_22
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8952ae1d317e07bf0800000000000000
+      internalID: -328508700485868136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_23
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f726bd3053d3ca3e0800000000000000
+      internalID: -2041189233198407041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_24
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 645
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009755b9710bdd410800000000000000
+      internalID: 1503551466048420096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc2ae248f32d6a60800000000000000
+      internalID: 7668825289663327472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_26
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c69b764a22a3b40800000000000000
+      internalID: 5420683191003999291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_27
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c9c41ae4d2684d0800000000000000
+      internalID: -3132766675052749703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_28
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c364f8dee98bbb00800000000000000
+      internalID: 845421013997216711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_29
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32ea2e5b0da40bc0800000000000000
+      internalID: -3817736319767223749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_30
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 516
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603eb43599031caa0800000000000000
+      internalID: -6142574981671034106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954b1b67a106be770800000000000000
+      internalID: 8641105976817202265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_32
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c39caa5b79cbd520800000000000000
+      internalID: 2727995530942387142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_33
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163dd20fecc99ffc0800000000000000
+      internalID: -3460562426050784415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_34
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9cf8fde790afa90800000000000000
+      internalID: -7279495407169713744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_35
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a021d4c46a99fd8c0800000000000000
+      internalID: -3972287406793747958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_36
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc3472e0d5072990800000000000000
+      internalID: -7410948267104256832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_37
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f77e4b2e2f95a50800000000000000
+      internalID: 6510501791852363600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_38
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a52e85d21c98fc80800000000000000
+      internalID: -8288703509469190750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_39
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 387
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986fd6d9556f7b160800000000000000
+      internalID: 7041367389990942345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533e0c580f5c48c50800000000000000
+      internalID: 6666670985242010421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_41
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00929195247bfc270800000000000000
+      internalID: 8273032536093436160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_42
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acb5e3cdb3f5f750800000000000000
+      internalID: 6338240046954822820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_43
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d0616cbd2bf8760800000000000000
+      internalID: 7462379764567117156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_44
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c536c44982358c8f0800000000000000
+      internalID: -520074323209460900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_45
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f7c684bceac5690800000000000000
+      internalID: -7612017082046316713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_46
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed9af8b50e215b20800000000000000
+      internalID: 3121326618857610734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_47
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66543b1e124bd2260800000000000000
+      internalID: 7074508647282460006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_48
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 258
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1315e1bfa1241dfa0800000000000000
+      internalID: -5777764163289984719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b75b8739f8b119a0800000000000000
+      internalID: -6264022226177402957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_50
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff529deeb823ccf0800000000000000
+      internalID: -233297955198443531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_51
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f7fd676e1f7cac0800000000000000
+      internalID: -3834830585543557323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_52
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1efc7c332ccb9730800000000000000
+      internalID: 4007020745186934300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_53
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfc8a4dc3f9a98c0800000000000000
+      internalID: -3991703036095836205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_54
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56422ed43d81e6f0800000000000000
+      internalID: -657088812414777765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_55
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43924519fe3caa3b0800000000000000
+      internalID: -5500368561176827596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_56
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 129
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dacca43a64ddc9920800000000000000
+      internalID: 2998514747378945197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_57
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5051eaa46e6c5d190800000000000000
+      internalID: -7938220075772930811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_58
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fceba852d410210800000000000000
+      internalID: 1297402991296302961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_59
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b9c8b0bca769f00800000000000000
+      internalID: 1123220169566231393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_60
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1051814619445fe0800000000000000
+      internalID: -1201254840663977954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGroundTileSet_61
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e668c07fec64640800000000000000
+      internalID: 5063962391487081994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

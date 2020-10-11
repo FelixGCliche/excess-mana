@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &942237276702505398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2950601060769743309, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: current_element
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514847953450153965, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 48b10e10f26f17a42816d4ae8ed87aef, type: 3}
+    - target: {fileID: 5513557736109817088, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513557736109817088, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513557736109817088, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5513557736109817088, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649331903394837355, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: m_Name
+      value: Altar Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026395596304484728, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 3043803752083120856}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+--- !u!1 &3043803752083120856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2823401469151124334, guid: 0037da40dd347064eb3e5150afd48dd7, type: 3}
+  m_PrefabInstance: {fileID: 942237276702505398}
+  m_PrefabAsset: {fileID: 0}
